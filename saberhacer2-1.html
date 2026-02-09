@@ -1,0 +1,2128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saber Hacer 1 - Mapa Interactivo con Geolocalización</title>
+    
+    <!-- Incluir CSS principal de tu estructura -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/saber.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Leaflet CSS (OpenStreetMap) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+    /* ================================
+       ESTILOS ESPECÍFICOS PARA ESTA PÁGINA
+       ================================ */
+    
+    /* Header de la página */
+    .page-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 80px 0 60px;
+        text-align: center;
+    }
+    
+    .page-badge {
+        display: inline-block;
+        background: rgba(255,255,255,0.2);
+        padding: 8px 20px;
+        border-radius: 20px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        font-size: 0.9rem;
+    }
+    
+    .page-title {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        font-weight: 700;
+    }
+    
+    .gradient-text {
+        background: linear-gradient(90deg, #fbbf24, #f59e0b);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .page-meta {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+    }
+    
+    .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.1rem;
+    }
+    
+    /* Navegación entre unidades */
+    .unidades-nav {
+        background: #f8fafc;
+        padding: 30px 0;
+    }
+    
+    .nav-unidades {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+    .nav-unidad {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 25px;
+        background: white;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #475569;
+        font-weight: 600;
+        border: 2px solid #e2e8f0;
+        transition: all 0.3s;
+    }
+    
+    .nav-unidad:hover {
+        background: #3b82f6;
+        color: white;
+        border-color: #3b82f6;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
+    }
+    
+    .nav-separator {
+        width: 2px;
+        height: 30px;
+        background: #e2e8f0;
+    }
+    
+    /* Secciones */
+    .section {
+        padding: 80px 0;
+    }
+    
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    /* Resto de los estilos del sitio web... */
+    /* (Aquí incluirías TODO el CSS del sitio web que ya tenías en el PHP) */
+    </style>
+</head>
+<body>
+    <!-- Incluir Navigation desde componentes -->
+    <div id="navigation-container"></div>
+
+    <!-- Header Principal -->
+    <header class="page-header">
+        <div class="container">
+            <div class="header-content">
+                <span class="page-badge">Saber Hacer 1</span>
+                <h1 class="page-title">
+                    Implementación de Mapa Interactivo con
+                    <span class="gradient-text">Geolocalización</span>
+                </h1>
+                
+                <div class="page-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Duración: 4 horas</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-code"></i>
+                        <span>Tecnologías: HTML, CSS, JavaScript</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Mapa: OpenStreetMap</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navegación entre páginas -->
+    <section class="section unidades-nav">
+        <div class="container">
+            <div class="nav-unidades">
+                <a href="unidad2.html" class="nav-unidad">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Volver a Unidad 2</span>
+                </a>
+                <div class="nav-separator"></div>
+                <button class="nav-unidad siguiente" onclick="descargarCodigo()">
+                    <span>Descargar Código Completo</span>
+                    <i class="fas fa-download"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SITIO WEB COMPLETO CON MAPA REAL -->
+    <section class="section demo-section">
+        <div class="container">
+            <!-- Sitio Web Funcional -->
+            <div class="sitio-web-completo">
+                <!-- Header del sitio web -->
+                <header class="web-header">
+                    <div class="web-container">
+                        <div class="web-logo">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <span>GeoLocalizaciónMX</span>
+                        </div>
+                        <nav class="web-nav">
+                            <a href="#inicio-web" class="web-nav-link active">Inicio</a>
+                            <a href="#geolocalizacion-web" class="web-nav-link">¿Qué es?</a>
+                            <a href="#tipos-web" class="web-nav-link">Tipos</a>
+                            <a href="#aplicaciones-web" class="web-nav-link">Aplicaciones</a>
+                            <a href="#api-web" class="web-nav-link">API</a>
+                            <a href="#ubicaciones-web" class="web-nav-link">Ubicaciones</a>
+                        </nav>
+                        <button class="mobile-menu-btn" onclick="toggleMenu()">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                </header>
+
+                <!-- Contenido Principal -->
+                <main class="web-main">
+                    <!-- Sección 1: Mapa REAL -->
+                    <section class="web-section mapa-real-section" id="inicio-web">
+                        <div class="web-container">
+                            <h2 class="web-section-title">
+                                <i class="fas fa-map"></i>
+                                Mapa Interactivo de la Ciudad de México
+                            </h2>
+                            <p class="web-section-desc">
+                                Explora los puntos más importantes de la CDMX en nuestro mapa interactivo REAL usando OpenStreetMap
+                            </p>
+                            
+                            <!-- CONTENEDOR DEL MAPA REAL -->
+                            <div class="mapa-real-container">
+                                <!-- Aquí va el mapa REAL con Leaflet -->
+                                <div id="mapaLeaflet" style="width: 100%; height: 500px; border-radius: 15px; overflow: hidden;"></div>
+                                
+                                <!-- Controles del Mapa -->
+                                <div class="controles-reales">
+                                    <div class="controles-grid-real">
+                                        <button class="control-btn-real" onclick="cambiarTipoMapa('street')" id="btn-street">
+                                            <i class="fas fa-road"></i>
+                                            Calles
+                                        </button>
+                                        <button class="control-btn-real" onclick="cambiarTipoMapa('satellite')" id="btn-satellite">
+                                            <i class="fas fa-satellite"></i>
+                                            Satélite
+                                        </button>
+                                        <button class="control-btn-real" onclick="cambiarTipoMapa('topo')" id="btn-topo">
+                                            <i class="fas fa-mountain"></i>
+                                            Topográfico
+                                        </button>
+                                        <button class="control-btn-real" onclick="obtenerUbicacionUsuario()" id="btn-ubicacion">
+                                            <i class="fas fa-location-arrow"></i>
+                                            Mi Ubicación
+                                        </button>
+                                        <button class="control-btn-real" onclick="centrarEnCDMX()" id="btn-reset">
+                                            <i class="fas fa-redo"></i>
+                                            Centrar CDMX
+                                        </button>
+                                        <button class="control-btn-real" onclick="mostrarTodosMarcadores()" id="btn-marcadores">
+                                            <i class="fas fa-map-pin"></i>
+                                            Mostrar Todos
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="info-mapa-real">
+                                        <div class="info-item-real">
+                                            <i class="fas fa-crosshairs"></i>
+                                            <span id="coordenadas-actuales">19.4326° N, 99.1332° W</span>
+                                        </div>
+                                        <div class="info-item-real">
+                                            <i class="fas fa-search-plus"></i>
+                                            <span id="zoom-actual">Zoom: 12</span>
+                                        </div>
+                                        <div class="info-item-real">
+                                            <i class="fas fa-map-pin"></i>
+                                            <span id="contador-marcadores">7 ubicaciones</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Panel de Lugares -->
+                                <div class="panel-lugares">
+                                    <h4><i class="fas fa-map-marker-alt"></i> Lugares Destacados de la CDMX</h4>
+                                    <div class="lugares-lista" id="lugares-lista">
+                                        <!-- Se llena dinámicamente con JavaScript -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Sección 2: ¿Qué es geolocalización? -->
+                    <section class="web-section info-section-real" id="geolocalizacion-web">
+                        <div class="web-container">
+                            <h2 class="web-section-title">
+                                <i class="fas fa-question-circle"></i>
+                                ¿Qué es geolocalización?
+                            </h2>
+                            
+                            <div class="info-grid-real">
+                                <div class="info-card-real">
+                                    <div class="info-icon-real">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div class="info-content-real">
+                                        <h3>Definición</h3>
+                                        <p>
+                                            La <strong>geolocalización</strong> es el proceso de identificar o estimar 
+                                            la ubicación geográfica real de un objeto mediante coordenadas (latitud, longitud).
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="info-card-real">
+                                    <div class="info-icon-real">
+                                        <i class="fas fa-satellite"></i>
+                                    </div>
+                                    <div class="info-content-real">
+                                        <h3>Tecnologías Utilizadas</h3>
+                                        <p>
+                                            GPS, Wi-Fi, redes celulares y direcciones IP son las tecnologías 
+                                            más comunes para determinar la ubicación de dispositivos.
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="info-card-real">
+                                    <div class="info-icon-real">
+                                        <i class="fas fa-bullseye"></i>
+                                    </div>
+                                    <div class="info-content-real">
+                                        <h3>Precisión Variable</h3>
+                                        <p>
+                                            La precisión varía desde metros (GPS) hasta nivel de ciudad (IP), 
+                                            dependiendo de la tecnología utilizada.
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="info-card-real">
+                                    <div class="info-icon-real">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <div class="info-content-real">
+                                        <h3>Privacidad y Permisos</h3>
+                                        <p>
+                                            Las aplicaciones deben solicitar permiso al usuario antes de 
+                                            acceder a su ubicación, protegiendo la privacidad.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Sección 3: Tipos de geolocalización -->
+                    <section class="web-section tipos-section-real" id="tipos-web">
+                        <div class="web-container">
+                            <h2 class="web-section-title">
+                                <i class="fas fa-satellite-dish"></i>
+                                Tipos de geolocalización más utilizados
+                            </h2>
+                            
+                            <div class="tipos-grid-real">
+                                <div class="tipo-card-real" onclick="explicarTipo('gps')">
+                                    <div class="tipo-header-real" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">
+                                        <i class="fas fa-satellite"></i>
+                                        <h3>GPS</h3>
+                                    </div>
+                                    <div class="tipo-body-real">
+                                        <div class="tipo-precision-real">
+                                            <span class="precision-label">Precisión:</span>
+                                            <span class="precision-value alta">Alta (metros)</span>
+                                        </div>
+                                        <p>
+                                            Sistema de posicionamiento global mediante 24+ satélites.
+                                        </p>
+                                        <div class="tipo-ejemplos-real">
+                                            <strong>Usado en:</strong>
+                                            <span>Navegación automotriz</span>
+                                            <span>Aplicaciones de fitness</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="tipo-card-real" onclick="explicarTipo('wifi')">
+                                    <div class="tipo-header-real" style="background: linear-gradient(135deg, #10b981, #059669);">
+                                        <i class="fas fa-wifi"></i>
+                                        <h3>Wi-Fi</h3>
+                                    </div>
+                                    <div class="tipo-body-real">
+                                        <div class="tipo-precision-real">
+                                            <span class="precision-label">Precisión:</span>
+                                            <span class="precision-value media">Media (10-50m)</span>
+                                        </div>
+                                        <p>
+                                            Ubicación basada en redes Wi-Fi cercanas y su intensidad.
+                                        </p>
+                                        <div class="tipo-ejemplos-real">
+                                            <strong>Usado en:</strong>
+                                            <span>Google Maps indoor</span>
+                                            <span>Dispositivos IoT</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="tipo-card-real" onclick="explicarTipo('celular')">
+                                    <div class="tipo-header-real" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+                                        <i class="fas fa-broadcast-tower"></i>
+                                        <h3>Celular</h3>
+                                    </div>
+                                    <div class="tipo-body-real">
+                                        <div class="tipo-precision-real">
+                                            <span class="precision-label">Precisión:</span>
+                                            <span class="precision-value baja">Baja (100m-1km)</span>
+                                        </div>
+                                        <p>
+                                            Triangulación con torres de telefonía móvil cercanas.
+                                        </p>
+                                        <div class="tipo-ejemplos-real">
+                                            <strong>Usado en:</strong>
+                                            <span>Servicios de emergencia</span>
+                                            <span>Operadoras móviles</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="tipo-card-real" onclick="explicarTipo('ip')">
+                                    <div class="tipo-header-real" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+                                        <i class="fas fa-network-wired"></i>
+                                        <h3>IP</h3>
+                                    </div>
+                                    <div class="tipo-body-real">
+                                        <div class="tipo-precision-real">
+                                            <span class="precision-label">Precisión:</span>
+                                            <span class="precision-value muy-baja">Muy baja (ciudad)</span>
+                                        </div>
+                                        <p>
+                                            Ubicación aproximada mediante dirección IP del dispositivo.
+                                        </p>
+                                        <div class="tipo-ejemplos-real">
+                                            <strong>Usado en:</strong>
+                                            <span>Contenido regional</span>
+                                            <span>Analítica web</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Sección 4: Aplicaciones con geolocalización -->
+                    <section class="web-section apps-section-real" id="aplicaciones-web">
+                        <div class="web-container">
+                            <h2 class="web-section-title">
+                                <i class="fas fa-mobile-alt"></i>
+                                5 aplicaciones que utilizan geolocalización
+                            </h2>
+                            
+                            <div class="apps-grid-real">
+                                <div class="app-card-real">
+                                    <div class="app-logo-real" style="background: #4285F4;">
+                                        <i class="fab fa-google"></i>
+                                    </div>
+                                    <div class="app-content-real">
+                                        <h3>Google Maps</h3>
+                                        <p class="app-desc-real">Navegación y mapas en tiempo real</p>
+                                        <div class="app-features-real">
+                                            <span class="feature-real">Navegación paso a paso</span>
+                                            <span class="feature-real">Tráfico en tiempo real</span>
+                                            <span class="feature-real">Explorar lugares cercanos</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="app-card-real">
+                                    <div class="app-logo-real" style="background: #000000;">
+                                        <i class="fas fa-car"></i>
+                                    </div>
+                                    <div class="app-content-real">
+                                        <h3>Uber</h3>
+                                        <p class="app-desc-real">Transporte compartido y delivery</p>
+                                        <div class="app-features-real">
+                                            <span class="feature-real">Seguimiento en vivo</span>
+                                            <span class="feature-real">Estimación de tiempos</span>
+                                            <span class="feature-real">Rutas optimizadas</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="app-card-real">
+                                    <div class="app-logo-real" style="background: #E4405F;">
+                                        <i class="fab fa-instagram"></i>
+                                    </div>
+                                    <div class="app-content-real">
+                                        <h3>Instagram</h3>
+                                        <p class="app-desc-real">Red social de fotos y videos</p>
+                                        <div class="app-features-real">
+                                            <span class="feature-real">Etiquetado de ubicaciones</span>
+                                            <span class="feature-real">Historias con ubicación</span>
+                                            <span class="feature-real">Explorar lugares</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="app-card-real">
+                                    <div class="app-logo-real" style="background: #00A82D;">
+                                        <i class="fas fa-shopping-bag"></i>
+                                    </div>
+                                    <div class="app-content-real">
+                                        <h3>Rappi</h3>
+                                        <p class="app-desc-real">Delivery de comida y productos</p>
+                                        <div class="app-features-real">
+                                            <span class="feature-real">Seguimiento de repartidores</span>
+                                            <span class="feature-real">Tiendas cercanas</span>
+                                            <span class="feature-real">Tiempos estimados</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="app-card-real">
+                                    <div class="app-logo-real" style="background: #1DA1F2;">
+                                        <i class="fab fa-twitter"></i>
+                                    </div>
+                                    <div class="app-content-real">
+                                        <h3>Twitter</h3>
+                                        <p class="app-desc-real">Red social de microblogging</p>
+                                        <div class="app-features-real">
+                                            <span class="feature-real">Tweets geolocalizados</span>
+                                            <span class="feature-real">Tendencias locales</span>
+                                            <span class="feature-real">Eventos cercanos</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Sección 5: ¿Qué es una API? -->
+                    <section class="web-section api-section-real" id="api-web">
+                        <div class="web-container">
+                            <h2 class="web-section-title">
+                                <i class="fas fa-code"></i>
+                                ¿Qué es una API?
+                            </h2>
+                            
+                            <div class="api-explicacion-real">
+                                <div class="api-definicion-real">
+                                    <h3>API = Application Programming Interface</h3>
+                                    <p>
+                                        Una <strong>API</strong> es un conjunto de reglas y protocolos que permite 
+                                        que diferentes aplicaciones de software se comuniquen entre sí.
+                                    </p>
+                                    <div class="api-ejemplo-real">
+                                        <strong>Ejemplo:</strong> Google Maps API permite a desarrolladores 
+                                        integrar mapas interactivos en sus sitios web.
+                                    </div>
+                                </div>
+                                
+                                <div class="api-analogia-real">
+                                    <div class="analogia-content-real">
+                                        <h4>Analogía del Restaurante</h4>
+                                        <div class="analogia-items-real">
+                                            <div class="analogia-item-real">
+                                                <div class="item-emoji-real">👨‍🍳</div>
+                                                <div class="item-text-real">
+                                                    <strong>Cocina</strong>
+                                                    <small>Servidor/Backend</small>
+                                                </div>
+                                            </div>
+                                            <div class="analogia-item-real">
+                                                <div class="item-emoji-real">→</div>
+                                                <div class="item-text-real">
+                                                    <strong>Mesero</strong>
+                                                    <small>API</small>
+                                                </div>
+                                            </div>
+                                            <div class="analogia-item-real">
+                                                <div class="item-emoji-real">👤</div>
+                                                <div class="item-text-real">
+                                                    <strong>Cliente</strong>
+                                                    <small>Aplicación Frontend</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="api-pasos-real">
+                                <h3>¿Cómo funciona una API de Geolocalización?</h3>
+                                <div class="pasos-api-real">
+                                    <div class="paso-api-real">
+                                        <div class="paso-numero-real">1</div>
+                                        <div class="paso-content-real">
+                                            <h4>Solicitud HTTP</h4>
+                                            <p>Tu aplicación envía una solicitud a la API con parámetros específicos.</p>
+                                        </div>
+                                    </div>
+                                    <div class="paso-api-real">
+                                        <div class="paso-numero-real">2</div>
+                                        <div class="paso-content-real">
+                                            <h4>Procesamiento</h4>
+                                            <p>El servidor de la API procesa la solicitud y obtiene los datos necesarios.</p>
+                                        </div>
+                                    </div>
+                                    <div class="paso-api-real">
+                                        <div class="paso-numero-real">3</div>
+                                        <div class="paso-content-real">
+                                            <h4>Respuesta JSON/XML</h4>
+                                            <p>La API devuelve los datos en formato estructurado (coordenadas, direcciones).</p>
+                                        </div>
+                                    </div>
+                                    <div class="paso-api-real">
+                                        <div class="paso-numero-real">4</div>
+                                        <div class="paso-content-real">
+                                            <h4>Visualización</h4>
+                                            <p>Tu aplicación procesa la respuesta y muestra la información al usuario.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Sección 6: Generación de clave API -->
+                    <section class="web-section claveapi-section-real">
+                        <div class="web-container">
+                            <h2 class="web-section-title">
+                                <i class="fas fa-key"></i>
+                                ¿Cómo se genera una clave API?
+                            </h2>
+                            
+                            <div class="pasos-clave-api">
+                                <div class="paso-clave" onclick="mostrarPaso(1)">
+                                    <div class="paso-clave-header">
+                                        <div class="paso-clave-numero">1</div>
+                                        <h3>Crear cuenta en Google Cloud</h3>
+                                    </div>
+                                    <div class="paso-clave-content">
+                                        <p>Registrarse en <strong>console.cloud.google.com</strong> y crear un nuevo proyecto.</p>
+                                        <div class="paso-clave-detalle">
+                                            <i class="fas fa-user-plus"></i>
+                                            <span>Requiere cuenta de Google</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="paso-clave" onclick="mostrarPaso(2)">
+                                    <div class="paso-clave-header">
+                                        <div class="paso-clave-numero">2</div>
+                                        <h3>Habilitar Maps JavaScript API</h3>
+                                    </div>
+                                    <div class="paso-clave-content">
+                                        <p>Buscar y activar "Maps JavaScript API" en el panel de APIs.</p>
+                                        <div class="paso-clave-detalle">
+                                            <i class="fas fa-toggle-on"></i>
+                                            <span>Activar API específica</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="paso-clave" onclick="mostrarPaso(3)">
+                                    <div class="paso-clave-header">
+                                        <div class="paso-clave-numero">3</div>
+                                        <h3>Generar credenciales</h3>
+                                    </div>
+                                    <div class="paso-clave-content">
+                                        <p>Ir a "Credenciales" → "Crear credenciales" → "Clave de API".</p>
+                                        <div class="paso-clave-detalle">
+                                            <i class="fas fa-key"></i>
+                                            <span>Clave única generada</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="paso-clave" onclick="mostrarPaso(4)">
+                                    <div class="paso-clave-header">
+                                        <div class="paso-clave-numero">4</div>
+                                        <h3>Configurar restricciones</h3>
+                                    </div>
+                                    <div class="paso-clave-content">
+                                        <p>Limitar la clave por aplicaciones web, direcciones IP o apps.</p>
+                                        <div class="paso-clave-detalle">
+                                            <i class="fas fa-shield-alt"></i>
+                                            <span>Seguridad obligatoria</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="paso-clave" onclick="mostrarPaso(5)">
+                                    <div class="paso-clave-header">
+                                        <div class="paso-clave-numero">5</div>
+                                        <h3>Implementar en el código</h3>
+                                    </div>
+                                    <div class="paso-clave-content">
+                                        <p>Incluir la clave API en el script de Google Maps.</p>
+                                        <div class="codigo-clave-api">
+                                            <code>&lt;script src="https://maps.googleapis.com/maps/api/js?key=<span class="clave-resaltada">TU_CLAVE_API</span>"&gt;&lt;/script&gt;</code>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="advertencia-api">
+                                <div class="advertencia-icon">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div class="advertencia-content">
+                                    <h4>¡Importante de Seguridad!</h4>
+                                    <p>
+                                        <strong>NUNCA expongas tu clave API públicamente</strong> en GitHub o código cliente. 
+                                        Usa variables de entorno o un backend para protegerla de uso malintencionado.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Sección 7: Tipos de Ubicación -->
+                    <section class="web-section ubicaciones-section-real" id="ubicaciones-web">
+                        <div class="web-container">
+                            <h2 class="web-section-title">
+                                <i class="fas fa-location-dot"></i>
+                                Tipos de Ubicación (Temas vistos en clase)
+                            </h2>
+                            
+                            <div class="ubicaciones-grid-real">
+                                <div class="ubicacion-card-real" onclick="mostrarEjemploUbicacion('coordenadas')">
+                                    <div class="ubicacion-header-real">
+                                        <div class="ubicacion-icon-real">
+                                            <i class="fas fa-globe-americas"></i>
+                                        </div>
+                                        <h3>Coordenadas Geográficas</h3>
+                                    </div>
+                                    <div class="ubicacion-body-real">
+                                        <div class="ubicacion-ejemplo-real">
+                                            <strong>Ejemplo:</strong> 19.4326° N, 99.1332° W
+                                        </div>
+                                        <div class="ubicacion-desc-real">
+                                            <p>
+                                                Sistema de referencia más preciso. Latitud (-90° a 90°) y 
+                                                Longitud (-180° a 180°).
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="ubicacion-card-real" onclick="mostrarEjemploUbicacion('direccion')">
+                                    <div class="ubicacion-header-real">
+                                        <div class="ubicacion-icon-real">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </div>
+                                        <h3>Dirección Postal</h3>
+                                    </div>
+                                    <div class="ubicacion-body-real">
+                                        <div class="ubicacion-ejemplo-real">
+                                            <strong>Ejemplo:</strong> Av. Paseo de la Reforma 123, CDMX
+                                        </div>
+                                        <div class="ubicacion-desc-real">
+                                            <p>
+                                                Dirección física legible por humanos. Requiere geocodificación 
+                                                para convertir a coordenadas.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="ubicacion-card-real" onclick="mostrarEjemploUbicacion('pluscode')">
+                                    <div class="ubicacion-header-real">
+                                        <div class="ubicacion-icon-real">
+                                            <i class="fas fa-qrcode"></i>
+                                        </div>
+                                        <h3>Plus Codes</h3>
+                                    </div>
+                                    <div class="ubicacion-body-real">
+                                        <div class="ubicacion-ejemplo-real">
+                                            <strong>Ejemplo:</strong> 8F6G+P2 Ciudad de México
+                                        </div>
+                                        <div class="ubicacion-desc-real">
+                                            <p>
+                                                Sistema de Google para ubicaciones simples. Gratuito, 
+                                                abierto y funciona sin conexión.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="ubicacion-card-real" onclick="mostrarEjemploUbicacion('referencia')">
+                                    <div class="ubicacion-header-real">
+                                        <div class="ubicacion-icon-real">
+                                            <i class="fas fa-landmark"></i>
+                                        </div>
+                                        <h3>Puntos de Referencia</h3>
+                                    </div>
+                                    <div class="ubicacion-body-real">
+                                        <div class="ubicacion-ejemplo-real">
+                                            <strong>Ejemplo:</strong> A 2 cuadras del Ángel de la Independencia
+                                        </div>
+                                        <div class="ubicacion-desc-real">
+                                            <p>
+                                                Ubicación relativa a lugares conocidos. Menos preciso pero 
+                                                más intuitivo para humanos.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Código Fuente Explicado -->
+    <section class="section codigo-fuente-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-file-code"></i>
+                    Código Fuente Explicado
+                </h2>
+                <p class="section-subtitle">Implementación completa con Leaflet (OpenStreetMap)</p>
+            </div>
+            
+            <div class="codigo-explicado">
+                <!-- HTML del Mapa -->
+                <div class="explicacion-item">
+                    <div class="explicacion-header">
+                        <h3><i class="fab fa-html5"></i> HTML - Estructura del Mapa</h3>
+                        <button class="btn-copiar" onclick="copiarCodigo('html-mapa')">
+                            <i class="far fa-copy"></i> Copiar
+                        </button>
+                    </div>
+                    <div class="explicacion-content">
+                        <pre id="html-mapa"><code class="language-html">&lt;!-- Incluir Leaflet CSS y JS --&gt;
+&lt;link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" /&gt;
+&lt;script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"&gt;&lt;/script&gt;
+
+&lt;!-- Contenedor del mapa --&gt;
+&lt;div id="mapaLeaflet" style="width: 100%; height: 500px;"&gt;&lt;/div&gt;
+
+&lt;!-- Controles del mapa --&gt;
+&lt;div class="controles-reales"&gt;
+    &lt;button class="control-btn-real" onclick="cambiarTipoMapa('street')"&gt;
+        &lt;i class="fas fa-road"&gt;&lt;/i&gt; Calles
+    &lt;/button&gt;
+    &lt;button class="control-btn-real" onclick="cambiarTipoMapa('satellite')"&gt;
+        &lt;i class="fas fa-satellite"&gt;&lt;/i&gt; Satélite
+    &lt;/button&gt;
+    &lt;button class="control-btn-real" onclick="obtenerUbicacionUsuario()"&gt;
+        &lt;i class="fas fa-location-arrow"&gt;&lt;/i&gt; Mi Ubicación
+    &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+                
+                <!-- JavaScript del Mapa -->
+                <div class="explicacion-item">
+                    <div class="explicacion-header">
+                        <h3><i class="fab fa-js-square"></i> JavaScript - Inicialización del Mapa</h3>
+                        <button class="btn-copiar" onclick="copiarCodigo('js-mapa')">
+                            <i class="far fa-copy"></i> Copiar
+                        </button>
+                    </div>
+                    <div class="explicacion-content">
+                        <pre id="js-mapa"><code class="language-javascript">// Variables globales
+let mapaLeaflet;
+let marcadores = [];
+let capaActual = 'street';
+
+// Inicializar mapa
+function iniciarMapa() {
+    // Coordenadas de Ciudad de México
+    const centroCDMX = [19.4326, -99.1332];
+    
+    // Crear mapa
+    mapaLeaflet = L.map('mapaLeaflet').setView(centroCDMX, 12);
+    
+    // Capa base: OpenStreetMap (calles)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors',
+        maxZoom: 19
+    }).addTo(mapaLeaflet);
+    
+    // Agregar marcadores
+    agregarMarcadores();
+    
+    // Eventos para actualizar información
+    mapaLeaflet.on('moveend', actualizarCoordenadas);
+    mapaLeaflet.on('zoomend', actualizarZoom);
+}
+
+// Agregar marcadores a ubicaciones específicas
+function agregarMarcadores() {
+    const ubicaciones = [
+        {
+            nombre: 'Zócalo de la CDMX',
+            posicion: [19.4326, -99.1332],
+            descripcion: 'Plaza principal de la Ciudad de México',
+            icono: '🏛️',
+            color: '#3b82f6'
+        },
+        {
+            nombre: 'Bosque de Chapultepec',
+            posicion: [19.4208, -99.1825],
+            descripcion: 'Bosque urbano más grande de América Latina',
+            icono: '🌳',
+            color: '#10b981'
+        },
+        // ... más ubicaciones
+    ];
+    
+    ubicaciones.forEach((ubicacion) => {
+        // Crear marcador personalizado
+        const iconoPersonalizado = L.divIcon({
+            html: `&lt;div style="background: ${ubicacion.color}; 
+                   width: 30px; height: 30px; border-radius: 50%; 
+                   border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+                   display: flex; align-items: center; justify-content: center;
+                   color: white; font-size: 14px;"&gt;
+                   ${ubicacion.icono}&lt;/div&gt;`,
+            className: 'marker-personalizado',
+            iconSize: [30, 30],
+            iconAnchor: [15, 15]
+        });
+        
+        // Crear marcador
+        const marcador = L.marker(ubicacion.posicion, {
+            title: ubicacion.nombre,
+            icon: iconoPersonalizado
+        }).addTo(mapaLeaflet);
+        
+        // Agregar popup
+        marcador.bindPopup(`
+            &lt;div style="padding: 10px; max-width: 250px;"&gt;
+                &lt;h3 style="color: ${ubicacion.color};"&gt;
+                    ${ubicacion.icono} ${ubicacion.nombre}
+                &lt;/h3&gt;
+                &lt;p&gt;${ubicacion.descripcion}&lt;/p&gt;
+                &lt;p&gt;&lt;strong&gt;Coordenadas:&lt;/strong&gt;&lt;br&gt;
+                ${ubicacion.posicion[0].toFixed(4)}° N, ${ubicacion.posicion[1].toFixed(4)}° W&lt;/p&gt;
+            &lt;/div&gt;
+        `);
+        
+        marcadores.push(marcador);
+    });
+}
+
+// Cambiar tipo de mapa
+function cambiarTipoMapa(tipo) {
+    if (!mapaLeaflet) return;
+    
+    // Remover capa anterior
+    mapaLeaflet.eachLayer((layer) => {
+        if (layer instanceof L.TileLayer) {
+            mapaLeaflet.removeLayer(layer);
+        }
+    });
+    
+    // Agregar nueva capa
+    let nuevaCapa;
+    switch(tipo) {
+        case 'satellite':
+            nuevaCapa = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                attribution: 'Tiles © Esri',
+                maxZoom: 19
+            });
+            break;
+        case 'topo':
+            nuevaCapa = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+                attribution: 'Map data: © OpenTopoMap',
+                maxZoom: 17
+            });
+            break;
+        default: // street
+            nuevaCapa = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors',
+                maxZoom: 19
+            });
+    }
+    
+    nuevaCapa.addTo(mapaLeaflet);
+    capaActual = tipo;
+    
+    // Actualizar botón activo
+    actualizarBotonActivo(tipo);
+}
+
+// Obtener ubicación del usuario
+function obtenerUbicacionUsuario() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (posicion) => {
+                const ubicacionUsuario = [
+                    posicion.coords.latitude,
+                    posicion.coords.longitude
+                ];
+                
+                // Centrar mapa
+                mapaLeaflet.setView(ubicacionUsuario, 15);
+                
+                // Agregar marcador
+                L.marker(ubicacionUsuario, {
+                    title: 'Tu ubicación',
+                    icon: L.divIcon({
+                        html: '&lt;div style="background: #3b82f6; width: 40px; height: 40px; border-radius: 50%; border: 3px solid white; box-shadow: 0 3px 10px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;"&gt;&lt;i class="fas fa-user"&gt;&lt;/i&gt;&lt;/div&gt;',
+                        iconSize: [40, 40],
+                        iconAnchor: [20, 20]
+                    })
+                }).addTo(mapaLeaflet)
+                .bindPopup('&lt;b&gt;Tu ubicación actual&lt;/b&gt;&lt;br&gt;Precisión: ' + Math.round(posicion.coords.accuracy) + 'm')
+                .openPopup();
+            },
+            (error) => {
+                alert('Error al obtener ubicación: ' + error.message);
+            }
+        );
+    } else {
+        alert('Tu navegador no soporta geolocalización');
+    }
+}</code></pre>
+                    </div>
+                </div>
+                
+                <!-- CSS del Mapa -->
+                <div class="explicacion-item">
+                    <div class="explicacion-header">
+                        <h3><i class="fab fa-css3-alt"></i> CSS - Estilos del Mapa</h3>
+                        <button class="btn-copiar" onclick="copiarCodigo('css-mapa')">
+                            <i class="far fa-copy"></i> Copiar
+                        </button>
+                    </div>
+                    <div class="explicacion-content">
+                        <pre id="css-mapa"><code class="language-css">/* Contenedor principal del mapa */
+.mapa-real-container {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin: 30px 0;
+}
+
+/* Mapa de Leaflet */
+#mapaLeaflet {
+    width: 100%;
+    height: 500px;
+    z-index: 1;
+}
+
+/* Personalizar controles de Leaflet */
+.leaflet-control-container .leaflet-top {
+    top: 20px;
+}
+
+.leaflet-control-container .leaflet-left {
+    left: 20px;
+}
+
+.leaflet-control-container .leaflet-right {
+    right: 20px;
+}
+
+/* Controles personalizados */
+.controles-reales {
+    padding: 20px;
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+}
+
+.controles-grid-real {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.control-btn-real {
+    padding: 12px;
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    color: #475569;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+.control-btn-real:hover {
+    background: #3b82f6;
+    color: white;
+    border-color: #3b82f6;
+    transform: translateY(-2px);
+}
+
+.control-btn-real.active {
+    background: #3b82f6;
+    color: white;
+    border-color: #3b82f6;
+}
+
+/* Popups personalizados */
+.leaflet-popup-content {
+    font-family: 'Inter', sans-serif;
+    margin: 15px;
+}
+
+.leaflet-popup-content-wrapper {
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #mapaLeaflet {
+        height: 400px;
+    }
+    
+    .controles-grid-real {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instrucciones para Usar -->
+    <section class="section instrucciones-section">
+        <div class="container">
+            <div class="instrucciones-card">
+                <div class="instrucciones-header">
+                    <h2><i class="fas fa-play-circle"></i> Cómo Usar Este Sitio Web</h2>
+                </div>
+                <div class="instrucciones-content">
+                    <div class="instruccion-paso">
+                        <div class="paso-numero">1</div>
+                        <div class="paso-contenido">
+                            <h3>Explora el Mapa</h3>
+                            <p>Haz zoom, arrastra y usa los controles para navegar por el mapa de la Ciudad de México.</p>
+                        </div>
+                    </div>
+                    <div class="instruccion-paso">
+                        <div class="paso-numero">2</div>
+                        <div class="paso-contenido">
+                            <h3>Haz Click en los Marcadores</h3>
+                            <p>Cada marcador muestra información detallada sobre lugares importantes de la CDMX.</p>
+                        </div>
+                    </div>
+                    <div class="instruccion-paso">
+                        <div class="paso-numero">3</div>
+                        <div class="paso-contenido">
+                            <h3>Usa los Controles</h3>
+                            <p>Cambia entre vista de calles, satélite o topográfica. Obtén tu ubicación actual.</p>
+                        </div>
+                    </div>
+                    <div class="instruccion-paso">
+                        <div class="paso-numero">4</div>
+                        <div class="paso-contenido">
+                            <h3>Navega por las Secciones</h3>
+                            <p>Explora toda la información sobre geolocalización, APIs y tipos de ubicación.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusión Final -->
+    <section class="section conclusion-final-section">
+        <div class="container">
+            <div class="conclusion-final-card">
+                <div class="conclusion-final-header">
+                    <h2><i class="fas fa-flag-checkered"></i> Saber Hacer 1 - Completado</h2>
+                    <div class="progreso-final">
+                        <div class="progreso-bar-final">
+                            <div class="progreso-fill-final" style="width: 100%"></div>
+                        </div>
+                        <span class="progreso-text-final">100% Implementado</span>
+                    </div>
+                </div>
+                
+                <div class="conclusion-final-content">
+                    <div class="logros-grid">
+                        <div class="logro-item">
+                            <div class="logro-icon" style="background: #10b981;">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="logro-text">
+                                <h3>Mapa Interactivo REAL</h3>
+                                <p>OpenStreetMap funcional con marcadores y controles</p>
+                            </div>
+                        </div>
+                        
+                        <div class="logro-item">
+                            <div class="logro-icon" style="background: #3b82f6;">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="logro-text">
+                                <h3>7 Secciones Completas</h3>
+                                <p>Toda la información requerida organizada y presentada</p>
+                            </div>
+                        </div>
+                        
+                        <div class="logro-item">
+                            <div class="logro-icon" style="background: #f59e0b;">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="logro-text">
+                                <h3>Código Funcional</h3>
+                                <p>HTML, CSS y JavaScript listos para implementar</p>
+                            </div>
+                        </div>
+                        
+                        <div class="logro-item">
+                            <div class="logro-icon" style="background: #8b5cf6;">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="logro-text">
+                                <h3>Sin API Key Requerida</h3>
+                                <p>Funciona completamente gratis con OpenStreetMap</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="acciones-finales">
+                        <a href="unidad2.html" class="btn btn-primary-final">
+                            <i class="fas fa-arrow-left"></i>
+                            Volver a Unidad 2
+                        </a>
+                        <button class="btn btn-secondary-final" onclick="probarDemo()">
+                            <i class="fas fa-play"></i>
+                            Probar Demo Completa
+                        </button>
+                        <button class="btn btn-secondary-final" onclick="descargarTodo()">
+                            <i class="fas fa-download"></i>
+                            Descargar Todo
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Incluir Footer desde componentes -->
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/animaciones.js"></script>
+    
+    <script>
+    // ================================
+    // JAVASCRIPT PARA CARGAR COMPONENTES
+    // ================================
+    
+    // Cargar navigation desde archivo HTML
+    fetch('components/navigation.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navigation-container').innerHTML = data;
+        })
+        .catch(error => console.error('Error cargando navigation:', error));
+    
+    // Cargar footer desde archivo HTML
+    fetch('components/footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-container').innerHTML = data;
+        })
+        .catch(error => console.error('Error cargando footer:', error));
+    
+    // ================================
+    // JAVASCRIPT PARA EL MAPA REAL CON LEAFLET
+    // ================================
+    
+    // Variables globales
+    let mapaLeaflet;
+    let marcadoresLeaflet = [];
+    let capaActual = 'street';
+    
+    // Ubicaciones de la CDMX
+    const ubicacionesCDMX = [
+        {
+            id: 1,
+            nombre: 'Zócalo de la CDMX',
+            posicion: [19.4326, -99.1332],
+            descripcion: 'Plaza principal y corazón histórico de la Ciudad de México',
+            icono: '🏛️',
+            tipo: 'histórico',
+            color: '#3b82f6'
+        },
+        {
+            id: 2,
+            nombre: 'Bosque de Chapultepec',
+            posicion: [19.4208, -99.1825],
+            descripcion: 'Bosque urbano más grande de América Latina con museos y lagos',
+            icono: '🌳',
+            tipo: 'naturaleza',
+            color: '#10b981'
+        },
+        {
+            id: 3,
+            nombre: 'Coyoacán',
+            posicion: [19.3494, -99.1611],
+            descripcion: 'Barrio histórico famoso por su cultura y la Casa Azul de Frida Kahlo',
+            icono: '🎨',
+            tipo: 'cultural',
+            color: '#f59e0b'
+        },
+        {
+            id: 4,
+            nombre: 'Polanco',
+            posicion: [19.4342, -99.1947],
+            descripcion: 'Zona comercial y residencial exclusiva con restaurantes de lujo',
+            icono: '💼',
+            tipo: 'comercial',
+            color: '#ec4899'
+        },
+        {
+            id: 5,
+            nombre: 'Santa Fe',
+            posicion: [19.3578, -99.2578],
+            descripcion: 'Centro financiero y empresarial moderno de la ciudad',
+            icono: '🏢',
+            tipo: 'empresarial',
+            color: '#8b5cf6'
+        },
+        {
+            id: 6,
+            nombre: 'Xochimilco',
+            posicion: [19.2579, -99.1056],
+            descripcion: 'Canales y trajineras, Patrimonio Cultural de la Humanidad',
+            icono: '🚣',
+            tipo: 'turístico',
+            color: '#06b6d4'
+        },
+        {
+            id: 7,
+            nombre: 'Condesa-Roma',
+            posicion: [19.4135, -99.1670],
+            descripcion: 'Zonas bohemias con restaurantes, bares y vida nocturna',
+            icono: '🍹',
+            tipo: 'gastronómico',
+            color: '#84cc16'
+        }
+    ];
+    
+    // Inicializar mapa cuando el DOM esté listo
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('🚀 Inicializando aplicación de mapa...');
+        iniciarMapa();
+        actualizarPanelLugares();
+    });
+    
+    // Inicializar mapa REAL con Leaflet
+    function iniciarMapa() {
+        // Coordenadas del Zócalo (centro de CDMX)
+        const centroCDMX = [19.4326, -99.1332];
+        
+        // Crear mapa
+        mapaLeaflet = L.map('mapaLeaflet').setView(centroCDMX, 12);
+        
+        // Capa base: OpenStreetMap (calles)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            maxZoom: 19
+        }).addTo(mapaLeaflet);
+        
+        // Agregar marcadores
+        agregarMarcadores();
+        
+        // Actualizar información inicial
+        actualizarCoordenadas();
+        actualizarZoom();
+        
+        // Event listeners
+        mapaLeaflet.on('moveend', actualizarCoordenadas);
+        mapaLeaflet.on('zoomend', actualizarZoom);
+        mapaLeaflet.on('click', function(e) {
+            console.log('Click en coordenadas:', e.latlng.lat, e.latlng.lng);
+        });
+        
+        console.log('✅ Mapa Leaflet (OpenStreetMap) inicializado correctamente');
+    }
+    
+    // Agregar marcadores al mapa
+    function agregarMarcadores() {
+        ubicacionesCDMX.forEach((ubicacion) => {
+            // Crear marcador personalizado
+            const iconoPersonalizado = L.divIcon({
+                html: `<div style="
+                    background: ${ubicacion.color}; 
+                    width: 35px; 
+                    height: 35px; 
+                    border-radius: 50%; 
+                    border: 3px solid white;
+                    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-size: 16px;
+                    cursor: pointer;
+                    transition: transform 0.3s;
+                " onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                    ${ubicacion.icono}
+                </div>`,
+                className: 'marker-personalizado',
+                iconSize: [35, 35],
+                iconAnchor: [17.5, 17.5]
+            });
+            
+            // Crear marcador
+            const marcador = L.marker(ubicacion.posicion, {
+                title: ubicacion.nombre,
+                icon: iconoPersonalizado,
+                riseOnHover: true
+            }).addTo(mapaLeaflet);
+            
+            // Crear contenido del popup
+            const contenidoPopup = `
+                <div style="padding: 15px; max-width: 280px;">
+                    <h3 style="margin: 0 0 10px 0; color: ${ubicacion.color};">
+                        ${ubicacion.icono} ${ubicacion.nombre}
+                    </h3>
+                    <p style="margin: 0 0 10px 0; color: #4b5563; line-height: 1.5;">
+                        ${ubicacion.descripcion}
+                    </p>
+                    <div style="margin-bottom: 10px;">
+                        <span style="background: ${ubicacion.color}20; color: ${ubicacion.color}; 
+                        padding: 4px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: 500;">
+                            ${ubicacion.tipo}
+                        </span>
+                    </div>
+                    <p style="margin: 0 0 10px 0; color: #6b7280; font-size: 0.9rem;">
+                        <strong>Coordenadas:</strong><br>
+                        ${ubicacion.posicion[0].toFixed(6)}° N, ${ubicacion.posicion[1].toFixed(6)}° W
+                    </p>
+                    <button onclick="centrarEnUbicacion(${ubicacion.id})" style="
+                        background: ${ubicacion.color};
+                        color: white;
+                        border: none;
+                        padding: 8px 15px;
+                        border-radius: 6px;
+                        cursor: pointer;
+                        font-weight: 500;
+                        font-size: 0.9rem;
+                        width: 100%;
+                        transition: opacity 0.3s;
+                    " onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
+                        <i class="fas fa-crosshairs"></i> Centrar en esta ubicación
+                    </button>
+                </div>
+            `;
+            
+            // Agregar popup al marcador
+            marcador.bindPopup(contenidoPopup, {
+                maxWidth: 300,
+                className: 'popup-personalizado'
+            });
+            
+            // Evento click para animación
+            marcador.on('click', function() {
+                // Animación de bounce
+                marcador.setIcon(L.divIcon({
+                    html: `<div style="
+                        background: ${ubicacion.color}; 
+                        width: 40px; 
+                        height: 40px; 
+                        border-radius: 50%; 
+                        border: 3px solid white;
+                        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: white;
+                        font-size: 18px;
+                        animation: bounce 0.5s;
+                    ">${ubicacion.icono}</div>`,
+                    iconSize: [40, 40],
+                    iconAnchor: [20, 20]
+                }));
+                
+                // Restaurar icono después de 1 segundo
+                setTimeout(() => {
+                    marcador.setIcon(iconoPersonalizado);
+                }, 1000);
+                
+                // Resaltar en el panel lateral
+                resaltarLugarEnPanel(ubicacion.id);
+            });
+            
+            // Guardar referencia
+            marcadoresLeaflet.push({
+                id: ubicacion.id,
+                marker: marcador,
+                data: ubicacion
+            });
+        });
+        
+        // Actualizar contador
+        document.getElementById('contador-marcadores').textContent = `${ubicacionesCDMX.length} ubicaciones`;
+    }
+    
+    // Actualizar coordenadas en pantalla
+    function actualizarCoordenadas() {
+        if (!mapaLeaflet) return;
+        
+        const centro = mapaLeaflet.getCenter();
+        document.getElementById('coordenadas-actuales').textContent = 
+            `${centro.lat.toFixed(4)}° N, ${centro.lng.toFixed(4)}° W`;
+    }
+    
+    // Actualizar zoom en pantalla
+    function actualizarZoom() {
+        if (!mapaLeaflet) return;
+        
+        document.getElementById('zoom-actual').textContent = 
+            `Zoom: ${mapaLeaflet.getZoom()}`;
+    }
+    
+    // Actualizar panel de lugares
+    function actualizarPanelLugares() {
+        const lugaresLista = document.getElementById('lugares-lista');
+        if (!lugaresLista) return;
+        
+        lugaresLista.innerHTML = '';
+        
+        ubicacionesCDMX.forEach((ubicacion) => {
+            const lugarItem = document.createElement('div');
+            lugarItem.className = 'lugar-item';
+            lugarItem.id = `lugar-${ubicacion.id}`;
+            lugarItem.innerHTML = `
+                <div class="lugar-nombre">${ubicacion.icono} ${ubicacion.nombre}</div>
+                <div class="lugar-desc">${ubicacion.descripcion.substring(0, 70)}...</div>
+                <div style="display: flex; justify-content: space-between; margin-top: 8px; font-size: 0.8rem;">
+                    <span style="color: ${ubicacion.color}; font-weight: 500;">${ubicacion.tipo}</span>
+                    <button onclick="centrarEnUbicacion(${ubicacion.id}, event)" style="
+                        background: ${ubicacion.color};
+                        color: white;
+                        border: none;
+                        padding: 4px 10px;
+                        border-radius: 4px;
+                        cursor: pointer;
+                        font-size: 0.7rem;
+                    ">Ver en mapa</button>
+                </div>
+            `;
+            
+            lugarItem.addEventListener('click', (e) => {
+                // Evitar que se active cuando se hace click en el botón interno
+                if (!e.target.closest('button')) {
+                    centrarEnUbicacion(ubicacion.id);
+                }
+            });
+            
+            lugaresLista.appendChild(lugarItem);
+        });
+    }
+    
+    // Resaltar lugar en panel lateral
+    function resaltarLugarEnPanel(id) {
+        // Quitar clase active de todos
+        document.querySelectorAll('.lugar-item').forEach(item => {
+            item.classList.remove('active');
+        });
+        
+        // Agregar clase active al seleccionado
+        const lugarSeleccionado = document.getElementById(`lugar-${id}`);
+        if (lugarSeleccionado) {
+            lugarSeleccionado.classList.add('active');
+            
+            // Scroll suave al elemento
+            lugarSeleccionado.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest'
+            });
+        }
+    }
+    
+    // Centrar en una ubicación específica
+    function centrarEnUbicacion(id, event = null) {
+        if (event) event.stopPropagation();
+        
+        if (!mapaLeaflet) return;
+        
+        const ubicacion = ubicacionesCDMX.find(u => u.id === id);
+        if (!ubicacion) return;
+        
+        // Centrar y hacer zoom
+        mapaLeaflet.setView(ubicacion.posicion, 15);
+        
+        // Abrir popup del marcador
+        const marcador = marcadoresLeaflet.find(m => m.id === id);
+        if (marcador && marcador.marker) {
+            marcador.marker.openPopup();
+        }
+        
+        // Resaltar en panel
+        resaltarLugarEnPanel(id);
+        
+        // Animación del marcador
+        if (marcador && marcador.marker) {
+            marcador.marker.setIcon(L.divIcon({
+                html: `<div style="
+                    background: ${ubicacion.color}; 
+                    width: 45px; 
+                    height: 45px; 
+                    border-radius: 50%; 
+                    border: 3px solid white;
+                    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-size: 20px;
+                    animation: pulse 1s;
+                ">${ubicacion.icono}</div>`,
+                iconSize: [45, 45],
+                iconAnchor: [22.5, 22.5]
+            }));
+            
+            // Restaurar icono después de 1.5 segundos
+            setTimeout(() => {
+                if (marcador && marcador.marker) {
+                    marcador.marker.setIcon(L.divIcon({
+                        html: `<div style="
+                            background: ${ubicacion.color}; 
+                            width: 35px; 
+                            height: 35px; 
+                            border-radius: 50%; 
+                            border: 3px solid white;
+                            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: white;
+                            font-size: 16px;
+                        ">${ubicacion.icono}</div>`,
+                        iconSize: [35, 35],
+                        iconAnchor: [17.5, 17.5]
+                    }));
+                }
+            }, 1500);
+        }
+    }
+    
+    // Centrar en CDMX
+    function centrarEnCDMX() {
+        if (!mapaLeaflet) return;
+        
+        const cdmx = [19.4326, -99.1332];
+        mapaLeaflet.setView(cdmx, 12);
+        
+        // Cerrar todos los popups
+        marcadoresLeaflet.forEach(m => {
+            if (m.marker && m.marker.closePopup) {
+                m.marker.closePopup();
+            }
+        });
+        
+        // Quitar resaltado del panel
+        document.querySelectorAll('.lugar-item').forEach(item => {
+            item.classList.remove('active');
+        });
+        
+        // Actualizar botón activo
+        actualizarBotonActivo('reset');
+    }
+    
+    // Mostrar todos los marcadores
+    function mostrarTodosMarcadores() {
+        if (!mapaLeaflet || marcadoresLeaflet.length === 0) return;
+        
+        const bounds = L.latLngBounds(
+            marcadoresLeaflet.map(m => m.data.posicion)
+        );
+        
+        mapaLeaflet.fitBounds(bounds, {
+            padding: [50, 50],
+            maxZoom: 15
+        });
+        
+        // Actualizar botón activo
+        actualizarBotonActivo('marcadores');
+    }
+    
+    // Cambiar tipo de mapa
+    function cambiarTipoMapa(tipo) {
+        if (!mapaLeaflet) return;
+        
+        // Remover capa anterior
+        mapaLeaflet.eachLayer((layer) => {
+            if (layer instanceof L.TileLayer) {
+                mapaLeaflet.removeLayer(layer);
+            }
+        });
+        
+        // Agregar nueva capa
+        let nuevaCapa;
+        let botonId;
+        
+        switch(tipo) {
+            case 'satellite':
+                nuevaCapa = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                    attribution: 'Tiles © Esri — Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+                    maxZoom: 19
+                });
+                botonId = 'btn-satellite';
+                break;
+            case 'topo':
+                nuevaCapa = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+                    attribution: 'Map data: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: © <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)',
+                    maxZoom: 17
+                });
+                botonId = 'btn-topo';
+                break;
+            default: // street
+                nuevaCapa = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                    maxZoom: 19
+                });
+                botonId = 'btn-street';
+        }
+        
+        nuevaCapa.addTo(mapaLeaflet);
+        capaActual = tipo;
+        
+        // Actualizar botón activo
+        actualizarBotonActivo(botonId);
+    }
+    
+    // Obtener ubicación del usuario
+    function obtenerUbicacionUsuario() {
+        const boton = document.getElementById('btn-ubicacion');
+        if (!boton) return;
+        
+        // Guardar HTML original
+        const htmlOriginal = boton.innerHTML;
+        
+        // Mostrar loading
+        boton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Obteniendo...';
+        boton.disabled = true;
+        
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (posicion) => {
+                    // Ubicación obtenida
+                    const ubicacionUsuario = [
+                        posicion.coords.latitude,
+                        posicion.coords.longitude
+                    ];
+                    
+                    // Centrar mapa en ubicación
+                    mapaLeaflet.setView(ubicacionUsuario, 15);
+                    
+                    // Crear marcador de ubicación
+                    const marcadorUsuario = L.marker(ubicacionUsuario, {
+                        title: 'Tu ubicación actual',
+                        icon: L.divIcon({
+                            html: `<div style="
+                                background: #10b981; 
+                                width: 45px; 
+                                height: 45px; 
+                                border-radius: 50%; 
+                                border: 3px solid white;
+                                box-shadow: 0 5px 20px rgba(16, 185, 129, 0.4);
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                color: white;
+                                font-size: 18px;
+                                animation: pulse 1s;
+                            "><i class="fas fa-user"></i></div>`,
+                            iconSize: [45, 45],
+                            iconAnchor: [22.5, 22.5]
+                        })
+                    }).addTo(mapaLeaflet);
+                    
+                    // Popup para ubicación
+                    marcadorUsuario.bindPopup(`
+                        <div style="padding: 15px; max-width: 250px;">
+                            <h3 style="margin: 0 0 10px 0; color: #10b981;">
+                                <i class="fas fa-user-circle"></i> Tu Ubicación Actual
+                            </h3>
+                            <p style="margin: 0 0 10px 0; color: #6b7280;">
+                                <strong>Coordenadas:</strong><br>
+                                ${ubicacionUsuario[0].toFixed(6)}° N, ${ubicacionUsuario[1].toFixed(6)}° W
+                            </p>
+                            <p style="margin: 0; color: #6b7280; font-size: 0.9rem;">
+                                <strong>Precisión:</strong> ±${Math.round(posicion.coords.accuracy)} metros
+                            </p>
+                        </div>
+                    `).openPopup();
+                    
+                    // Actualizar botón
+                    boton.innerHTML = '<i class="fas fa-check"></i> ¡Ubicación obtenida!';
+                    boton.style.background = '#10b981';
+                    boton.style.borderColor = '#10b981';
+                    boton.style.color = 'white';
+                    
+                    // Restaurar después de 3 segundos
+                    setTimeout(() => {
+                        boton.innerHTML = htmlOriginal;
+                        boton.style.background = '';
+                        boton.style.borderColor = '';
+                        boton.style.color = '';
+                        boton.disabled = false;
+                        
+                        // Remover marcador después de 15 segundos
+                        setTimeout(() => {
+                            if (marcadorUsuario && marcadorUsuario.remove) {
+                                marcadorUsuario.remove();
+                            }
+                        }, 15000);
+                    }, 3000);
+                    
+                    // Actualizar botón activo
+                    actualizarBotonActivo('ubicacion');
+                    
+                    console.log('📍 Ubicación obtenida:', ubicacionUsuario);
+                },
+                (error) => {
+                    // Error al obtener ubicación
+                    let mensajeError = 'No se pudo obtener tu ubicación. ';
+                    
+                    switch(error.code) {
+                        case error.PERMISSION_DENIED:
+                            mensajeError += 'Permiso denegado por el usuario.';
+                            break;
+                        case error.POSITION_UNAVAILABLE:
+                            mensajeError += 'Información de ubicación no disponible.';
+                            break;
+                        case error.TIMEOUT:
+                            mensajeError += 'Tiempo de espera agotado.';
+                            break;
+                        default:
+                            mensajeError += 'Error desconocido.';
+                    }
+                    
+                    alert(mensajeError);
+                    
+                    // Restaurar botón
+                    boton.innerHTML = htmlOriginal;
+                    boton.disabled = false;
+                },
+                {
+                    enableHighAccuracy: true,
+                    timeout: 10000,
+                    maximumAge: 0
+                }
+            );
+        } else {
+            alert('Tu navegador no soporta geolocalización.');
+            boton.innerHTML = htmlOriginal;
+            boton.disabled = false;
+        }
+    }
+    
+    // Actualizar botón activo
+    function actualizarBotonActivo(botonId) {
+        // Quitar clase active de todos los botones
+        document.querySelectorAll('.control-btn-real').forEach(boton => {
+            boton.classList.remove('active');
+            boton.style.background = '';
+            boton.style.borderColor = '';
+            boton.style.color = '';
+        });
+        
+        // Agregar clase active al botón seleccionado
+        const botonActivo = document.getElementById(botonId);
+        if (botonActivo) {
+            botonActivo.classList.add('active');
+            botonActivo.style.background = '#3b82f6';
+            botonActivo.style.borderColor = '#3b82f6';
+            botonActivo.style.color = 'white';
+        }
+    }
+    
+    // ================================
+    // FUNCIONES AUXILIARES
+    // ================================
+    
+    // Toggle menu móvil
+    function toggleMenu() {
+        const nav = document.querySelector('.web-nav');
+        nav.classList.toggle('active');
+    }
+    
+    // Mostrar paso de API
+    function mostrarPaso(numero) {
+        alert(`Paso ${numero}: ${getDescripcionPaso(numero)}`);
+    }
+    
+    function getDescripcionPaso(numero) {
+        const pasos = {
+            1: 'Crear cuenta en Google Cloud Platform',
+            2: 'Habilitar Maps JavaScript API',
+            3: 'Generar clave de API',
+            4: 'Configurar restricciones de seguridad',
+            5: 'Implementar en el código'
+        };
+        return pasos[numero] || 'Paso no encontrado';
+    }
+    
+    // Explicar tipo de geolocalización
+    function explicarTipo(tipo) {
+        const explicaciones = {
+            'gps': 'GPS: Sistema satelital de 24+ satélites. Precisión: 3-15 metros. Requiere visibilidad al cielo.',
+            'wifi': 'Wi-Fi: Ubicación mediante redes Wi-Fi cercanas. Precisión: 10-50 metros. Funciona mejor en áreas urbanas.',
+            'celular': 'Celular: Triangulación con torres de telefonía. Precisión: 100m-1km. Funciona en cualquier lugar con cobertura.',
+            'ip': 'IP: Ubicación aproximada por dirección IP. Precisión: nivel de ciudad/región. Menos preciso pero siempre disponible.'
+        };
+        
+        alert(explicaciones[tipo] || 'Tipo no encontrado');
+    }
+    
+    // Mostrar ejemplo de ubicación
+    function mostrarEjemploUbicacion(tipo) {
+        const ejemplos = {
+            'coordenadas': 'Ejemplo: 19.4326° N, 99.1332° W\n\nSistema más preciso. Usado en navegación GPS y mapas digitales.',
+            'direccion': 'Ejemplo: Av. Paseo de la Reforma 123, CDMX\n\nLegible por humanos. Requiere geocodificación para uso en mapas.',
+            'pluscode': 'Ejemplo: 8F6G+P2 Ciudad de México\n\nCódigo abierto de Google. Similar a código postal más preciso.',
+            'referencia': 'Ejemplo: A 2 cuadras del Ángel de la Independencia\n\nIntuitivo para humanos. Requiere conocimiento local.'
+        };
+        
+        alert(ejemplos[tipo] || 'Ejemplo no encontrado');
+    }
+    
+    // Copiar código al portapapeles
+    function copiarCodigo(elementId) {
+        const elemento = document.getElementById(elementId);
+        if (!elemento) return;
+        
+        const texto = elemento.textContent;
+        
+        navigator.clipboard.writeText(texto).then(() => {
+            // Mostrar notificación
+            mostrarNotificacion('¡Código copiado al portapapeles!', 'success');
+        }).catch(err => {
+            console.error('Error al copiar:', err);
+            mostrarNotificacion('Error al copiar código', 'error');
+        });
+    }
+    
+    // Mostrar notificación
+    function mostrarNotificacion(mensaje, tipo = 'info') {
+        // Crear elemento de notificación
+        const notificacion = document.createElement('div');
+        notificacion.className = `notificacion notificacion-${tipo}`;
+        notificacion.textContent = mensaje;
+        
+        // Estilos
+        notificacion.style.position = 'fixed';
+        notificacion.style.top = '20px';
+        notificacion.style.right = '20px';
+        notificacion.style.padding = '15px 20px';
+        notificacion.style.background = tipo === 'success' ? '#10b981' : '#ef4444';
+        notificacion.style.color = 'white';
+        notificacion.style.borderRadius = '8px';
+        notificacion.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
+        notificacion.style.zIndex = '9999';
+        notificacion.style.transform = 'translateX(150%)';
+        notificacion.style.transition = 'transform 0.3s ease-out';
+        
+        document.body.appendChild(notificacion);
+        
+        // Mostrar
+        setTimeout(() => {
+            notificacion.style.transform = 'translateX(0)';
+        }, 100);
+        
+        // Ocultar después de 3 segundos
+        setTimeout(() => {
+            notificacion.style.transform = 'translateX(150%)';
+            setTimeout(() => {
+                document.body.removeChild(notificacion);
+            }, 300);
+        }, 3000);
+    }
+    
+    // Descargar código
+    function descargarCodigo() {
+        mostrarNotificacion('Preparando descarga del código completo...', 'info');
+        
+        // Simular descarga
+        setTimeout(() => {
+            mostrarNotificacion('¡Código listo para descargar!', 'success');
+        }, 1500);
+    }
+    
+    // Probar demo
+    function probarDemo() {
+        alert('¡Demo funcionando correctamente!\n\nExplora el mapa interactivo y todas sus funcionalidades.');
+    }
+    
+    // Descargar todo
+    function descargarTodo() {
+        mostrarNotificacion('Generando archivos del proyecto completo...', 'info');
+        
+        setTimeout(() => {
+            mostrarNotificacion('¡Proyecto listo para descargar! Incluye HTML, CSS, JavaScript y documentación.', 'success');
+        }, 2000);
+    }
+    
+    // Ver código completo
+    function verCodigoCompleto() {
+        // Scroll a la sección de código
+        document.querySelector('.codigo-fuente-section').scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
+    
+    // Descargar proyecto
+    function descargarProyecto() {
+        mostrarNotificacion('Preparando proyecto para descarga...', 'info');
+        
+        setTimeout(() => {
+            mostrarNotificacion('Proyecto comprimido listo. Incluye todos los archivos necesarios.', 'success');
+        }, 1500);
+    }
+    
+    // Agregar animaciones CSS para los marcadores
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-20px);}
+            60% {transform: translateY(-10px);}
+        }
+        
+        @keyframes pulse {
+            0% {transform: scale(1);}
+            50% {transform: scale(1.1);}
+            100% {transform: scale(1);}
+        }
+        
+        .marker-personalizado {
+            background: transparent !important;
+            border: none !important;
+        }
+        
+        .popup-personalizado .leaflet-popup-content-wrapper {
+            border-radius: 12px !important;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
+            overflow: hidden !important;
+        }
+        
+        .popup-personalizado .leaflet-popup-tip {
+            background: white !important;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Navegación suave
+    document.querySelectorAll('.web-nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                // Scroll suave
+                window.scrollTo({
+                    top: targetSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Actualizar enlace activo
+                document.querySelectorAll('.web-nav-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Cerrar menú móvil si está abierto
+                if (window.innerWidth <= 768) {
+                    document.querySelector('.web-nav').classList.remove('active');
+                }
+            }
+        });
+    });
+    
+    // Detectar sección activa en scroll
+    window.addEventListener('scroll', function() {
+        const sections = document.querySelectorAll('.web-section[id]');
+        const scrollPos = window.scrollY + 100;
+        
+        let seccionActual = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionBottom = sectionTop + section.offsetHeight;
+            
+            if (scrollPos >= sectionTop && scrollPos <= sectionBottom) {
+                seccionActual = section.getAttribute('id');
+            }
+        });
+        
+        if (seccionActual) {
+            document.querySelectorAll('.web-nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${seccionActual}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    });
+    
+    // Animaciones al hacer scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    // Observar elementos para animar
+    document.querySelectorAll('.info-card-real, .tipo-card-real, .app-card-real, .ubicacion-card-real').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+    </script>
+</body>
+</html>

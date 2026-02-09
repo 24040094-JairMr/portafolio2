@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Cargamos el header desde components/header.html -->
+    <!-- El JavaScript al final manejará la carga dinámica -->
+    <script>
+        // Variable global para identificar la página actual
+        var current_page = 'saber';
+    </script>
+</head>
+<body>
+    <!-- Contenedores para componentes dinámicos -->
+    <div id="header-container"></div>
+    <div id="navbar-container"></div>
+
+    <!-- Hero Section Saber -->
+    <section class="hero saber-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="breadcrumb">
+                        <a href="index.html">Inicio</a> <!-- Cambiado: index.php → index.html -->
+                        <i class="fas fa-chevron-right"></i>
+                        <a href="unidad1.html">Unidad 1</a> <!-- Cambiado: unidad1.php → unidad1.html -->
+                        <i class="fas fa-chevron-right"></i>
+                        <span class="current">SABER</span>
+                    </div>
+                    
+                    <!-- Este CSS se cargará automáticamente por el sistema -->
+                    <!-- <link rel="stylesheet" href="assets/css/saber.css"> -->
+
+                    <h1 class="hero-title">
+                        <span class="gradient-text">SABER</span>
+                        <br>
+                        <span style="font-size: 2rem;">Introducción al Desarrollo Web Orientado a Servicios</span>
+                    </h1>
+                    
+                    <p class="hero-desc">
+                        Conocimiento fundamental sobre arquitecturas SOA, servicios en la nube y aplicaciones web híbridas. 
+                        Base teórica esencial para comprender el desarrollo orientado a servicios.
+                    </p>
+                    
+                    <div class="hero-badges">
+                        <span class="badge" style="background: #10b981;">
+                            <i class="fas fa-brain"></i>
+                            Conocimiento Teórico
+                        </span>
+                        <span class="badge" style="background: #7c3aed;">
+                            <i class="fas fa-graduation-cap"></i>
+                            Nivel: Fundamental
+                        </span>
+                        <span class="badge" style="background: #3b82f6;">
+                            <i class="fas fa-clock"></i>
+                            Tiempo estimado: 3 horas
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="saber-icon-large">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navegación -->
+    <section class="section saber-nav">
+        <div class="container">
+            <div class="saber-navigation">
+                <a href="unidad1.html" class="nav-btn"> <!-- Cambiado: unidad1.php → unidad1.html -->
+                    <i class="fas fa-arrow-left"></i>
+                    Volver a Unidad 1
+                </a>
+                <div class="nav-pills">
+                    <a href="#paradigma" class="nav-pill active">Paradigma SOA</a>
+                    <a href="#arquitectura" class="nav-pill">Arquitectura SOA</a>
+                    <a href="#estandares" class="nav-pill">Estándares</a>
+                    <a href="#conclusion" class="nav-pill">Conclusión</a>
+                </div>
+                <a href="saberhacer2-1.html" class="nav-btn next"> <!-- Cambiado: unidad1-saberhacer1.php → saberhacer2-1.html -->
+                    Siguiente: Saber Hacer 1
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 1: Paradigma del Desarrollo Orientado a Servicios -->
+    <section class="section saber-section" id="paradigma">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Tema 1</div>
+                <h2 class="section-title">Paradigma del Desarrollo de Aplicaciones Orientadas a Servicios</h2>
+                <p class="section-subtitle">
+                    Evolución de las arquitecturas de software hacia modelos basados en servicios independientes y reutilizables
+                </p>
+            </div>
+            
+            <div class="saber-content">
+                <!-- Introducción -->
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fas fa-info-circle" style="color: #7c3aed;"></i> ¿Qué es el Desarrollo Orientado a Servicios?</h3>
+                    </div>
+                    <div class="content-body">
+                        <p>
+                            El Desarrollo Orientado a Servicios (DOS) es un paradigma arquitectónico que construye 
+                            aplicaciones como conjuntos de <strong>servicios autónomos, desacoplados y reutilizables</strong>. 
+                            A diferencia del desarrollo monolítico tradicional, DOS permite que cada servicio:
+                        </p>
+                        <div class="features-grid">
+                            <div class="feature">
+                                <i class="fas fa-sync-alt" style="color: #10b981;"></i>
+                                <span>Funcione de manera independiente</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-puzzle-piece" style="color: #3b82f6;"></i>
+                                <span>Se comunique mediante interfaces estándar</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-redo" style="color: #f59e0b;"></i>
+                                <span>Sea reutilizable en diferentes contextos</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-expand" style="color: #ec4899;"></i>
+                                <span>Escale de forma individual según demanda</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Subsección 1: Servicios en la Nube -->
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fas fa-cloud" style="color: #3b82f6;"></i> Distinguir los servicios que se ofrecen en la nube</h3>
+                    </div>
+                    <div class="content-body">
+                        <div class="image-text">
+                            <div class="text">
+                                <p>
+                                    Los servicios en la nube representan la evolución natural del desarrollo orientado a servicios, 
+                                    ofreciendo capacidades de procesamiento, almacenamiento y software a través de Internet.
+                                </p>
+                                <p>
+                                    <strong>Modelos principales de servicios cloud:</strong>
+                                </p>
+                            </div>
+                            <div class="image">
+                                <div class="placeholder-image">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Modelos Cloud</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="cloud-models">
+                            <div class="model-card">
+                                <div class="model-icon" style="background: #3b82f6;">
+                                    <i class="fas fa-server"></i>
+                                </div>
+                                <h4>IaaS - Infraestructura como Servicio</h4>
+                                <p>
+                                    <strong>Provee:</strong> Recursos de computación básicos (servidores virtuales, almacenamiento, redes)
+                                    <br>
+                                    <strong>Ejemplos:</strong> Amazon EC2, Microsoft Azure VMs, Google Compute Engine
+                                    <br>
+                                    <strong>Control:</strong> Usuario gestiona SO, aplicaciones y datos
+                                </p>
+                            </div>
+                            
+                            <div class="model-card">
+                                <div class="model-icon" style="background: #10b981;">
+                                    <i class="fas fa-layer-group"></i>
+                                </div>
+                                <h4>PaaS - Plataforma como Servicio</h4>
+                                <p>
+                                    <strong>Provee:</strong> Entorno de desarrollo y despliegue (middleware, bases de datos, herramientas)
+                                    <br>
+                                    <strong>Ejemplos:</strong> Google App Engine, Heroku, AWS Elastic Beanstalk
+                                    <br>
+                                    <strong>Control:</strong> Usuario gestiona solo aplicaciones y datos
+                                </p>
+                            </div>
+                            
+                            <div class="model-card">
+                                <div class="model-icon" style="background: #ec4899;">
+                                    <i class="fas fa-desktop"></i>
+                                </div>
+                                <h4>SaaS - Software como Servicio</h4>
+                                <p>
+                                    <strong>Provee:</strong> Aplicaciones completas accesibles vía navegador
+                                    <br>
+                                    <strong>Ejemplos:</strong> Gmail, Salesforce, Office 365, Dropbox
+                                    <br>
+                                    <strong>Control:</strong> Proveedor gestiona todo, usuario solo usa la aplicación
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="comparison-table">
+                            <h4>Comparativa de Modelos Cloud</h4>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Aspecto</th>
+                                        <th>IaaS</th>
+                                        <th>PaaS</th>
+                                        <th>SaaS</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Control del usuario</td>
+                                        <td>Máximo</td>
+                                        <td>Medio</td>
+                                        <td>Mínimo</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Flexibilidad</td>
+                                        <td>Alta</td>
+                                        <td>Media</td>
+                                        <td>Baja</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Complejidad de gestión</td>
+                                        <td>Alta</td>
+                                        <td>Media</td>
+                                        <td>Baja</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tiempo de implementación</td>
+                                        <td>Largo</td>
+                                        <td>Medio</td>
+                                        <td>Corto</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ejemplo común</td>
+                                        <td>Servidor Virtual</td>
+                                        <td>Entorno de Desarrollo</td>
+                                        <td>Gmail</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Subsección 2: Características de Aplicaciones Orientadas a Servicios -->
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fas fa-list-check" style="color: #10b981;"></i> Características de las Aplicaciones Orientadas a Servicios</h3>
+                    </div>
+                    <div class="content-body">
+                        <div class="image-text reverse">
+                            <div class="image">
+                                <div class="placeholder-image">
+                                    <i class="fas fa-sitemap"></i>
+                                    <span>Arquitectura SOA</span>
+                                </div>
+                            </div>
+                            <div class="text">
+                                <p>
+                                    Las aplicaciones construidas bajo el paradigma SOA presentan características distintivas 
+                                    que las diferencian de las aplicaciones tradicionales:
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="characteristics-grid">
+                            <div class="characteristic">
+                                <div class="char-icon" style="background: rgba(124, 58, 237, 0.1);">
+                                    <i class="fas fa-unlink" style="color: #7c3aed;"></i>
+                                </div>
+                                <div class="char-content">
+                                    <h4>Desacoplamiento</h4>
+                                    <p>
+                                        Los servicios son independientes entre sí, lo que permite modificarlos, 
+                                        actualizarlos o reemplazarlos sin afectar a todo el sistema.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="characteristic">
+                                <div class="char-icon" style="background: rgba(16, 185, 129, 0.1);">
+                                    <i class="fas fa-redo" style="color: #10b981;"></i>
+                                </div>
+                                <div class="char-content">
+                                    <h4>Reutilización</h4>
+                                    <p>
+                                        Un mismo servicio puede ser utilizado por múltiples aplicaciones, 
+                                        reduciendo la duplicación de código y esfuerzo de desarrollo.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="characteristic">
+                                <div class="char-icon" style="background: rgba(59, 130, 246, 0.1);">
+                                    <i class="fas fa-expand-arrows-alt" style="color: #3b82f6;"></i>
+                                </div>
+                                <div class="char-content">
+                                    <h4>Escalabilidad</h4>
+                                    <p>
+                                        Cada servicio puede escalarse de manera independiente según sus 
+                                        necesidades específicas de rendimiento.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="characteristic">
+                                <div class="char-icon" style="background: rgba(245, 158, 11, 0.1);">
+                                    <i class="fas fa-exchange-alt" style="color: #f59e0b;"></i>
+                                </div>
+                                <div class="char-content">
+                                    <h4>Interoperabilidad</h4>
+                                    <p>
+                                        Uso de estándares abiertos que permiten la comunicación entre 
+                                        servicios desarrollados en diferentes tecnologías.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="characteristic">
+                                <div class="char-icon" style="background: rgba(236, 72, 153, 0.1);">
+                                    <i class="fas fa-search" style="color: #ec4899;"></i>
+                                </div>
+                                <div class="char-content">
+                                    <h4>Descubribilidad</h4>
+                                    <p>
+                                        Los servicios pueden ser descubiertos dinámicamente a través de 
+                                        registros de servicios (como UDDI).
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="characteristic">
+                                <div class="char-icon" style="background: rgba(139, 92, 246, 0.1);">
+                                    <i class="fas fa-shield-alt" style="color: #8b5cf6;"></i>
+                                </div>
+                                <div class="char-content">
+                                    <h4>Autonomía</h4>
+                                    <p>
+                                        Cada servicio tiene control sobre la lógica que encapsula y 
+                                        puede funcionar de manera independiente.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Subsección 3: Aplicaciones Web Híbridas (Mashup) -->
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fas fa-puzzle-piece" style="color: #f59e0b;"></i> Aplicaciones Web Híbridas (Mashup)</h3>
+                    </div>
+                    <div class="content-body">
+                        <div class="image-text">
+                            <div class="text">
+                                <h4>Concepto de Mashup</h4>
+                                <p>
+                                    Un <strong>mashup</strong> es una aplicación web híbrida que combina datos, 
+                                    funcionalidades o presentaciones de dos o más fuentes para crear un nuevo servicio.
+                                </p>
+                                <p>
+                                    Los mashups son la manifestación práctica del principio de reutilización en SOA, 
+                                    permitiendo crear aplicaciones innovadoras rápidamente mediante la integración de 
+                                    servicios existentes.
+                                </p>
+                            </div>
+                            <div class="image">
+                                <div class="placeholder-image">
+                                    <i class="fas fa-code-branch"></i>
+                                    <span>Mashup Diagram</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mashup-types">
+                            <h4>Tipos de Mashups</h4>
+                            <div class="types-grid">
+                                <div class="type-card">
+                                    <div class="type-header" style="background: #7c3aed;">
+                                        <i class="fas fa-map-marked-alt"></i>
+                                        <h5>Mashups de Datos</h5>
+                                    </div>
+                                    <div class="type-body">
+                                        <p>Combinan datos de múltiples fuentes (ej: Google Maps + datos inmobiliarios)</p>
+                                        <ul>
+                                            <li>APIs de mapas + bases de datos locales</li>
+                                            <li>Datos públicos + información privada</li>
+                                            <li>Feeds RSS + contenidos personalizados</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="type-card">
+                                    <div class="type-header" style="background: #3b82f6;">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        <h5>Mashups de Negocios</h5>
+                                    </div>
+                                    <div class="type-body">
+                                        <p>Integran servicios de diferentes empresas (ej: PayPal + sistema de inventario)</p>
+                                        <ul>
+                                            <li>Procesamiento de pagos + CRM</li>
+                                            <li>Logística + tracking de envíos</li>
+                                            <li>Reservas + sistemas de recomendación</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="type-card">
+                                    <div class="type-header" style="background: #10b981;">
+                                        <i class="fas fa-user-friends"></i>
+                                        <h5>Mashups de Consumidor</h5>
+                                    </div>
+                                    <div class="type-body">
+                                        <p>Dirigidos a usuarios finales (ej: YouTube + comentarios de Facebook)</p>
+                                        <ul>
+                                            <li>Redes sociales + multimedia</li>
+                                            <li>Blogs + sistemas de comentarios</li>
+                                            <li>Calendarios + recordatorios</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mashup-example">
+                            <h4>Ejemplo Práctico: Mashup de Bienes Raíces</h4>
+                            <div class="example-diagram">
+                                <div class="diagram-node">
+                                    <i class="fas fa-map"></i>
+                                    <span>Google Maps API</span>
+                                </div>
+                                <div class="diagram-arrow">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                                <div class="diagram-node">
+                                    <i class="fas fa-home"></i>
+                                    <span>Base de Datos de Propiedades</span>
+                                </div>
+                                <div class="diagram-arrow">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                                <div class="diagram-node">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>API de Valores de Mercado</span>
+                                </div>
+                                <div class="diagram-arrow">
+                                    <i class="fas fa-equals"></i>
+                                </div>
+                                <div class="diagram-result">
+                                    <i class="fas fa-search-dollar"></i>
+                                    <span>Portal de Bienes Raíces Interactivo</span>
+                                </div>
+                            </div>
+                            <p class="example-desc">
+                                Este mashup combina tres servicios independientes para crear una aplicación 
+                                que muestra propiedades en un mapa con información detallada y valores de mercado actualizados.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 2: Arquitectura Orientada a Servicios (SOA) -->
+    <section class="section saber-section dark-section" id="arquitectura">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Tema 2</div>
+                <h2 class="section-title">Arquitectura Orientada a Servicios (SOA)</h2>
+                <p class="section-subtitle">
+                    Marco arquitectónico para diseñar, desarrollar e integrar sistemas empresariales como servicios
+                </p>
+            </div>
+            
+            <div class="saber-content">
+                <!-- Definición SOA -->
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fas fa-archway" style="color: #3b82f6;"></i> ¿Qué es la Arquitectura Orientada a Servicios (SOA)?</h3>
+                    </div>
+                    <div class="content-body">
+                        <div class="definition-box">
+                            <div class="definition-icon">
+                                <i class="fas fa-cube"></i>
+                            </div>
+                            <div class="definition-content">
+                                <p>
+                                    <strong>SOA (Service-Oriented Architecture)</strong> es un estilo arquitectónico 
+                                    que estructura una aplicación como una colección de <strong>servicios débilmente acoplados</strong> 
+                                    que se comunican a través de <strong>interfaces bien definidas</strong> utilizando 
+                                    <strong>protocolos estándar</strong>.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="soa-diagram">
+                            <h4>Componentes Principales de SOA</h4>
+                            <div class="diagram-container">
+                                <div class="soa-layer">
+                                    <div class="layer-header">
+                                        <h5>Consumidores de Servicios</h5>
+                                        <span>Aplicaciones Cliente</span>
+                                    </div>
+                                    <div class="layer-content">
+                                        <div class="service-consumer">
+                                            <i class="fas fa-desktop"></i>
+                                            <span>Aplicación Web</span>
+                                        </div>
+                                        <div class="service-consumer">
+                                            <i class="fas fa-mobile-alt"></i>
+                                            <span>App Móvil</span>
+                                        </div>
+                                        <div class="service-consumer">
+                                            <i class="fas fa-sync-alt"></i>
+                                            <span>Sistema Legacy</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="soa-connector">
+                                    <i class="fas fa-exchange-alt"></i>
+                                    <span>Interfaz de Servicio</span>
+                                </div>
+                                
+                                <div class="soa-layer">
+                                    <div class="layer-header">
+                                        <h5>Servicios</h5>
+                                        <span>Componentes de Negocio</span>
+                                    </div>
+                                    <div class="layer-content">
+                                        <div class="service">
+                                            <i class="fas fa-user-check"></i>
+                                            <span>Servicio de Autenticación</span>
+                                        </div>
+                                        <div class="service">
+                                            <i class="fas fa-shopping-cart"></i>
+                                            <span>Servicio de Pedidos</span>
+                                        </div>
+                                        <div class="service">
+                                            <i class="fas fa-database"></i>
+                                            <span>Servicio de Catálogo</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="soa-connector">
+                                    <i class="fas fa-database"></i>
+                                    <span>Capa de Datos</span>
+                                </div>
+                                
+                                <div class="soa-layer">
+                                    <div class="layer-header">
+                                        <h5>Infraestructura</h5>
+                                        <span>Recursos y Plataforma</span>
+                                    </div>
+                                    <div class="layer-content">
+                                        <div class="infrastructure">
+                                            <i class="fas fa-server"></i>
+                                            <span>Servidores</span>
+                                        </div>
+                                        <div class="infrastructure">
+                                            <i class="fas fa-network-wired"></i>
+                                            <span>Red</span>
+                                        </div>
+                                        <div class="infrastructure">
+                                            <i class="fas fa-shield-alt"></i>
+                                            <span>Seguridad</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Principios de Diseño SOA -->
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fas fa-ruler-combined" style="color: #10b981;"></i> Principios de Diseño en SOA</h3>
+                    </div>
+                    <div class="content-body">
+                        <p>
+                            Los principios de diseño SOA guían la creación de servicios que sean verdaderamente orientados 
+                            a servicios y maximicen los beneficios de esta arquitectura:
+                        </p>
+                        
+                        <div class="principles-grid">
+                            <div class="principle-card">
+                                <div class="principle-number">01</div>
+                                <h4>Contrato de Servicio Estándar</h4>
+                                <p>
+                                    Los servicios se adhieren a un contrato de comunicación estandarizado 
+                                    que define términos, formatos y protocolos.
+                                </p>
+                            </div>
+                            
+                            <div class="principle-card">
+                                <div class="principle-number">02</div>
+                                <h4>Bajo Acoplamiento</h4>
+                                <p>
+                                    Los servicios mantienen relaciones que minimizan las dependencias 
+                                    y solo requieren conocimiento de cada uno.
+                                </p>
+                            </div>
+                            
+                            <div class="principle-card">
+                                <div class="principle-number">03</div>
+                                <h4>Abstracción</h4>
+                                <p>
+                                    Los servicios ocultan su lógica interna al mundo exterior, 
+                                    exponiendo solo el contrato de servicio.
+                                </p>
+                            </div>
+                            
+                            <div class="principle-card">
+                                <div class="principle-number">04</div>
+                                <h4>Reutilización</h4>
+                                <p>
+                                    La lógica del servicio se divide en procesos con la intención 
+                                    de promover su reutilización.
+                                </p>
+                            </div>
+                            
+                            <div class="principle-card">
+                                <div class="principle-number">05</div>
+                                <h4>Autonomía</h4>
+                                <p>
+                                    Los servicios tienen control sobre la lógica que encapsulan 
+                                    dentro de su límite.
+                                </p>
+                            </div>
+                            
+                            <div class="principle-card">
+                                <div class="principle-number">06</div>
+                                <h4>Sin Estado</h4>
+                                <p>
+                                    Los servicios minimizan la retención de información específica 
+                                    de una actividad.
+                                </p>
+                            </div>
+                            
+                            <div class="principle-card">
+                                <div class="principle-number">07</div>
+                                <h4>Descubribilidad</h4>
+                                <p>
+                                    Los servicios se complementan con metadatos comunicativos 
+                                    mediante los cuales pueden ser descubiertos e interpretados.
+                                </p>
+                            </div>
+                            
+                            <div class="principle-card">
+                                <div class="principle-number">08</div>
+                                <h4>Composición</h4>
+                                <p>
+                                    Los servicios son componentes efectivos de composición, 
+                                    independientemente del tamaño y complejidad de la composición.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="design-pattern">
+                            <h4>Patrón de Diseño: Service Layer</h4>
+                            <div class="pattern-diagram">
+                                <div class="pattern-level">
+                                    <div class="level-label">Capa de Presentación</div>
+                                    <div class="level-content">
+                                        <i class="fas fa-desktop"></i> UI/UX
+                                    </div>
+                                </div>
+                                <div class="pattern-arrow">↓</div>
+                                <div class="pattern-level">
+                                    <div class="level-label">Capa de Servicios</div>
+                                    <div class="level-content">
+                                        <div class="service-item">Servicio A</div>
+                                        <div class="service-item">Servicio B</div>
+                                        <div class="service-item">Servicio C</div>
+                                    </div>
+                                </div>
+                                <div class="pattern-arrow">↓</div>
+                                <div class="pattern-level">
+                                    <div class="level-label">Capa de Dominio</div>
+                                    <div class="level-content">
+                                        <i class="fas fa-cogs"></i> Lógica de Negocio
+                                    </div>
+                                </div>
+                                <div class="pattern-arrow">↓</div>
+                                <div class="pattern-level">
+                                    <div class="level-label">Capa de Persistencia</div>
+                                    <div class="level-content">
+                                        <i class="fas fa-database"></i> Base de Datos
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 3: Estándares SOA -->
+    <section class="section saber-section" id="estandares">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Tema 3</div>
+                <h2 class="section-title">Estándares Relacionados con los Servicios</h2>
+                <p class="section-subtitle">
+                    Protocolos y formatos que hacen posible la interoperabilidad en SOA
+                </p>
+            </div>
+            
+            <div class="saber-content">
+                <!-- Introducción Estándares -->
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fas fa-certificate" style="color: #f59e0b;"></i> Importancia de los Estándares en SOA</h3>
+                    </div>
+                    <div class="content-body">
+                        <p>
+                            Los estándares son fundamentales en SOA porque permiten la <strong>interoperabilidad</strong> 
+                            entre servicios desarrollados con diferentes tecnologías, por diferentes equipos y en diferentes momentos.
+                        </p>
+                        
+                        <div class="standards-timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-year">1998</div>
+                                <div class="timeline-content">
+                                    <h4>XML (eXtensible Markup Language)</h4>
+                                    <p>Lenguaje de marcado para estructurar datos de manera legible tanto para humanos como para máquinas.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-year">1999</div>
+                                <div class="timeline-content">
+                                    <h4>SOAP (Simple Object Access Protocol)</h4>
+                                    <p>Protocolo para el intercambio de información estructurada en la implementación de servicios web.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-year">2001</div>
+                                <div class="timeline-content">
+                                    <h4>WSDL (Web Services Description Language)</h4>
+                                    <p>Lenguaje basado en XML para describir interfaces de servicios web.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-year">2000</div>
+                                <div class="timeline-content">
+                                    <h4>UDDI (Universal Description, Discovery and Integration)</h4>
+                                    <p>Registro basado en XML para publicar y descubrir servicios web.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-year">2000</div>
+                                <div class="timeline-content">
+                                    <h4>REST (Representational State Transfer)</h4>
+                                    <p>Estilo arquitectónico que utiliza HTTP para la comunicación entre sistemas.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Estándares Detallados -->
+                <div class="standards-detailed">
+                    <!-- XML -->
+                    <div class="standard-card">
+                        <div class="standard-header">
+                            <div class="standard-icon" style="background: #e34f26;">
+                                <i class="fas fa-file-code"></i>
+                            </div>
+                            <div class="standard-title">
+                                <h3>XML (eXtensible Markup Language)</h3>
+                                <span class="standard-year">W3C Recommendation - 1998</span>
+                            </div>
+                        </div>
+                        <div class="standard-body">
+                            <div class="standard-desc">
+                                <p>
+                                    Lenguaje de marcado que define un conjunto de reglas para la codificación 
+                                    de documentos en un formato legible tanto para humanos como para máquinas.
+                                </p>
+                            </div>
+                            
+                            <div class="standard-features">
+                                <h4>Características Clave:</h4>
+                                <div class="features-list">
+                                    <div class="feature-item">
+                                        <i class="fas fa-check" style="color: #10b981;"></i>
+                                        <span>Extensible - Puede crear sus propias etiquetas</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-check" style="color: #10b981;"></i>
+                                        <span>Independiente de plataforma y lenguaje</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-check" style="color: #10b981;"></i>
+                                        <span>Auto-descriptivo - Las etiquetas describen el contenido</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <i class="fas fa-check" style="color: #10b981;"></i>
+                                        <span>Soporte Unicode - Internacionalización completa</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="standard-example">
+                                <h4>Ejemplo de Documento XML:</h4>
+                                <pre><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;pedido id="12345"&gt;
+    &lt;cliente&gt;
+        &lt;nombre&gt;Juan Pérez&lt;/nombre&gt;
+        &lt;email&gt;juan@example.com&lt;/email&gt;
+        &lt;direccion&gt;
+            &lt;calle&gt;Av. Principal 123&lt;/calle&gt;
+            &lt;ciudad&gt;Ciudad de México&lt;/ciudad&gt;
+        &lt;/direccion&gt;
+    &lt;/cliente&gt;
+    &lt;productos&gt;
+        &lt;producto id="P001" cantidad="2"&gt;
+            &lt;nombre&gt;Laptop Dell XPS&lt;/nombre&gt;
+            &lt;precio&gt;1500.00&lt;/precio&gt;
+        &lt;/producto&gt;
+    &lt;/productos&gt;
+    &lt;total&gt;3000.00&lt;/total&gt;
+&lt;/pedido&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- SOAP -->
+                    <div class="standard-card">
+                        <div class="standard-header">
+                            <div class="standard-icon" style="background: #007acc;">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            <div class="standard-title">
+                                <h3>SOAP (Simple Object Access Protocol)</h3>
+                                <span class="standard-year">W3C Note - 1999</span>
+                            </div>
+                        </div>
+                        <div class="standard-body">
+                            <div class="standard-desc">
+                                <p>
+                                    Protocolo de mensajería basado en XML para intercambiar información estructurada 
+                                    en la implementación de servicios web sobre redes.
+                                </p>
+                            </div>
+                            
+                            <div class="standard-structure">
+                                <h4>Estructura de un Mensaje SOAP:</h4>
+                                <div class="soap-structure">
+                                    <div class="soap-envelope">
+                                        <div class="soap-part">
+                                            <i class="fas fa-envelope"></i>
+                                            <span>SOAP Envelope</span>
+                                        </div>
+                                        <div class="soap-nested">
+                                            <div class="soap-part">
+                                                <i class="fas fa-heading"></i>
+                                                <span>SOAP Header (Opcional)</span>
+                                            </div>
+                                            <div class="soap-part main">
+                                                <i class="fas fa-file-alt"></i>
+                                                <span>SOAP Body</span>
+                                                <div class="soap-nested">
+                                                    <div class="soap-part">
+                                                        <i class="fas fa-exclamation-circle"></i>
+                                                        <span>SOAP Fault (Opcional)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="standard-example">
+                                <h4>Ejemplo de Mensaje SOAP:</h4>
+                                <pre><code class="language-xml">&lt;?xml version="1.0"?&gt;
+&lt;soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"&gt;
+    &lt;soap:Header&gt;
+        &lt;auth:Autenticacion xmlns:auth="http://example.com/auth"&gt;
+            &lt;auth:Usuario&gt;admin&lt;/auth:Usuario&gt;
+            &lt;auth:Token&gt;abc123xyz&lt;/auth:Token&gt;
+        &lt;/auth:Autenticacion&gt;
+    &lt;/soap:Header&gt;
+    &lt;soap:Body&gt;
+        &lt;ped:ObtenerPedido xmlns:ped="http://example.com/pedidos"&gt;
+            &lt;ped:IdPedido&gt;12345&lt;/ped:IdPedido&gt;
+        &lt;/ped:ObtenerPedido&gt;
+    &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- WSDL -->
+                    <div class="standard-card">
+                        <div class="standard-header">
+                            <div class="standard-icon" style="background: #4479a1;">
+                                <i class="fas fa-file-contract"></i>
+                            </div>
+                            <div class="standard-title">
+                                <h3>WSDL (Web Services Description Language)</h3>
+                                <span class="standard-year">W3C Note - 2001</span>
+                            </div>
+                        </div>
+                        <div class="standard-body">
+                            <div class="standard-desc">
+                                <p>
+                                    Lenguaje basado en XML para describir la funcionalidad ofrecida por un servicio web. 
+                                    Es el "contrato" entre el proveedor y el consumidor del servicio.
+                                </p>
+                            </div>
+                            
+                            <div class="wsdl-elements">
+                                <h4>Elementos Principales de WSDL:</h4>
+                                <div class="elements-grid">
+                                    <div class="element">
+                                        <div class="element-icon">
+                                            <i class="fas fa-cube"></i>
+                                        </div>
+                                        <div class="element-content">
+                                            <h5>Types</h5>
+                                            <p>Definiciones de tipos de datos usando XML Schema</p>
+                                        </div>
+                                    </div>
+                                    <div class="element">
+                                        <div class="element-icon">
+                                            <i class="fas fa-envelope"></i>
+                                        </div>
+                                        <div class="element-content">
+                                            <h5>Message</h5>
+                                            <p>Definición abstracta de los datos transmitidos</p>
+                                        </div>
+                                    </div>
+                                    <div class="element">
+                                        <div class="element-icon">
+                                            <i class="fas fa-plug"></i>
+                                        </div>
+                                        <div class="element-content">
+                                            <h5>PortType</h5>
+                                            <p>Conjunto abstracto de operaciones soportadas</p>
+                                        </div>
+                                    </div>
+                                    <div class="element">
+                                        <div class="element-icon">
+                                            <i class="fas fa-exchange-alt"></i>
+                                        </div>
+                                        <div class="element-content">
+                                            <h5>Binding</h5>
+                                            <p>Protocolo y formato para un portType específico</p>
+                                        </div>
+                                    </div>
+                                    <div class="element">
+                                        <div class="element-icon">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </div>
+                                        <div class="element-content">
+                                            <h5>Port</h5>
+                                            <p>Dirección de red para un binding</p>
+                                        </div>
+                                    </div>
+                                    <div class="element">
+                                        <div class="element-icon">
+                                            <i class="fas fa-network-wired"></i>
+                                        </div>
+                                        <div class="element-content">
+                                            <h5>Service</h5>
+                                            <p>Colección de endpoints relacionados</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- UDDI -->
+                    <div class="standard-card">
+                        <div class="standard-header">
+                            <div class="standard-icon" style="background: #f59e0b;">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div class="standard-title">
+                                <h3>UDDI (Universal Description, Discovery and Integration)</h3>
+                                <span class="standard-year">OASIS Standard - 2000</span>
+                            </div>
+                        </div>
+                        <div class="standard-body">
+                            <div class="standard-desc">
+                                <p>
+                                    Registro basado en XML que funciona como un "directorio telefónico" para servicios web, 
+                                    permitiendo a las empresas publicar y descubrir servicios.
+                                </p>
+                            </div>
+                            
+                            <div class="uddi-workflow">
+                                <h4>Flujo de Trabajo UDDI:</h4>
+                                <div class="workflow-steps">
+                                    <div class="step">
+                                        <div class="step-number">1</div>
+                                        <div class="step-content">
+                                            <h5>Publicar</h5>
+                                            <p>Proveedor publica información del servicio en el registro UDDI</p>
+                                        </div>
+                                    </div>
+                                    <div class="step-arrow">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                    <div class="step">
+                                        <div class="step-number">2</div>
+                                        <div class="step-content">
+                                            <h5>Buscar</h5>
+                                            <p>Consumidor busca servicios que cumplan ciertos criterios</p>
+                                        </div>
+                                    </div>
+                                    <div class="step-arrow">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                    <div class="step">
+                                        <div class="step-number">3</div>
+                                        <div class="step-content">
+                                            <h5>Descubrir</h5>
+                                            <p>UDDI devuelve información de contacto y WSDL</p>
+                                        </div>
+                                    </div>
+                                    <div class="step-arrow">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                    <div class="step">
+                                        <div class="step-number">4</div>
+                                        <div class="step-content">
+                                            <h5>Invocar</h5>
+                                            <p>Consumidor invoca el servicio usando la información obtenida</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- REST -->
+                    <div class="standard-card">
+                        <div class="standard-header">
+                            <div class="standard-icon" style="background: #7c3aed;">
+                                <i class="fas fa-plug"></i>
+                            </div>
+                            <div class="standard-title">
+                                <h3>REST (Representational State Transfer)</h3>
+                                <span class="standard-year">Tesis Doctoral - 2000</span>
+                            </div>
+                        </div>
+                        <div class="standard-body">
+                            <div class="standard-desc">
+                                <p>
+                                    Estilo arquitectónico que utiliza HTTP como protocolo de comunicación y se basa en 
+                                    principios de diseño que hacen a los sistemas web altamente escalables.
+                                </p>
+                            </div>
+                            
+                            <div class="rest-principles">
+                                <h4>Principios REST (Restricciones):</h4>
+                                <div class="principles-list">
+                                    <div class="principle">
+                                        <div class="principle-icon">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                        <div class="principle-content">
+                                            <h5>Cliente-Servidor</h5>
+                                            <p>Separación clara de responsabilidades</p>
+                                        </div>
+                                    </div>
+                                    <div class="principle">
+                                        <div class="principle-icon">
+                                            <i class="fas fa-redo"></i>
+                                        </div>
+                                        <div class="principle-content">
+                                            <h5>Sin Estado (Stateless)</h5>
+                                            <p>Cada petición contiene toda la información necesaria</p>
+                                        </div>
+                                    </div>
+                                    <div class="principle">
+                                        <div class="principle-icon">
+                                            <i class="fas fa-save"></i>
+                                        </div>
+                                        <div class="principle-content">
+                                            <h5>Cacheable</h5>
+                                            <p>Las respuestas deben poder ser cacheadas</p>
+                                        </div>
+                                    </div>
+                                    <div class="principle">
+                                        <div class="principle-icon">
+                                            <i class="fas fa-layer-group"></i>
+                                        </div>
+                                        <div class="principle-content">
+                                            <h5>Sistema en Capas</h5>
+                                            <p>Arquitectura en capas con intermediarios</p>
+                                        </div>
+                                    </div>
+                                    <div class="principle">
+                                        <div class="principle-icon">
+                                            <i class="fas fa-code"></i>
+                                        </div>
+                                        <div class="principle-content">
+                                            <h5>Código bajo Demanda (Opcional)</h5>
+                                            <p>El servidor puede extender funcionalidad del cliente</p>
+                                        </div>
+                                    </div>
+                                    <div class="principle">
+                                        <div class="principle-icon">
+                                            <i class="fas fa-universal-access"></i>
+                                        </div>
+                                        <div class="principle-content">
+                                            <h5>Interfaz Uniforme</h5>
+                                            <p>Identificación de recursos, manipulación a través de representaciones, etc.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="rest-methods">
+                                <h4>Métodos HTTP en REST:</h4>
+                                <div class="methods-grid">
+                                    <div class="method" style="background: #10b981;">
+                                        <i class="fas fa-plus-circle"></i>
+                                        <span>POST</span>
+                                        <small>Crear recurso</small>
+                                    </div>
+                                    <div class="method" style="background: #3b82f6;">
+                                        <i class="fas fa-eye"></i>
+                                        <span>GET</span>
+                                        <small>Obtener recurso</small>
+                                    </div>
+                                    <div class="method" style="background: #f59e0b;">
+                                        <i class="fas fa-edit"></i>
+                                        <span>PUT</span>
+                                        <small>Actualizar recurso</small>
+                                    </div>
+                                    <div class="method" style="background: #ef4444;">
+                                        <i class="fas fa-trash"></i>
+                                        <span>DELETE</span>
+                                        <small>Eliminar recurso</small>
+                                    </div>
+                                    <div class="method" style="background: #8b5cf6;">
+                                        <i class="fas fa-sync-alt"></i>
+                                        <span>PATCH</span>
+                                        <small>Actualizar parcial</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Comparativa SOAP vs REST -->
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fas fa-balance-scale" style="color: #64748b;"></i> Comparativa: SOAP vs REST</h3>
+                    </div>
+                    <div class="content-body">
+                        <div class="comparison-grid">
+                            <div class="comparison-header">
+                                <div class="comparison-col">Característica</div>
+                                <div class="comparison-col" style="color: #007acc;">SOAP</div>
+                                <div class="comparison-col" style="color: #7c3aed;">REST</div>
+                            </div>
+                            
+                            <div class="comparison-row">
+                                <div class="comparison-col">Protocolo</div>
+                                <div class="comparison-col">HTTP, SMTP, TCP, etc.</div>
+                                <div class="comparison-col">Solo HTTP/HTTPS</div>
+                            </div>
+                            
+                            <div class="comparison-row">
+                                <div class="comparison-col">Formato de datos</div>
+                                <div class="comparison-col">XML exclusivamente</div>
+                                <div class="comparison-col">XML, JSON, HTML, texto plano</div>
+                            </div>
+                            
+                            <div class="comparison-row">
+                                <div class="comparison-col">Performance</div>
+                                <div class="comparison-col">Más lento (sobrecarga XML)</div>
+                                <div class="comparison-col">Más rápido (JSON ligero)</div>
+                            </div>
+                            
+                            <div class="comparison-row">
+                                <div class="comparison-col">Seguridad</div>
+                                <div class="comparison-col">WS-Security integrado</div>
+                                <div class="comparison-col">HTTPS y OAuth</div>
+                            </div>
+                            
+                            <div class="comparison-row">
+                                <div class="comparison-col">Facilidad de uso</div>
+                                <div class="comparison-col">Complejo</div>
+                                <div class="comparison-col">Simple</div>
+                            </div>
+                            
+                            <div class="comparison-row">
+                                <div class="comparison-col">Caché</div>
+                                <div class="comparison-col">No soportado</div>
+                                <div class="comparison-col">Soportado</div>
+                            </div>
+                            
+                            <div class="comparison-row">
+                                <div class="comparison-col">Casos de uso</div>
+                                <div class="comparison-col">Sistemas empresariales, transacciones financieras</div>
+                                <div class="comparison-col">APIs web públicas, aplicaciones móviles</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Conclusión -->
+    <section class="section conclusion-section" id="conclusion">
+        <div class="container">
+            <div class="conclusion-card">
+                <div class="conclusion-header">
+                    <h2><i class="fas fa-graduation-cap"></i> Conclusión del Saber Teórico</h2>
+                </div>
+                
+                <div class="conclusion-content">
+                    <div class="key-points">
+                        <h3>Puntos Clave Aprendidos:</h3>
+                        <div class="points-grid">
+                            <div class="point">
+                                <div class="point-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="point-content">
+                                    <h4>Paradigma SOA</h4>
+                                    <p>Comprendimos la evolución hacia arquitecturas basadas en servicios independientes y reutilizables.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="point">
+                                <div class="point-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="point-content">
+                                    <h4>Servicios en la Nube</h4>
+                                    <p>Distinguimos entre IaaS, PaaS y SaaS y sus aplicaciones en el desarrollo moderno.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="point">
+                                <div class="point-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="point-content">
+                                    <h4>Aplicaciones Híbridas</h4>
+                                    <p>Entendimos el concepto de mashups y su importancia en la integración de servicios.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="point">
+                                <div class="point-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="point-content">
+                                    <h4>Arquitectura SOA</h4>
+                                    <p>Definimos SOA y sus principios de diseño fundamentales.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="point">
+                                <div class="point-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="point-content">
+                                    <h4>Estándares</h4>
+                                    <p>Analizamos XML, SOAP, WSDL, UDDI y REST, comprendiendo sus roles en SOA.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="next-steps">
+                        <h3>Próximos Pasos:</h3>
+                        <p>
+                            Con esta base teórica sólida, estamos preparados para avanzar al <strong>Saber Hacer 1</strong>, 
+                            donde aplicaremos estos conocimientos en el diseño e implementación práctica de servicios SOA.
+                        </p>
+                        <div class="steps-actions">
+                            <a href="unidad1.html" class="btn btn-secondary"> <!-- Cambiado: unidad1.php → unidad1.html -->
+                                <i class="fas fa-book"></i>
+                                Repasar Unidad 1
+                            </a>
+                            <a href="saberhacer2-1.html" class="btn btn-primary"> <!-- Cambiado: unidad1-saberhacer1.php → saberhacer2-1.html -->
+                                <i class="fas fa-arrow-right"></i>
+                                Continuar a Saber Hacer 1
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="conclusion-footer">
+                    <div class="completion-badge">
+                        <i class="fas fa-award"></i>
+                        <div>
+                            <span class="badge-text">Saber Teórico Completado</span>
+                            <span class="badge-date" id="current-date"></span>
+                        </div>
+                    </div>
+                    <div class="time-spent">
+                        <i class="fas fa-clock"></i>
+                        <span>Tiempo estimado de estudio: 3 horas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recursos Adicionales -->
+    <section class="section additional-resources">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Recursos Adicionales</h2>
+                <p class="section-subtitle">Material complementario para profundizar en los temas</p>
+            </div>
+            
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3>Guía Completa de SOA</h3>
+                        <p>Documento PDF con explicaciones detalladas y casos de estudio.</p>
+                        <a href="#" class="resource-link">
+                            <i class="fas fa-download"></i>
+                            Descargar PDF (2.5 MB)
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3>Enlaces de Referencia</h3>
+                        <p>Recursos oficiales W3C, OASIS y documentación de estándares.</p>
+                        <a href="#" class="resource-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Ver enlaces
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3>Video Tutoriales</h3>
+                        <p>Serie de videos explicativos sobre arquitecturas SOA y servicios web.</p>
+                        <a href="#" class="resource-link">
+                            <i class="fab fa-youtube"></i>
+                            Ver playlist
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3>Bibliografía Recomendada</h3>
+                        <p>Libros esenciales para profundizar en desarrollo orientado a servicios.</p>
+                        <a href="#" class="resource-link">
+                            <i class="fas fa-book-open"></i>
+                            Ver bibliografía
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenedor para el footer -->
+    <div id="footer-container"></div>
+
+    <!-- Script para cargar componentes dinámicamente -->
+    <script>
+    // Función para cargar componentes HTML
+    function cargarComponente(componente, contenedorId) {
+        fetch(componente)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`No se pudo cargar ${componente}: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById(contenedorId).innerHTML = data;
+                
+                // Si es el navbar, actualizar el item activo
+                if (componente.includes('navbar') && typeof current_page !== 'undefined') {
+                    actualizarNavbarActivo();
+                }
+                
+                // Si es el header, cargar los estilos
+                if (componente.includes('header')) {
+                    cargarEstilos();
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById(contenedorId).innerHTML = 
+                    `<div style="color: red; padding: 10px;">Error cargando ${componente}</div>`;
+            });
+    }
+
+    // Función para actualizar el navbar activo
+    function actualizarNavbarActivo() {
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === current_page + '.html' || 
+                link.getAttribute('href') === current_page) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+
+    // Función para cargar los estilos CSS
+    function cargarEstilos() {
+        const estilos = [
+            'assets/css/main.css',
+            'assets/css/estilos.css',
+            'assets/css/landing.css',
+            'assets/css/responsive.css',
+            'assets/css/cards.css',
+            'assets/css/saber.css',
+            'assets/css/animations.css'
+        ];
+        
+        // Cargar Font Awesome
+        const fontAwesome = document.createElement('link');
+        fontAwesome.rel = 'stylesheet';
+        fontAwesome.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+        document.head.appendChild(fontAwesome);
+        
+        // Cargar estilos locales
+        estilos.forEach(estilo => {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = estilo;
+            document.head.appendChild(link);
+        });
+    }
+
+    // Cargar componentes cuando la página esté lista
+    document.addEventListener('DOMContentLoaded', function() {
+        // Cargar header
+        cargarComponente('components/header.html', 'header-container');
+        
+        // Cargar navbar
+        cargarComponente('components/navbar.html', 'navbar-container');
+        
+        // Cargar footer
+        cargarComponente('components/footer.html', 'footer-container');
+        
+        // Cargar scripts adicionales
+        cargarScripts();
+        
+        // Actualizar fecha actual
+        actualizarFecha();
+        
+        // Inicializar navegación suave
+        initSmoothNavigation();
+        
+        // Inicializar píldoras de navegación
+        initNavPills();
+    });
+
+    // Función para cargar scripts JS
+    function cargarScripts() {
+        const scripts = [
+            'assets/js/main.js',
+            'assets/js/animaciones.js'
+        ];
+        
+        scripts.forEach(script => {
+            const scriptElement = document.createElement('script');
+            scriptElement.src = script;
+            document.body.appendChild(scriptElement);
+        });
+    }
+
+    // Función para actualizar la fecha actual
+    function actualizarFecha() {
+        const now = new Date();
+        const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+        const fechaFormateada = now.toLocaleDateString('es-ES', options);
+        const dateElement = document.getElementById('current-date');
+        if (dateElement) {
+            dateElement.textContent = fechaFormateada;
+        }
+    }
+
+    // Función para navegación suave
+    function initSmoothNavigation() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                
+                // Solo procesar enlaces internos (#)
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        // Desplazamiento suave
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    }
+
+    // Función para inicializar píldoras de navegación
+    function initNavPills() {
+        const navPills = document.querySelectorAll('.nav-pill');
+        navPills.forEach(pill => {
+            pill.addEventListener('click', function() {
+                // Remover activo de todas las píldoras
+                navPills.forEach(p => p.classList.remove('active'));
+                // Agregar activo a la píldora clickeada
+                this.classList.add('active');
+            });
+        });
+    }
+
+    // Observador de intersección para cambiar píldoras activas al hacer scroll
+    function initIntersectionObserver() {
+        const sections = document.querySelectorAll('section[id]');
+        const navPills = document.querySelectorAll('.nav-pill');
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.3
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const activeId = entry.target.getAttribute('id');
+                    navPills.forEach(pill => {
+                        if (pill.getAttribute('href') === `#${activeId}`) {
+                            navPills.forEach(p => p.classList.remove('active'));
+                            pill.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        sections.forEach(section => observer.observe(section));
+    }
+
+    // Inicializar observador cuando se cargue la página
+    setTimeout(initIntersectionObserver, 1000);
+    </script>
+
+    <!-- Cargar jQuery si es necesario (opcional) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>

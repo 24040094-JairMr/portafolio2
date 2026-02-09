@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Cargamos el header desde components/header.html -->
+    <!-- El JavaScript al final manejará la carga dinámica -->
+    <script>
+        // Variable global para identificar la página actual
+        var current_page = 'inicio';
+    </script>
+</head>
+<body>
+    <!-- Contenedores para componentes dinámicos -->
+    <div id="header-container"></div>
+    <div id="navbar-container"></div>
+
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="title-line">Portafolio de</span>
+                        <span class="title-line gradient-text">Evidencias</span>
+                    </h1>
+                    
+                    <h2 class="hero-subtitle">
+                        Desarrollo Web Orientado a Servicios
+                    </h2>
+                    
+                    <p class="hero-desc">
+                        Plataforma académica donde documentamos nuestro aprendizaje en arquitecturas SOA, 
+                        APIs RESTful y desarrollo web moderno.
+                    </p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number" data-count="4">4</div>
+                            <div class="stat-label">Unidades</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number" data-count="8">8</div>
+                            <div class="stat-label">Prácticas</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number" data-count="15">15</div>
+                            <div class="stat-label">Saberes</div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-buttons">
+                        <a href="#unidades" class="btn btn-primary">
+                            <i class="fas fa-rocket"></i>
+                            Explorar Unidades
+                        </a>
+                        <a href="conocenos.html" class="btn btn-secondary">
+                            <i class="fas fa-info-circle"></i>
+                            Conócenos
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hero-code">
+                    <div class="code-window">
+                        <div class="code-header">
+                            <div class="dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <span class="code-title">servicio.js</span>
+                        </div>
+                        <div class="code-content">
+                            <pre><code>class PortfolioAPI {
+    constructor() {
+        this.baseURL = 'api.portfolio.com';
+        this.unidades = 4;
+    }
+
+    async getUnidades() {
+        return await fetch(`${this.baseURL}/unidades`);
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Unidades -->
+    <section class="section unidades" id="unidades">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Unidades de Aprendizaje</h2>
+                <p class="section-subtitle">4 unidades temáticas con teoría y práctica</p>
+            </div>
+            
+            <div class="cards-grid">
+                <!-- Unidad 1 -->
+                <div class="card unidad-card">
+                    <div class="card-header">
+                        <span class="card-badge">Unidad 1</span>
+                        <div class="card-icon" style="background: #7c3aed;">
+                            <i class="fas fa-sitemap"></i>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Introducción SOA</h3>
+                        <p class="card-desc">Fundamentos de arquitecturas orientadas a servicios y estándares web.</p>
+                        <div class="topics">
+                            <span class="topic">SOA</span>
+                            <span class="topic">XML</span>
+                            <span class="topic">SOAP</span>
+                            <span class="topic">REST</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="unidad1.html" class="btn-card"> <!-- CAMBIADO: unidad1.php → unidad1.html -->
+                            Explorar <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Unidad 2 -->
+                <div class="card unidad-card">
+                    <div class="card-header">
+                        <span class="card-badge">Unidad 2</span>
+                        <div class="card-icon" style="background: #3b82f6;">
+                            <i class="fas fa-plug"></i>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Implementación API</h3>
+                        <p class="card-desc">Consumo de APIs RESTful, manejo de respuestas y autenticación.</p>
+                        <div class="topics">
+                            <span class="topic">APIs REST</span>
+                            <span class="topic">JSON</span>
+                            <span class="topic">Fetch API</span>
+                            <span class="topic">Autenticación</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="unidad2.html" class="btn-card"> <!-- CAMBIADO: unidad2.php → unidad2.html -->
+                            Explorar <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Unidad 3 -->
+                <div class="card unidad-card">
+                    <div class="card-header">
+                        <span class="card-badge">Unidad 3</span>
+                        <div class="card-icon" style="background: #ec4899;">
+                            <i class="fas fa-code"></i>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Desarrollo API</h3>
+                        <p class="card-desc">Diseño y desarrollo de APIs RESTful con PHP y buenas prácticas.</p>
+                        <div class="topics">
+                            <span class="topic">PHP</span>
+                            <span class="topic">Endpoints</span>
+                            <span class="topic">Documentación</span>
+                            <span class="topic">Testing</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="saber.html" class="btn-card"> <!-- CAMBIADO: unidad3.php → saber.html -->
+                            Explorar <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Unidad 4 -->
+                <div class="card unidad-card">
+                    <div class="card-header">
+                        <span class="card-badge">Unidad 4</span>
+                        <div class="card-icon" style="background: #f59e0b;">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Despliegue</h3>
+                        <p class="card-desc">Implementación, seguridad y despliegue de aplicaciones web.</p>
+                        <div class="topics">
+                            <span class="topic">Hosting</span>
+                            <span class="topic">Seguridad</span>
+                            <span class="topic">CI/CD</span>
+                            <span class="topic">Monitorización</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="saber2.html" class="btn-card"> <!-- CAMBIADO: unidad4.php → saber2.html -->
+                            Explorar <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tecnologías -->
+    <section class="section tecnologias" id="tecnologias">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Tecnologías Utilizadas</h2>
+                <p class="section-subtitle">Stack tecnológico del portafolio</p>
+            </div>
+            
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fab fa-php"></i>
+                    <span>PHP</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-js"></i>
+                    <span>JavaScript</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-server"></i>
+                    <span>APIs REST</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-html5"></i>
+                    <span>HTML5</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-css3-alt"></i>
+                    <span>CSS3</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-database"></i>
+                    <span>MySQL</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipo -->
+    <section class="section equipo" id="equipo">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Desarrollado por</h2>
+                <p class="section-subtitle">Nuestro equipo de desarrollo</p>
+            </div>
+            
+            <div class="team-cards">
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3>Sanchez Arroyo Deniss Esmeralda</h3>
+                        <p class="team-role">Frontend Developer</p>
+                        <p class="team-desc">Especialista en interfaces y experiencia de usuario.</p>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3>Montes Reyna Jair</h3>
+                        <p class="team-role">Backend Developer</p>
+                        <p class="team-desc">Experto en servicios web y APIs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenedor para el footer -->
+    <div id="footer-container"></div>
+
+    <!-- Script para cargar componentes dinámicamente -->
+    <script>
+    // Función para cargar componentes HTML
+    function cargarComponente(componente, contenedorId) {
+        fetch(componente)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`No se pudo cargar ${componente}: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById(contenedorId).innerHTML = data;
+                
+                // Si es el navbar, actualizar el item activo
+                if (componente.includes('navbar') && typeof current_page !== 'undefined') {
+                    actualizarNavbarActivo();
+                }
+                
+                // Si es el header, cargar los estilos
+                if (componente.includes('header')) {
+                    cargarEstilos();
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById(contenedorId).innerHTML = 
+                    `<div style="color: red; padding: 10px;">Error cargando ${componente}</div>`;
+            });
+    }
+
+    // Función para actualizar el navbar activo
+    function actualizarNavbarActivo() {
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === current_page + '.html' || 
+                link.getAttribute('href') === current_page) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+
+    // Función para cargar los estilos CSS
+    function cargarEstilos() {
+        const estilos = [
+            'assets/css/main.css',
+            'assets/css/estilos.css',
+            'assets/css/landing.css',
+            'assets/css/responsive.css',
+            'assets/css/cards.css',
+            'assets/css/saber.css',
+            'assets/css/animations.css'
+        ];
+        
+        // Cargar Font Awesome
+        const fontAwesome = document.createElement('link');
+        fontAwesome.rel = 'stylesheet';
+        fontAwesome.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+        document.head.appendChild(fontAwesome);
+        
+        // Cargar estilos locales
+        estilos.forEach(estilo => {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = estilo;
+            document.head.appendChild(link);
+        });
+    }
+
+    // Cargar componentes cuando la página esté lista
+    document.addEventListener('DOMContentLoaded', function() {
+        // Cargar header
+        cargarComponente('components/header.html', 'header-container');
+        
+        // Cargar navbar
+        cargarComponente('components/navbar.html', 'navbar-container');
+        
+        // Cargar footer
+        cargarComponente('components/footer.html', 'footer-container');
+        
+        // Cargar scripts adicionales
+        cargarScripts();
+    });
+
+    // Función para cargar scripts JS
+    function cargarScripts() {
+        const scripts = [
+            'assets/js/main.js',
+            'assets/js/animaciones.js',
+            'assets/js/landing.js'
+        ];
+        
+        scripts.forEach(script => {
+            const scriptElement = document.createElement('script');
+            scriptElement.src = script;
+            document.body.appendChild(scriptElement);
+        });
+    }
+
+    // Animación para los números contadores
+    function iniciarContadores() {
+        const contadores = document.querySelectorAll('.stat-number[data-count]');
+        contadores.forEach(contador => {
+            const target = parseInt(contador.getAttribute('data-count'));
+            let current = 0;
+            const incremento = target / 50;
+            const timer = setInterval(() => {
+                current += incremento;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                contador.textContent = Math.round(current);
+            }, 30);
+        });
+    }
+
+    // Iniciar contadores cuando se cargue la página
+    setTimeout(iniciarContadores, 1000);
+    </script>
+
+    <!-- Cargar jQuery si es necesario (opcional) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>

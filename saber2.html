@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Cargamos el header desde components/header.html -->
+    <!-- El JavaScript al final manejará la carga dinámica -->
+    <script>
+        // Variable global para identificar la página actual
+        var current_page = 'unidad2';
+    </script>
+</head>
+<body>
+    <!-- Contenedores para componentes dinámicos -->
+    <div id="header-container"></div>
+    <div id="navbar-container"></div>
+
+    <!-- Hero Section Saber -->
+    <section class="hero saber-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="breadcrumb">
+                        <a href="index.html">Inicio</a> <!-- Cambiado: index.php → index.html -->
+                        <i class="fas fa-chevron-right"></i>
+                        <a href="unidad2.html">Unidad 2</a> <!-- Cambiado: unidad2.php → unidad2.html -->
+                        <i class="fas fa-chevron-right"></i>
+                        <span class="current">SABER</span>
+                    </div>
+                    
+                    <!-- El CSS se cargará automáticamente -->
+                    <!-- <link rel="stylesheet" href="assets/css/saber.css"> -->
+
+                    <h1 class="hero-title">
+                        <span class="gradient-text">SABER</span>
+                        <br>
+                        <span style="font-size: 2rem;">Programar Aplicaciones con APIs de Geolocalización</span>
+                    </h1>
+                    
+                    <p class="hero-desc">
+                        Conocimientos fundamentales sobre geolocalización, APIs de mapas, redes sociales, bases de datos 
+                        y plataformas online para el desarrollo de aplicaciones web modernas.
+                    </p>
+                    
+                    <div class="hero-badges">
+                        <span class="badge" style="background: #10b981;">
+                            <i class="fas fa-brain"></i>
+                            Conocimiento Teórico
+                        </span>
+                        <span class="badge" style="background: #7c3aed;">
+                            <i class="fas fa-graduation-cap"></i>
+                            Nivel: Intermedio
+                        </span>
+                        <span class="badge" style="background: #3b82f6;">
+                            <i class="fas fa-clock"></i>
+                            Tiempo estimado: 4 horas
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="saber-icon-large" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navegación -->
+    <section class="section saber-nav">
+        <div class="container">
+            <div class="saber-navigation">
+                <a href="unidad2.html" class="nav-btn"> <!-- Cambiado: unidad2.php → unidad2.html -->
+                    <i class="fas fa-arrow-left"></i>
+                    Volver a Unidad 2
+                </a>
+                <div class="nav-pills">
+                    <a href="#geolocalizacion" class="nav-pill active">Geolocalización</a>
+                    <a href="#redes-sociales" class="nav-pill">Redes Sociales</a>
+                    <a href="#bases-datos" class="nav-pill">Bases de Datos</a>
+                    <a href="#plataformas" class="nav-pill">Plataformas</a>
+                    <a href="#apis" class="nav-pill">APIs</a>
+                </div>
+                <a href="saberhacer2-1.html" class="nav-btn next"> <!-- Cambiado: saberhacer2-1.php → saberhacer2-1.html -->
+                    Siguiente: Saber Hacer 1
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 1: Geolocalización -->
+    <section class="section saber-section" id="geolocalizacion">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Tema 1</div>
+                <h2 class="section-title">Geolocalización y sus Aplicaciones</h2>
+                <p class="section-subtitle">
+                    Tecnologías y servicios para identificar la ubicación geográfica de dispositivos y usuarios
+                </p>
+            </div>
+            
+            <div class="saber-content">
+                <!-- Introducción a Geolocalización -->
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fas fa-location-dot" style="color: #ef4444;"></i> ¿Qué es la Geolocalización?</h3>
+                    </div>
+                    <div class="content-body">
+                        <div class="definition-box">
+                            <div class="definition-icon" style="background: linear-gradient(135deg, #ef4444, #dc2626);">
+                                <i class="fas fa-map-pin"></i>
+                            </div>
+                            <div class="definition-content">
+                                <p>
+                                    <strong>Geolocalización</strong> es la identificación de la ubicación geográfica real 
+                                    de un objeto, como un teléfono móvil, computadora o dispositivo conectado a Internet. 
+                                    Se basa en el análisis de datos de posición obtenidos a través de diferentes tecnologías.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="image-text">
+                            <div class="text">
+                                <h4>Tecnologías de Geolocalización</h4>
+                                <p>
+                                    Existen múltiples tecnologías para determinar la ubicación de un dispositivo, 
+                                    cada una con diferentes niveles de precisión y aplicaciones específicas.
+                                </p>
+                            </div>
+                            <div class="image">
+                                <div class="placeholder-image">
+                                    <i class="fas fa-satellite"></i>
+                                    <span>Tecnologías GPS</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="technologies-grid">
+                            <div class="technology-card">
+                                <div class="tech-icon" style="background: #10b981;">
+                                    <i class="fas fa-satellite-dish"></i>
+                                </div>
+                                <div class="tech-content">
+                                    <h4>GPS (Global Positioning System)</h4>
+                                    <p>Sistema de navegación por satélite que proporciona ubicación precisa usando 24+ satélites.</p>
+                                    <div class="tech-specs">
+                                        <span><strong>Precisión:</strong> 5-10 metros</span>
+                                        <span><strong>Cobertura:</strong> Global</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="technology-card">
+                                <div class="tech-icon" style="background: #3b82f6;">
+                                    <i class="fas fa-wifi"></i>
+                                </div>
+                                <div class="tech-content">
+                                    <h4>Wi-Fi Positioning</h4>
+                                    <p>Usa señales de redes Wi-Fi cercanas para triangulación de posición en interiores.</p>
+                                    <div class="tech-specs">
+                                        <span><strong>Precisión:</strong> 20-50 metros</span>
+                                        <span><strong>Uso:</strong> Interiores/urbanos</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="technology-card">
+                                <div class="tech-icon" style="background: #8b5cf6;">
+                                    <i class="fas fa-tower-cell"></i>
+                                </div>
+                                <div class="tech-content">
+                                    <h4>Triangulación de Celular</h4>
+                                    <p>Calcula posición basándose en la distancia a torres de telefonía celular cercanas.</p>
+                                    <div class="tech-specs">
+                                        <span><strong>Precisión:</strong> 100-1000m</span>
+                                        <span><strong>Cobertura:</strong> Zonas pobladas</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="technology-card">
+                                <div class="tech-icon" style="background: #f59e0b;">
+                                    <i class="fas fa-broadcast-tower"></i>
+                                </div>
+                                <div class="tech-content">
+                                    <h4>IP Geolocation</h4>
+                                    <p>Estima ubicación basada en la dirección IP del dispositivo, usando bases de datos.</p>
+                                    <div class="tech-specs">
+                                        <span><strong>Precisión:</strong> Ciudad/región</span>
+                                        <span><strong>Uso:</strong> Aproximación</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Aplicaciones de Geolocalización -->
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fas fa-mobile-alt" style="color: #10b981;"></i> Aplicaciones que Utilizan Geolocalización</h3>
+                    </div>
+                    <div class="content-body">
+                        <div class="applications-grid">
+                            <div class="app-card">
+                                <div class="app-header">
+                                    <i class="fas fa-map-marked-alt" style="color: #ef4444;"></i>
+                                    <h4>Navegación y Mapas</h4>
+                                </div>
+                                <div class="app-body">
+                                    <p>Google Maps, Waze, Apple Maps - Guían a usuarios de un punto a otro.</p>
+                                    <ul>
+                                        <li>Rutas óptimas</li>
+                                        <li>Tráfico en tiempo real</li>
+                                        <li>Información de lugares cercanos</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="app-card">
+                                <div class="app-header">
+                                    <i class="fas fa-shopping-cart" style="color: #3b82f6;"></i>
+                                    <h4>Comercio Electrónico</h4>
+                                </div>
+                                <div class="app-body">
+                                    <p>Amazon, Mercado Libre - Localizan usuarios para ofertas regionales.</p>
+                                    <ul>
+                                        <li>Ofertas locales</li>
+                                        <li>Tiempos de entrega</li>
+                                        <li>Tiendas cercanas</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="app-card">
+                                <div class="app-header">
+                                    <i class="fas fa-heart" style="color: #ec4899;"></i>
+                                    <h4>Redes Sociales</h4>
+                                </div>
+                                <div class="app-body">
+                                    <p>Facebook, Instagram - Ubican publicaciones y encuentros sociales.</p>
+                                    <ul>
+                                        <li>Etiquetas de ubicación</li>
+                                        <li>Eventos cercanos</li>
+                                        <li>Amigos en zona</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="app-card">
+                                <div class="app-header">
+                                    <i class="fas fa-hotel" style="color: #f59e0b;"></i>
+                                    <h4>Viajes y Turismo</h4>
+                                </div>
+                                <div class="app-body">
+                                    <p>Airbnb, Booking - Localizan alojamientos y atracciones turísticas.</p>
+                                    <ul>
+                                        <li>Hoteles cercanos</li>
+                                        <li>Atracciones locales</li>
+                                        <li>Reservas geográficas</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="use-cases">
+                            <h4>Casos de Uso Avanzados:</h4>
+                            <div class="cases-grid">
+                                <div class="case-item">
+                                    <i class="fas fa-ambulance"></i>
+                                    <div>
+                                        <h5>Servicios de Emergencia</h5>
+                                        <p>Localización precisa para ambulancias, policía y bomberos.</p>
+                                    </div>
+                                </div>
+                                <div class="case-item">
+                                    <i class="fas fa-truck"></i>
+                                    <div>
+                                        <h5>Logística y Transporte</h5>
+                                        <p>Seguimiento de flotas y optimización de rutas.</p>
+                                    </div>
+                                </div>
+                                <div class="case-item">
+                                    <i class="fas fa-gamepad"></i>
+                                    <div>
+                                        <h5>Juegos</h5>
+                                        <p>Realidad aumentada y juegos basados en ubicación como Pokémon GO.</p>
+                                    </div>
+                                </div>
+                                <div class="case-item">
+                                    <i class="fas fa-chart-line"></i>
+                                    <div>
+                                        <h5>Análisis de Datos</h5>
+                                        <p>Estudios demográficos y patrones de movilidad.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Seguridad y Privacidad -->
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fas fa-shield-alt" style="color: #8b5cf6;"></i> Seguridad y Privacidad en Geolocalización</h3>
+                    </div>
+                    <div class="content-body">
+                        <div class="security-grid">
+                            <div class="security-card">
+                                <div class="security-header">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <h4>Riesgos Comunes</h4>
+                                </div>
+                                <div class="security-body">
+                                    <ul>
+                                        <li>Rastreo no autorizado de ubicación</li>
+                                        <li>Exposición de patrones de movilidad</li>
+                                        <li>Robo de identidad basado en ubicación</li>
+                                        <li>Acoso geográfico</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="security-card">
+                                <div class="security-header">
+                                    <i class="fas fa-check-circle"></i>
+                                    <h4>Mejores Prácticas</h4>
+                                </div>
+                                <div class="security-body">
+                                    <ul>
+                                        <li>Solicitar permiso explícito del usuario</li>
+                                        <li>Proporcionar control granular de permisos</li>
+                                        <li>Anonimizar datos cuando sea posible</li>
+                                        <li>Cifrar datos de ubicación</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="privacy-notice">
+                            <i class="fas fa-info-circle"></i>
+                            <p>
+                                <strong>Importante:</strong> Las aplicaciones deben cumplir con regulaciones como GDPR y CCPA 
+                                cuando manejan datos de ubicación de usuarios.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 2: Redes Sociales -->
+    <section class="section saber-section dark-section" id="redes-sociales">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Tema 2</div>
+                <h2 class="section-title">Redes Sociales y sus APIs</h2>
+                <p class="section-subtitle">
+                    Integración de funcionalidades sociales en aplicaciones web mediante APIs
+                </p>
+            </div>
+            
+            <div class="saber-content">
+                <!-- Introducción Redes Sociales -->
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fab fa-facebook" style="color: #1877f2;"></i> APIs de Redes Sociales</h3>
+                    </div>
+                    <div class="content-body">
+                        <p>
+                            Las APIs de redes sociales permiten a los desarrolladores integrar funcionalidades sociales 
+                            en sus aplicaciones, como autenticación, compartición de contenido y acceso a datos de usuarios.
+                        </p>
+                        
+                        <div class="social-apis-grid">
+                            <div class="social-api-card">
+                                <div class="social-icon" style="background: #1877f2;">
+                                    <i class="fab fa-facebook-f"></i>
+                                </div>
+                                <div class="social-content">
+                                    <h4>Facebook Graph API</h4>
+                                    <p>API principal de Facebook para acceder a perfiles, publicaciones, fotos y más.</p>
+                                    <div class="social-features">
+                                        <span>Login</span>
+                                        <span>Compartir</span>
+                                        <span>Analytics</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="social-api-card">
+                                <div class="social-icon" style="background: #1da1f2;">
+                                    <i class="fab fa-twitter"></i>
+                                </div>
+                                <div class="social-content">
+                                    <h4>Twitter API v2</h4>
+                                    <p>Acceso a tweets, usuarios, búsquedas y funcionalidades de interacción.</p>
+                                    <div class="social-features">
+                                        <span>Tweets</span>
+                                        <span>Búsqueda</span>
+                                        <span>Usuarios</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="social-api-card">
+                                <div class="social-icon" style="background: linear-gradient(45deg, #405de6, #833ab4);">
+                                    <i class="fab fa-instagram"></i>
+                                </div>
+                                <div class="social-content">
+                                    <h4>Instagram Graph API</h4>
+                                    <p>Gestión de perfiles de negocio, publicaciones, comentarios e insights.</p>
+                                    <div class="social-features">
+                                        <span>Publicaciones</span>
+                                        <span>Comentarios</span>
+                                        <span>Analytics</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="social-api-card">
+                                <div class="social-icon" style="background: #0a66c2;">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </div>
+                                <div class="social-content">
+                                    <h4>LinkedIn API</h4>
+                                    <p>Acceso a perfiles profesionales, conexiones y contenido de LinkedIn.</p>
+                                    <div class="social-features">
+                                        <span>Perfiles</span>
+                                        <span>Compartir</span>
+                                        <span>Redes</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- OAuth y Autenticación -->
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fas fa-user-lock" style="color: #10b981;"></i> OAuth: Autenticación en APIs Sociales</h3>
+                    </div>
+                    <div class="content-body">
+                        <div class="oauth-flow">
+                            <h4>Flujo OAuth 2.0:</h4>
+                            <div class="flow-steps">
+                                <div class="flow-step">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h5>Inicio de Sesión Social</h5>
+                                        <p>Usuario elige iniciar sesión con red social</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flow-step">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h5>Autorización</h5>
+                                        <p>Red social solicita permisos al usuario</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flow-step">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h5>Código de Autorización</h5>
+                                        <p>Se redirige al usuario con código de autorización</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flow-step">
+                                    <div class="step-number">4</div>
+                                    <div class="step-content">
+                                        <h5>Token de Acceso</h5>
+                                        <p>Aplicación intercambia código por token de acceso</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flow-step">
+                                    <div class="step-number">5</div>
+                                    <div class="step-content">
+                                        <h5>Acceso a API</h5>
+                                        <p>Aplicación usa token para acceder a recursos protegidos</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="oauth-benefits">
+                            <h4>Beneficios de OAuth:</h4>
+                            <div class="benefits-grid">
+                                <div class="benefit">
+                                    <i class="fas fa-user-shield"></i>
+                                    <span>No se comparten credenciales</span>
+                                </div>
+                                <div class="benefit">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Tokens con expiración</span>
+                                </div>
+                                <div class="benefit">
+                                    <i class="fas fa-sliders-h"></i>
+                                    <span>Permisos granulares</span>
+                                </div>
+                                <div class="benefit">
+                                    <i class="fas fa-sync-alt"></i>
+                                    <span>Renovación automática</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Casos de Uso -->
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fas fa-rocket" style="color: #f59e0b;"></i> Casos de Uso de APIs Sociales</h3>
+                    </div>
+                    <div class="content-body">
+                        <div class="use-cases-grid">
+                            <div class="use-case-card">
+                                <div class="use-case-icon">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                </div>
+                                <h4>Autenticación Social</h4>
+                                <p>Permitir a usuarios iniciar sesión con sus cuentas sociales en lugar de crear nuevas credenciales.</p>
+                            </div>
+                            
+                            <div class="use-case-card">
+                                <div class="use-case-icon">
+                                    <i class="fas fa-share-alt"></i>
+                                </div>
+                                <h4>Compartir Contenido</h4>
+                                <p>Permitir compartir artículos, productos o logros directamente en redes sociales.</p>
+                            </div>
+                            
+                            <div class="use-case-card">
+                                <div class="use-case-icon">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <h4>Comentarios Sociales</h4>
+                                <p>Integrar sistemas de comentarios usando perfiles sociales existentes.</p>
+                            </div>
+                            
+                            <div class="use-case-card">
+                                <div class="use-case-icon">
+                                    <i class="fas fa-chart-bar"></i>
+                                </div>
+                                <h4>Análisis Social</h4>
+                                <p>Recopilar datos sobre interacciones sociales y comportamiento de usuarios.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 3: Bases de Datos -->
+    <section class="section saber-section" id="bases-datos">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Tema 3</div>
+                <h2 class="section-title">Bases de Datos para Aplicaciones Web</h2>
+                <p class="section-subtitle">
+                    Sistemas de almacenamiento y gestión de datos para aplicaciones modernas
+                </p>
+            </div>
+            
+            <div class="saber-content">
+                <!-- Tipos de Bases de Datos -->
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fas fa-database" style="color: #3b82f6;"></i> Tipos de Bases de Datos</h3>
+                    </div>
+                    <div class="content-body">
+                        <div class="databases-comparison">
+                            <div class="db-type-card">
+                                <div class="db-header" style="background: #3b82f6;">
+                                    <i class="fas fa-table"></i>
+                                    <h4>Bases de Datos SQL</h4>
+                                </div>
+                                <div class="db-body">
+                                    <p><strong>Relacionales, estructuradas</strong></p>
+                                    <ul>
+                                        <li>MySQL, PostgreSQL, SQL Server</li>
+                                        <li>Estructura en tablas con relaciones</li>
+                                        <li>ACID compliance</li>
+                                        <li>Escalado vertical</li>
+                                    </ul>
+                                    <div class="db-best-for">
+                                        <strong>Ideal para:</strong> Sistemas transaccionales, datos estructurados
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="db-type-card">
+                                <div class="db-header" style="background: #10b981;">
+                                    <i class="fas fa-file-alt"></i>
+                                    <h4>Bases de Datos NoSQL</h4>
+                                </div>
+                                <div class="db-body">
+                                    <p><strong>No relacionales, flexibles</strong></p>
+                                    <ul>
+                                        <li>MongoDB, Cassandra, Redis</li>
+                                        <li>Documentos, clave-valor, grafos</li>
+                                        <li>Alta escalabilidad horizontal</li>
+                                        <li>Flexibilidad en esquemas</li>
+                                    </ul>
+                                    <div class="db-best-for">
+                                        <strong>Ideal para:</strong> Big Data, aplicaciones web modernas
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="db-considerations">
+                            <h4>Consideraciones al Elegir Base de Datos:</h4>
+                            <div class="considerations-grid">
+                                <div class="consideration">
+                                    <i class="fas fa-chart-line"></i>
+                                    <h5>Volumen de Datos</h5>
+                                    <p>¿Cuántos datos se manejarán?</p>
+                                </div>
+                                <div class="consideration">
+                                    <i class="fas fa-bolt"></i>
+                                    <h5>Rendimiento</h5>
+                                    <p>¿Qué velocidad de lectura/escritura se necesita?</p>
+                                </div>
+                                <div class="consideration">
+                                    <i class="fas fa-expand"></i>
+                                    <h5>Escalabilidad</h5>
+                                    <p>¿Cómo crecerá el sistema?</p>
+                                </div>
+                                <div class="consideration">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <h5>Consistencia</h5>
+                                    <p>¿Qué nivel de consistencia se requiere?</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bases de Datos en la Nube -->
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fas fa-cloud" style="color: #f59e0b;"></i> Bases de Datos como Servicio (DBaaS)</h3>
+                    </div>
+                    <div class="content-body">
+                        <div class="dbaas-intro">
+                            <p>
+                                <strong>DBaaS (Database as a Service)</strong> son bases de datos gestionadas por proveedores cloud, 
+                                eliminando la necesidad de administrar infraestructura.
+                            </p>
+                        </div>
+                        
+                        <div class="cloud-databases">
+                            <div class="cloud-db-card">
+                                <div class="cloud-db-icon">
+                                    <i class="fab fa-aws"></i>
+                                </div>
+                                <h4>AWS Database Services</h4>
+                                <ul>
+                                    <li><strong>Amazon RDS:</strong> MySQL, PostgreSQL, SQL Server</li>
+                                    <li><strong>Amazon DynamoDB:</strong> NoSQL key-value</li>
+                                    <li><strong>Amazon Aurora:</strong> Compatible con MySQL/PostgreSQL</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="cloud-db-card">
+                                <div class="cloud-db-icon">
+                                    <i class="fas fa-cloud"></i>
+                                </div>
+                                <h4>Google Cloud Databases</h4>
+                                <ul>
+                                    <li><strong>Cloud SQL:</strong> MySQL, PostgreSQL, SQL Server</li>
+                                    <li><strong>Cloud Firestore:</strong> NoSQL document database</li>
+                                    <li><strong>Cloud Spanner:</strong> Base de datos distribuida</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="cloud-db-card">
+                                <div class="cloud-db-icon">
+                                    <i class="fab fa-microsoft"></i>
+                                </div>
+                                <h4>Azure Database Services</h4>
+                                <ul>
+                                    <li><strong>Azure SQL Database:</strong> SQL Server como servicio</li>
+                                    <li><strong>Cosmos DB:</strong> Base de datos multimodelo</li>
+                                    <li><strong>Azure Database for MySQL:</strong> MySQL gestionado</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 4: Plataformas Online -->
+    <section class="section saber-section dark-section" id="plataformas">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Tema 4</div>
+                <h2 class="section-title">Plataformas Online y Streaming</h2>
+                <p class="section-subtitle">
+                    Servicios y tecnologías para contenido en línea y transmisión en tiempo real
+                </p>
+            </div>
+            
+            <div class="saber-content">
+                <!-- Plataformas Online -->
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fas fa-globe" style="color: #10b981;"></i> Plataformas Online</h3>
+                    </div>
+                    <div class="content-body">
+                        <div class="platform-types">
+                            <div class="platform-type">
+                                <h4>Plataformas de Contenido</h4>
+                                <div class="platform-examples">
+                                    <div class="platform-example">
+                                        <i class="fas fa-shopping-bag"></i>
+                                        <span>E-commerce</span>
+                                        <p>Shopify, WooCommerce, Magento</p>
+                                    </div>
+                                    <div class="platform-example">
+                                        <i class="fas fa-graduation-cap"></i>
+                                        <span>E-learning</span>
+                                        <p>Moodle, Canvas, Coursera</p>
+                                    </div>
+                                    <div class="platform-example">
+                                        <i class="fas fa-blog"></i>
+                                        <span>CMS</span>
+                                        <p>WordPress, Drupal, Joomla</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="platform-type">
+                                <h4>Plataformas de Servicios</h4>
+                                <div class="platform-examples">
+                                    <div class="platform-example">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <span>Reservas</span>
+                                        <p>Calendly, OpenTable</p>
+                                    </div>
+                                    <div class="platform-example">
+                                        <i class="fas fa-comments"></i>
+                                        <span>Comunicación</span>
+                                        <p>Zoom, Slack, Discord</p>
+                                    </div>
+                                    <div class="platform-example">
+                                        <i class="fas fa-project-diagram"></i>
+                                        <span>Colaboración</span>
+                                        <p>Notion, Trello, Asana</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Plataformas de Streaming -->
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fas fa-video" style="color: #ec4899;"></i> Plataformas de Streaming</h3>
+                    </div>
+                    <div class="content-body">
+                        <div class="streaming-technologies">
+                            <h4>Tecnologías de Streaming:</h4>
+                            <div class="tech-grid">
+                                <div class="tech-item">
+                                    <div class="tech-icon">
+                                        <i class="fas fa-play-circle"></i>
+                                    </div>
+                                    <div class="tech-content">
+                                        <h5>Video on Demand (VOD)</h5>
+                                        <p>Netflix, Amazon Prime Video - Contenido pregrabado</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="tech-item">
+                                    <div class="tech-icon">
+                                        <i class="fas fa-broadcast-tower"></i>
+                                    </div>
+                                    <div class="tech-content">
+                                        <h5>Live Streaming</h5>
+                                        <p>Twitch, YouTube Live - Transmisión en tiempo real</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="tech-item">
+                                    <div class="tech-icon">
+                                        <i class="fas fa-headphones"></i>
+                                    </div>
+                                    <div class="tech-content">
+                                        <h5>Audio Streaming</h5>
+                                        <p>Spotify, Apple Music - Transmisión de audio</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="tech-item">
+                                    <div class="tech-icon">
+                                        <i class="fas fa-gamepad"></i>
+                                    </div>
+                                    <div class="tech-content">
+                                        <h5>Game Streaming</h5>
+                                        <p>Google Stadia, Xbox Cloud Gaming - Juegos en la nube</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="streaming-protocols">
+                            <h4>Protocolos de Streaming:</h4>
+                            <div class="protocols-list">
+                                <div class="protocol">
+                                    <span class="protocol-name">HLS</span>
+                                    <span class="protocol-desc">HTTP Live Streaming (Apple)</span>
+                                </div>
+                                <div class="protocol">
+                                    <span class="protocol-name">MPEG-DASH</span>
+                                    <span class="protocol-desc">Dynamic Adaptive Streaming</span>
+                                </div>
+                                <div class="protocol">
+                                    <span class="protocol-name">RTMP</span>
+                                    <span class="protocol-desc">Real-Time Messaging Protocol</span>
+                                </div>
+                                <div class="protocol">
+                                    <span class="protocol-name">WebRTC</span>
+                                    <span class="protocol-desc">Comunicación en tiempo real</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- APIs de Streaming -->
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fas fa-code" style="color: #8b5cf6;"></i> APIs para Plataformas de Streaming</h3>
+                    </div>
+                    <div class="content-body">
+                        <div class="streaming-apis">
+                            <div class="streaming-api-card">
+                                <div class="api-icon">
+                                    <i class="fab fa-youtube"></i>
+                                </div>
+                                <div class="api-content">
+                                    <h4>YouTube Data API v3</h4>
+                                    <p>Acceso a videos, canales, playlists y análisis de YouTube.</p>
+                                    <ul>
+                                        <li>Subida programada de videos</li>
+                                        <li>Análisis de rendimiento</li>
+                                        <li>Gestión de comentarios</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="streaming-api-card">
+                                <div class="api-icon">
+                                    <i class="fab fa-twitch"></i>
+                                </div>
+                                <div class="api-content">
+                                    <h4>Twitch API</h4>
+                                    <p>Acceso a streams, juegos, usuarios y clips de Twitch.</p>
+                                    <ul>
+                                        <li>Información de streams en vivo</li>
+                                        <li>Datos de juegos populares</li>
+                                        <li>Gestión de clips</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="streaming-api-card">
+                                <div class="api-icon">
+                                    <i class="fab fa-spotify"></i>
+                                </div>
+                                <div class="api-content">
+                                    <h4>Spotify Web API</h4>
+                                    <p>Acceso a música, playlists, artistas y recomendaciones.</p>
+                                    <ul>
+                                        <li>Búsqueda de música</li>
+                                        <li>Creación de playlists</li>
+                                        <li>Recomendaciones personalizadas</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 5: APIs de Geolocalización -->
+    <section class="section saber-section" id="apis">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Tema 5</div>
+                <h2 class="section-title">APIs de Geolocalización y Mapas</h2>
+                <p class="section-subtitle">
+                    Implementación de mapas y servicios de ubicación en aplicaciones web
+                </p>
+            </div>
+            
+            <div class="saber-content">
+                <!-- APIs de Mapas -->
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fas fa-map" style="color: #ef4444;"></i> Principales APIs de Mapas</h3>
+                    </div>
+                    <div class="content-body">
+                        <div class="maps-comparison">
+                            <div class="map-api-card">
+                                <div class="map-api-header">
+                                    <div class="map-api-icon" style="background: #4285f4;">
+                                        <i class="fab fa-google"></i>
+                                    </div>
+                                    <div class="map-api-title">
+                                        <h4>Google Maps Platform</h4>
+                                        <span class="api-type">Solución completa</span>
+                                    </div>
+                                </div>
+                                <div class="map-api-body">
+                                    <ul>
+                                        <li><strong>APIs:</strong> Maps JavaScript, Places, Geocoding, Directions</li>
+                                        <li><strong>Ventajas:</strong> Completa, precisa, amplia documentación</li>
+                                        <li><strong>Precio:</strong> Gratis hasta cierto límite, luego pago por uso</li>
+                                        <li><strong>Uso ideal:</strong> Aplicaciones empresariales, alta precisión</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="map-api-card">
+                                <div class="map-api-header">
+                                    <div class="map-api-icon" style="background: #1a8917;">
+                                        <i class="fas fa-leaf"></i>
+                                    </div>
+                                    <div class="map-api-title">
+                                        <h4>Leaflet.js</h4>
+                                        <span class="api-type">Biblioteca open source</span>
+                                    </div>
+                                </div>
+                                <div class="map-api-body">
+                                    <ul>
+                                        <li><strong>Característica:</strong> Ligera, extensible, open source</li>
+                                        <li><strong>Ventajas:</strong> Gratuita, plugins abundantes, personalizable</li>
+                                        <li><strong>Precio:</strong> Completamente gratuita</li>
+                                        <li><strong>Uso ideal:</strong> Proyectos pequeños/medianos, presupuesto limitado</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="map-api-card">
+                                <div class="map-api-header">
+                                    <div class="map-api-icon" style="background: #4267b2;">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div class="map-api-title">
+                                        <h4>Mapbox</h4>
+                                        <span class="api-type">Plataforma de mapas personalizables</span>
+                                    </div>
+                                </div>
+                                <div class="map-api-body">
+                                    <ul>
+                                        <li><strong>Característica:</strong> Altamente personalizable, diseño moderno</li>
+                                        <li><strong>Ventajas:</strong> Diseños atractivos, SDKs móviles, análisis</li>
+                                        <li><strong>Precio:</strong> Gratis inicial, luego por uso</li>
+                                        <li><strong>Uso ideal:</strong> Aplicaciones con marca fuerte, diseño personalizado</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Generación de Claves API -->
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fas fa-key" style="color: #f59e0b;"></i> Generación y Gestión de Claves API</h3>
+                    </div>
+                    <div class="content-body">
+                        <div class="api-key-process">
+                            <h4>Proceso de Obtención de Clave API:</h4>
+                            <div class="process-steps">
+                                <div class="process-step">
+                                    <div class="step-number">01</div>
+                                    <div class="step-content">
+                                        <h5>Crear Cuenta</h5>
+                                        <p>Registrarse en la plataforma del proveedor (Google Cloud, Mapbox, etc.)</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="process-step">
+                                    <div class="step-number">02</div>
+                                    <div class="step-content">
+                                        <h5>Crear Proyecto</h5>
+                                        <p>Crear un nuevo proyecto en la consola de desarrolladores</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="process-step">
+                                    <div class="step-number">03</div>
+                                    <div class="step-content">
+                                        <h5>Habilitar API</h5>
+                                        <p>Activar las APIs específicas que se necesitan (Maps, Places, etc.)</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="process-step">
+                                    <div class="step-number">04</div>
+                                    <div class="step-content">
+                                        <h5>Generar Credenciales</h5>
+                                        <p>Crear una clave API o credenciales OAuth según sea necesario</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="process-step">
+                                    <div class="step-number">05</div>
+                                    <div class="step-content">
+                                        <h5>Configurar Restricciones</h5>
+                                        <p>Establecer restricciones por IP, referer HTTP, o aplicación</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="api-key-security">
+                            <h4>Buenas Prácticas de Seguridad:</h4>
+                            <div class="security-tips">
+                                <div class="security-tip">
+                                    <i class="fas fa-lock"></i>
+                                    <span>Nunca exponer claves API en código frontend público</span>
+                                </div>
+                                <div class="security-tip">
+                                    <i class="fas fa-network-wired"></i>
+                                    <span>Usar restricciones por dominio/IP</span>
+                                </div>
+                                <div class="security-tip">
+                                    <i class="fas fa-sync-alt"></i>
+                                    <span>Rotar claves periódicamente</span>
+                                </div>
+                                <div class="security-tip">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>Monitorear uso para detectar anomalías</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Ejemplo de Implementación -->
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fas fa-code" style="color: #10b981;"></i> Implementación Básica de Mapa</h3>
+                    </div>
+                    <div class="content-body">
+                        <div class="implementation-example">
+                            <h4>Código HTML/JavaScript Básico:</h4>
+                            <div class="code-tabs">
+                                <div class="tab-header">
+                                    <button class="tab-btn active" data-tab="html">HTML</button>
+                                    <button class="tab-btn" data-tab="css">CSS</button>
+                                    <button class="tab-btn" data-tab="js">JavaScript</button>
+                                </div>
+                                
+                                <div class="tab-content active" id="html">
+                                    <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Mapa Interactivo&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+    &lt;script src="https://maps.googleapis.com/maps/api/js?key=TU_CLAVE_API"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="map-container"&gt;
+        &lt;div id="map"&gt;&lt;/div&gt;
+        &lt;div id="controls"&gt;
+            &lt;input type="text" id="search-box" placeholder="Buscar lugar..."&gt;
+            &lt;button id="locate-me"&gt;Mi Ubicación&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script src="app.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                                </div>
+                                
+                                <div class="tab-content" id="css">
+                                    <pre><code class="language-css">#map-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+#controls {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    display: flex;
+    gap: 10px;
+}
+
+#search-box {
+    padding: 10px;
+    width: 300px;
+    border: 2px solid #3b82f6;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#locate-me {
+    padding: 10px 20px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}</code></pre>
+                                </div>
+                                
+                                <div class="tab-content" id="js">
+                                    <pre><code class="language-javascript">// Inicializar mapa
+function initMap() {
+    // Ubicación inicial (Ciudad de México)
+    const initialLocation = { lat: 19.432608, lng: -99.133209 };
+    
+    // Crear mapa
+    const map = new google.maps.Map(document.getElementById('map'), {
+        center: initialLocation,
+        zoom: 12,
+        mapTypeId: 'roadmap'
+    });
+    
+    // Agregar marcador
+    const marker = new google.maps.Marker({
+        position: initialLocation,
+        map: map,
+        title: 'Ciudad de México'
+    });
+    
+    // Búsqueda de lugares
+    const searchBox = new google.maps.places.SearchBox(
+        document.getElementById('search-box')
+    );
+    
+    map.addListener('bounds_changed', () => {
+        searchBox.setBounds(map.getBounds());
+    });
+    
+    // Obtener ubicación actual
+    document.getElementById('locate-me').addEventListener('click', () => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    map.setCenter(pos);
+                    new google.maps.Marker({
+                        position: pos,
+                        map: map,
+                        title: 'Tu ubicación'
+                    });
+                }
+            );
+        }
+    });
+}
+
+// Inicializar cuando se cargue la página
+window.onload = initMap;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Conclusión -->
+    <section class="section conclusion-section" id="conclusion">
+        <div class="container">
+            <div class="conclusion-card">
+                <div class="conclusion-header">
+                    <h2><i class="fas fa-graduation-cap"></i> Conclusión del Saber Teórico - Unidad 2</h2>
+                </div>
+                
+                <div class="conclusion-content">
+                    <div class="key-points">
+                        <h3>Puntos Clave Aprendidos:</h3>
+                        <div class="points-grid">
+                            <div class="point">
+                                <div class="point-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="point-content">
+                                    <h4>Geolocalización</h4>
+                                    <p>Comprendimos tecnologías de ubicación y sus aplicaciones prácticas en el desarrollo web.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="point">
+                                <div class="point-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="point-content">
+                                    <h4>Redes Sociales</h4>
+                                    <p>Analizamos APIs sociales y el protocolo OAuth para integración segura.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="point">
+                                <div class="point-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="point-content">
+                                    <h4>Bases de Datos</h4>
+                                    <p>Distinguimos entre SQL, NoSQL y servicios de bases de datos en la nube.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="point">
+                                <div class="point-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="point-content">
+                                    <h4>Plataformas Online</h4>
+                                    <p>Exploramos plataformas de contenido, servicios y tecnologías de streaming.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="point">
+                                <div class="point-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="point-content">
+                                    <h4>APIs de Mapas</h4>
+                                    <p>Conocimos las principales APIs de geolocalización y su implementación.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="next-steps">
+                        <h3>Próximos Pasos:</h3>
+                        <p>
+                            Con esta base teórica completa sobre desarrollo web moderno, estamos preparados para avanzar al 
+                            <strong>Saber Hacer 1</strong>, donde implementaremos mapas interactivos utilizando APIs de geolocalización.
+                        </p>
+                        <div class="steps-actions">
+                            <a href="unidad2.html" class="btn btn-secondary"> <!-- Cambiado: unidad2.php → unidad2.html -->
+                                <i class="fas fa-book"></i>
+                                Repasar Unidad 2
+                            </a>
+                            <a href="saberhacer2-1.html" class="btn btn-primary"> <!-- Cambiado: saberhacer2-1.php → saberhacer2-1.html -->
+                                <i class="fas fa-arrow-right"></i>
+                                Continuar a Saber Hacer 1
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="conclusion-footer">
+                    <div class="completion-badge">
+                        <i class="fas fa-award"></i>
+                        <div>
+                            <span class="badge-text">Saber Teórico Completado</span>
+                            <span class="badge-date" id="current-date"></span>
+                        </div>
+                    </div>
+                    <div class="time-spent">
+                        <i class="fas fa-clock"></i>
+                        <span>Tiempo estimado de estudio: 4 horas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recursos Adicionales -->
+    <section class="section additional-resources">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Recursos Adicionales</h2>
+                <p class="section-subtitle">Material complementario para profundizar en los temas</p>
+            </div>
+            
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3>Guía de APIs de Geolocalización</h3>
+                        <p>Documentación completa sobre Google Maps, Leaflet y Mapbox con ejemplos prácticos.</p>
+                        <a href="#" class="resource-link">
+                            <i class="fas fa-download"></i>
+                            Descargar PDF (3.2 MB)
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3>Ejemplos de Implementación</h3>
+                        <p>Repositorio con código de mapas interactivos y servicios de geolocalización.</p>
+                        <a href="#" class="resource-link">
+                            <i class="fab fa-github"></i>
+                            Ver repositorio
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3>Tutoriales en Video</h3>
+                        <p>Videos explicativos sobre integración de mapas y APIs sociales.</p>
+                        <a href="#" class="resource-link">
+                            <i class="fab fa-youtube"></i>
+                            Ver playlist
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3>Bases de Datos Cloud</h3>
+                        <p>Guía comparativa de servicios de bases de datos en la nube.</p>
+                        <a href="#" class="resource-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Ver comparativa
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenedor para el footer -->
+    <div id="footer-container"></div>
+
+    <!-- Script para cargar componentes dinámicamente -->
+    <script>
+    // Función para cargar componentes HTML
+    function cargarComponente(componente, contenedorId) {
+        fetch(componente)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`No se pudo cargar ${componente}: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById(contenedorId).innerHTML = data;
+                
+                // Si es el navbar, actualizar el item activo
+                if (componente.includes('navbar') && typeof current_page !== 'undefined') {
+                    actualizarNavbarActivo();
+                }
+                
+                // Si es el header, cargar los estilos
+                if (componente.includes('header')) {
+                    cargarEstilos();
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById(contenedorId).innerHTML = 
+                    `<div style="color: red; padding: 10px;">Error cargando ${componente}</div>`;
+            });
+    }
+
+    // Función para actualizar el navbar activo
+    function actualizarNavbarActivo() {
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === current_page + '.html' || 
+                link.getAttribute('href') === current_page) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+
+    // Función para cargar los estilos CSS
+    function cargarEstilos() {
+        const estilos = [
+            'assets/css/main.css',
+            'assets/css/estilos.css',
+            'assets/css/landing.css',
+            'assets/css/responsive.css',
+            'assets/css/cards.css',
+            'assets/css/saber.css',
+            'assets/css/animations.css'
+        ];
+        
+        // Cargar Font Awesome
+        const fontAwesome = document.createElement('link');
+        fontAwesome.rel = 'stylesheet';
+        fontAwesome.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+        document.head.appendChild(fontAwesome);
+        
+        // Cargar estilos locales
+        estilos.forEach(estilo => {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = estilo;
+            document.head.appendChild(link);
+        });
+    }
+
+    // Cargar componentes cuando la página esté lista
+    document.addEventListener('DOMContentLoaded', function() {
+        // Cargar header
+        cargarComponente('components/header.html', 'header-container');
+        
+        // Cargar navbar
+        cargarComponente('components/navbar.html', 'navbar-container');
+        
+        // Cargar footer
+        cargarComponente('components/footer.html', 'footer-container');
+        
+        // Cargar scripts adicionales
+        cargarScripts();
+        
+        // Actualizar fecha actual
+        actualizarFecha();
+        
+        // Inicializar pestañas de código
+        initCodeTabs();
+    });
+
+    // Función para cargar scripts JS
+    function cargarScripts() {
+        const scripts = [
+            'assets/js/main.js',
+            'assets/js/animaciones.js'
+        ];
+        
+        scripts.forEach(script => {
+            const scriptElement = document.createElement('script');
+            scriptElement.src = script;
+            document.body.appendChild(scriptElement);
+        });
+    }
+
+    // Función para actualizar la fecha actual
+    function actualizarFecha() {
+        const now = new Date();
+        const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+        const fechaFormateada = now.toLocaleDateString('es-ES', options);
+        const dateElement = document.getElementById('current-date');
+        if (dateElement) {
+            dateElement.textContent = fechaFormateada;
+        }
+    }
+
+    // Función para inicializar pestañas de código
+    function initCodeTabs() {
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.getAttribute('data-tab');
+                
+                // Remover clase active de todos
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Agregar clase active al botón y contenido seleccionado
+                btn.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    }
+    </script>
+
+    <!-- Cargar jQuery si es necesario (opcional) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>

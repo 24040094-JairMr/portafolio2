@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Cargamos el header desde components/header.html -->
+    <!-- El JavaScript al final manejará la carga dinámica -->
+    <script>
+        // Variable global para identificar la página actual
+        var current_page = 'unidad2';
+    </script>
+</head>
+<body>
+    <!-- Contenedores para componentes dinámicos -->
+    <div id="header-container"></div>
+    <div id="navbar-container"></div>
+
+    <!-- Hero Section Unidad 2 -->
+    <section class="hero unidad-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="hero-badge">Unidad 2</span>
+                    <h1 class="hero-title">
+                        Programar aplicaciones con
+                        <span class="gradient-text">API's de geolocalización</span>
+                    </h1>
+                    <p class="hero-desc">
+                        Desarrollo de aplicaciones web interactivas utilizando APIs de mapas y servicios de geolocalización. 
+                        Aprende a integrar funcionalidades de ubicación en sitios web modernos.
+                    </p>
+                    
+                    <div class="hero-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-clock"></i>
+                            <span>4 semanas de duración</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-book"></i>
+                            <span>3 saberes principales</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-tasks"></i>
+                            <span>6 prácticas implementadas</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="unidad-icon-large">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navegación entre Unidades -->
+    <section class="section unidades-nav">
+        <div class="container">
+            <div class="nav-unidades">
+                <a href="inicio.html#unidades" class="nav-unidad"> <!-- Cambiado: inicio.php → inicio.html -->
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Volver a Unidades</span>
+                </a>
+                <div class="nav-separator"></div>
+                <a href="unidad1.html" class="nav-unidad siguiente"> <!-- Cambiado: unidad1.php → unidad1.html -->
+                    <span>Anterior: Unidad 1</span>
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Contenido Principal -->
+    <section class="section contenido-unidad">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contenido de la Unidad</h2>
+                <p class="section-subtitle">Temas principales y competencias a desarrollar</p>
+            </div>
+            
+            <div class="temas-grid">
+                <!-- Tema 1 -->
+                <div class="tema-card">
+                    <div class="tema-header">
+                        <span class="tema-numero">01</span>
+                        <h3>Fundamentos de Geolocalización</h3>
+                    </div>
+                    <div class="tema-contenido">
+                        <ul class="tema-lista">
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Comprender qué es la geolocalización</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Identificar tipos de geolocalización más utilizados</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Conocer aplicaciones que utilizan geolocalización</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Entender qué es una API</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Aprender cómo se genera una clave API</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Tema 2 -->
+                <div class="tema-card">
+                    <div class="tema-header">
+                        <span class="tema-numero">02</span>
+                        <h3>Implementación de Mapas</h3>
+                    </div>
+                    <div class="tema-contenido">
+                        <ul class="tema-lista">
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Diseñar sitios web con mapas interactivos</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Integrar APIs de mapas (Google Maps, Leaflet, Mapbox)</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Mostrar ubicaciones específicas en mapas</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Agregar marcadores y controles de navegación</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Tema 3 -->
+                <div class="tema-card">
+                    <div class="tema-header">
+                        <span class="tema-numero">03</span>
+                        <h3>Servicios de Geolocalización</h3>
+                    </div>
+                    <div class="tema-contenido">
+                        <ul class="tema-lista">
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Obtener ubicación actual del usuario</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Calcular rutas y distancias</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Geocodificación y geocodificación inversa</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Implementar búsqueda de lugares</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- APIs de Geolocalización -->
+            <div class="estandares-section">
+                <h3 class="estandares-title">APIs de Geolocalización</h3>
+                <div class="estandares-grid">
+                    <div class="estandar-item">
+                        <div class="estandar-icon">
+                            <i class="fas fa-map-pin"></i>
+                        </div>
+                        <h4>Google Maps API</h4>
+                        <p>Plataforma completa de mapas y servicios de geolocalización</p>
+                    </div>
+                    
+                    <div class="estandar-item">
+                        <div class="estandar-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h4>Leaflet.js</h4>
+                        <p>Biblioteca JavaScript de código abierto para mapas interactivos</p>
+                    </div>
+                    
+                    <div class="estandar-item">
+                        <div class="estandar-icon">
+                            <i class="fas fa-map"></i>
+                        </div>
+                        <h4>Mapbox</h4>
+                        <p>Plataforma de mapas personalizables y herramientas de ubicación</p>
+                    </div>
+                    
+                    <div class="estandar-item">
+                        <div class="estandar-icon">
+                            <i class="fas fa-location-arrow"></i>
+                        </div>
+                        <h4>OpenStreetMap</h4>
+                        <p>Mapa mundial de colaboración abierta y gratuita</p>
+                    </div>
+                    
+                    <div class="estandar-item">
+                        <div class="estandar-icon">
+                            <i class="fas fa-route"></i>
+                        </div>
+                        <h4>Geolocation API</h4>
+                        <p>API nativa del navegador para obtener ubicación del usuario</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Cards de Saberes -->
+    <section class="section saberes-unidad">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Saberes de la Unidad</h2>
+                <p class="section-subtitle">Competencias y evidencias de aprendizaje</p>
+            </div>
+            
+            <div class="saberes-grid">
+                <!-- Card 1: Saber -->
+                <div class="saber-card">
+                    <div class="saber-header">
+                        <div class="saber-icon" style="background: linear-gradient(135deg, #10b981, #059669);">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="saber-badge" style="background: #10b981;">Saber</div>
+                    </div>
+                    
+                    <div class="saber-content">
+                        <h3>Fundamentos de Geolocalización</h3>
+                        <p class="saber-desc">
+                            Conocimientos teóricos sobre geolocalización, APIs y sus aplicaciones prácticas 
+                            en el desarrollo web moderno.
+                        </p>
+                        
+                        <div class="saber-objetivos">
+                            <h4>Objetivos Alcanzados:</h4>
+                            <ul>
+                                <li>Comprender qué es la geolocalización</li>
+                                <li>Identificar tipos de geolocalización más utilizados</li>
+                                <li>Conocer aplicaciones que utilizan geolocalización</li>
+                                <li>Entender qué es una API y cómo generar claves API</li>
+                                <li>Diferenciar tipos de ubicación y servicios</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="saber-evidencias">
+                            <h4>Evidencias:</h4>
+                            <div class="evidencias-list">
+                                <span class="evidencia">Cuestionarios teóricos</span>
+                                <span class="evidencia">Mapas conceptuales</span>
+                                <span class="evidencia">Análisis de casos</span>
+                                <span class="evidencia">Presentaciones</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="saber-footer">
+                        <a href="saber2.html" class="btn-saber"> <!-- Cambiado: saber2.php → saber2.html -->
+                            <i class="fas fa-book-open"></i>
+                            Ver contenido completo
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Card 2: Saber Hacer 1 -->
+                <div class="saber-card">
+                    <div class="saber-header">
+                        <div class="saber-icon" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="saber-badge" style="background: #3b82f6;">Saber Hacer 1</div>
+                    </div>
+                    
+                    <div class="saber-content">
+                        <h3>Implementación de Mapa Interactivo</h3>
+                        <p class="saber-desc">
+                            Desarrollo de un sitio web que muestra ubicaciones específicas en un mapa 
+                            utilizando APIs de geolocalización con funcionalidades básicas.
+                        </p>
+                        
+                        <div class="saber-objetivos">
+                            <h4>Competencias Desarrolladas:</h4>
+                            <ul>
+                                <li>Diseñar interfaz para mostrar mapa interactivo</li>
+                                <li>Integrar API de geolocalización (Google Maps/Leaflet)</li>
+                                <li>Configurar marcadores y controles de navegación</li>
+                                <li>Mostrar información al hacer clic en marcadores</li>
+                                <li>Permitir cambiar tipo de mapa</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="saber-evidencias">
+                            <h4>Evidencias Prácticas:</h4>
+                            <div class="evidencias-list">
+                                <span class="evidencia">Sitio web funcional</span>
+                                <span class="evidencia">Código fuente JavaScript</span>
+                                <span class="evidencia">Integración con API</span>
+                                <span class="evidencia">Documentación técnica</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="saber-footer">
+                        <a href="saberhacer2-1.html" class="btn-saber"> <!-- Cambiado: saberhacer2-1.php → saberhacer2-1.html -->
+                            <i class="fas fa-laptop-code"></i>
+                            Ver prácticas y códigos
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Card 3: Saber Hacer 2 -->
+                <div class="saber-card">
+                    <div class="saber-header">
+                        <div class="saber-icon" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+                            <i class="fas fa-route"></i>
+                        </div>
+                        <div class="saber-badge" style="background: #8b5cf6;">Saber Hacer 2</div>
+                    </div>
+                    
+                    <div class="saber-content">
+                        <h3>Servicios de Ruta y Navegación</h3>
+                        <p class="saber-desc">
+                            Creación de aplicación que calcula rutas, proporciona indicaciones y 
+                            muestra información detallada entre diferentes ubicaciones.
+                        </p>
+                        
+                        <div class="saber-objetivos">
+                            <h4>Habilidades Adquiridas:</h4>
+                            <ul>
+                                <li>Calcular rutas entre puntos específicos</li>
+                                <li>Mostrar indicaciones paso a paso</li>
+                                <li>Calcular distancias y tiempos estimados</li>
+                                <li>Implementar búsqueda de lugares cercanos</li>
+                                <li>Optimizar rutas según criterios</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="saber-evidencias">
+                            <h4>Proyectos Realizados:</h4>
+                            <div class="evidencias-list">
+                                <span class="evidencia">Calculadora de rutas</span>
+                                <span class="evidencia">Aplicación de navegación</span>
+                                <span class="evidencia">Buscador de lugares</span>
+                                <span class="evidencia">Demo interactiva</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="saber-footer">
+                        <a href="#" class="btn-saber">
+                            <i class="fas fa-rocket"></i>
+                            Próximamente
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Recursos Adicionales -->
+    <section class="section recursos-unidad">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Recursos de Aprendizaje</h2>
+                <p class="section-subtitle">Material complementario para profundizar en geolocalización</p>
+            </div>
+            
+            <div class="recursos-grid">
+                <div class="recurso-card">
+                    <div class="recurso-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="recurso-content">
+                        <h3>Guía de APIs de Mapas</h3>
+                        <p>Documentación completa sobre Google Maps API, Leaflet.js y Mapbox con ejemplos prácticos.</p>
+                        <a href="#" class="recurso-link">
+                            Descargar PDF
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="recurso-card">
+                    <div class="recurso-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="recurso-content">
+                        <h3>Ejemplos de Código</h3>
+                        <p>Repositorio con implementaciones de mapas interactivos en diferentes APIs.</p>
+                        <a href="#" class="recurso-link">
+                            Ver código
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="recurso-card">
+                    <div class="recurso-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="recurso-content">
+                        <h3>Video Tutoriales</h3>
+                        <p>Videos explicativos sobre integración de mapas y servicios de geolocalización.</p>
+                        <a href="#" class="recurso-link">
+                            Ver videos
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="recurso-card">
+                    <div class="recurso-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <div class="recurso-content">
+                        <h3>Casos Prácticos</h3>
+                        <p>Análisis de aplicaciones reales que utilizan geolocalización de forma efectiva.</p>
+                        <a href="#" class="recurso-link">
+                            Explorar casos
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Prácticas de la Unidad -->
+    <section class="section practicas-unidad">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Prácticas Implementadas</h2>
+                <p class="section-subtitle">Ejercicios y actividades realizadas en esta unidad</p>
+            </div>
+            
+            <div class="practicas-list">
+                <div class="practica-item">
+                    <div class="practica-numero">01</div>
+                    <div class="practica-content">
+                        <h3>Mapa de Ubicación Básico</h3>
+                        <p>Implementación de mapa centrado en una ubicación específica con marcadores básicos.</p>
+                        <div class="practica-tags">
+                            <span class="tag">Google Maps</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">HTML5</span>
+                        </div>
+                    </div>
+                    <a href="saberhacer2-1.html" class="practica-link"> <!-- Cambiado: saberhacer2-1.php → saberhacer2-1.html -->
+                        Ver práctica
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="practica-item">
+                    <div class="practica-numero">02</div>
+                    <div class="practica-content">
+                        <h3>Localizador de Lugares</h3>
+                        <p>Aplicación que muestra lugares cercanos a una ubicación específica en un mapa interactivo.</p>
+                        <div class="practica-tags">
+                            <span class="tag">Geolocation API</span>
+                            <span class="tag">Búsqueda</span>
+                            <span class="tag">Marcadores</span>
+                        </div>
+                    </div>
+                    <a href="#" class="practica-link">
+                        Ver práctica
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="practica-item">
+                    <div class="practica-numero">03</div>
+                    <div class="practica-content">
+                        <h3>Calculadora de Rutas</h3>
+                        <p>Sistema que calcula y muestra la ruta óptima entre dos puntos en un mapa.</p>
+                        <div class="practica-tags">
+                            <span class="tag">Rutas</span>
+                            <span class="tag">Navegación</span>
+                            <span class="tag">Optimización</span>
+                        </div>
+                    </div>
+                    <a href="#" class="practica-link">
+                        Ver práctica
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="practica-item">
+                    <div class="practica-numero">04</div>
+                    <div class="practica-content">
+                        <h3>Geocodificador de Direcciones</h3>
+                        <p>Herramienta que convierte direcciones en coordenadas y viceversa.</p>
+                        <div class="practica-tags">
+                            <span class="tag">Geocodificación</span>
+                            <span class="tag">Coordenadas</span>
+                            <span class="tag">API REST</span>
+                        </div>
+                    </div>
+                    <a href="#" class="practica-link">
+                        Ver práctica
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="#" class="btn btn-primary">
+                    <i class="fas fa-list"></i>
+                    Ver todas las prácticas
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Evaluación -->
+    <section class="section evaluacion-unidad">
+        <div class="container">
+            <div class="evaluacion-card">
+                <div class="evaluacion-header">
+                    <h2>Evaluación de la Unidad</h2>
+                    <div class="evaluacion-progreso">
+                        <div class="progreso-bar">
+                            <div class="progreso-fill" style="width: 40%"></div>
+                        </div>
+                        <span class="progreso-text">40% Completado</span>
+                    </div>
+                </div>
+                
+                <div class="evaluacion-detalle">
+                    <div class="detalle-item">
+                        <i class="fas fa-check-circle" style="color: #10b981;"></i>
+                        <span>Saber teórico completado</span>
+                    </div>
+                    <div class="detalle-item">
+                        <i class="fas fa-spinner" style="color: #3b82f6;"></i>
+                        <span>Saber Hacer 1 en progreso</span>
+                    </div>
+                    <div class="detalle-item">
+                        <i class="fas fa-clock" style="color: #8b5cf6;"></i>
+                        <span>Saber Hacer 2 pendiente</span>
+                    </div>
+                    <div class="detalle-item">
+                        <i class="fas fa-spinner" style="color: #f59e0b;"></i>
+                        <span>Prácticas en desarrollo</span>
+                    </div>
+                </div>
+                
+                <div class="evaluacion-footer">
+                    <p>Esta unidad está en proceso de aprendizaje con las evidencias requeridas en desarrollo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenedor para el footer -->
+    <div id="footer-container"></div>
+
+    <!-- Script para cargar componentes dinámicamente -->
+    <script>
+    // Función para cargar componentes HTML
+    function cargarComponente(componente, contenedorId) {
+        fetch(componente)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`No se pudo cargar ${componente}: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById(contenedorId).innerHTML = data;
+                
+                // Si es el navbar, actualizar el item activo
+                if (componente.includes('navbar') && typeof current_page !== 'undefined') {
+                    actualizarNavbarActivo();
+                }
+                
+                // Si es el header, cargar los estilos
+                if (componente.includes('header')) {
+                    cargarEstilos();
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById(contenedorId).innerHTML = 
+                    `<div style="color: red; padding: 10px;">Error cargando ${componente}</div>`;
+            });
+    }
+
+    // Función para actualizar el navbar activo
+    function actualizarNavbarActivo() {
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === current_page + '.html' || 
+                link.getAttribute('href') === current_page) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+
+    // Función para cargar los estilos CSS
+    function cargarEstilos() {
+        const estilos = [
+            'assets/css/main.css',
+            'assets/css/estilos.css',
+            'assets/css/landing.css',
+            'assets/css/responsive.css',
+            'assets/css/cards.css',
+            'assets/css/saber.css',
+            'assets/css/animations.css'
+        ];
+        
+        // Cargar Font Awesome
+        const fontAwesome = document.createElement('link');
+        fontAwesome.rel = 'stylesheet';
+        fontAwesome.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+        document.head.appendChild(fontAwesome);
+        
+        // Cargar estilos locales
+        estilos.forEach(estilo => {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = estilo;
+            document.head.appendChild(link);
+        });
+    }
+
+    // Cargar componentes cuando la página esté lista
+    document.addEventListener('DOMContentLoaded', function() {
+        // Cargar header
+        cargarComponente('components/header.html', 'header-container');
+        
+        // Cargar navbar
+        cargarComponente('components/navbar.html', 'navbar-container');
+        
+        // Cargar footer
+        cargarComponente('components/footer.html', 'footer-container');
+        
+        // Cargar scripts adicionales
+        cargarScripts();
+    });
+
+    // Función para cargar scripts JS
+    function cargarScripts() {
+        const scripts = [
+            'assets/js/main.js',
+            'assets/js/animaciones.js'
+        ];
+        
+        scripts.forEach(script => {
+            const scriptElement = document.createElement('script');
+            scriptElement.src = script;
+            document.body.appendChild(scriptElement);
+        });
+    }
+    </script>
+
+    <!-- Cargar jQuery si es necesario (opcional) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>

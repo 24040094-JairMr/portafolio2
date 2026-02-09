@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Web</title>
+    
+    <link rel="stylesheet" href="assets/css/landing.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- FAVICON -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📁</text></svg>">
+</head>
+<body class="landing-body">
+    
+    <div class="video-fixed-background">
+        <video autoplay muted loop id="landingVideo">
+            <source src="assets/videos/inicio.mp4" type="video/mp4">
+        </video>
+        <div class="video-fixed-overlay"></div>
+        
+        <div id="particles-js"></div>
+    </div>
+
+    <!-- === CONTENIDO QUE SE DESPLAZA === -->
+    <div class="scrollable-content">
+        
+        <!-- LOGO FLOTANTE ANIMADO -->
+        <div class="floating-logo">
+            <div class="logo-core">
+                <i class="fas fa-code"></i>
+            </div>
+            <div class="logo-rings">
+                <div class="ring ring-1"></div>
+                <div class="ring ring-2"></div>
+                <div class="ring ring-3"></div>
+            </div>
+        </div>
+
+        <!-- TÍTULO PRINCIPAL CON EFECTO -->
+        <div class="title-container">
+            <h1 class="main-title">
+                <span class="title-line line-1">PORTAFOLIO</span>
+                <span class="title-line line-2">DE EVIDENCIAS</span>
+            </h1>
+            
+            <h2 class="subtitle">
+                <span class="subtitle-text">Desarrollo Web Orientado a Servicios</span>
+                <span class="subtitle-line">5° Cuatrimestre - Desarrollo de Software Multiplataforma</span>
+            </h2>
+        </div>
+
+        <!-- DESCRIPCIÓN EN TARJETA DE CRISTAL -->
+        <div class="glass-card">
+            <div class="card-content">
+                <p class="description">
+                    <i class="fas fa-quote-left"></i>
+                    Un espacio digital innovador donde convergen teoría y práctica. 
+                    Explora nuestras implementaciones en servicios web, arquitecturas SOA 
+                    y soluciones tecnológicas de vanguardia.
+                    <i class="fas fa-quote-right"></i>
+                </p>
+                
+                <!-- BADGES DE TECNOLOGÍAS -->
+                <div class="tech-stack">
+                    <div class="tech-badge php">
+                        <i class="fab fa-php"></i>
+                        <span>PHP 8+</span>
+                    </div>
+                    <div class="tech-badge api">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span>APIs REST</span>
+                    </div>
+                    <div class="tech-badge front">
+                        <i class="fas fa-layer-group"></i>
+                        <span>Frontend Moderno</span>
+                    </div>
+                    <div class="tech-badge soa">
+                        <i class="fas fa-network-wired"></i>
+                        <span>Arquitectura SOA</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BOTÓN PRINCIPAL CON EFECTOS -->
+        <div class="cta-container">
+            <a href="inicio.html" class="cta-button" id="mainButton">
+                <span class="button-text">INGRESAR AL PORTAFOLIO</span>
+                <span class="button-icon">
+                    <i class="fas fa-arrow-right"></i>
+                </span>
+                <span class="button-glow"></span>
+                <span class="button-sparkle"></span>
+            </a>
+            
+            
+            <!-- INDICADOR INTERACTIVO -->
+            <div class="interactive-hint">
+                <div class="mouse-scroll">
+                    <div class="mouse">
+                        <div class="wheel"></div>
+                    </div>
+                    <p>Explora más contenido</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ESTADÍSTICAS FLOTANTES -->
+        <div class="stats-floating">
+            <div class="stat-item">
+                <div class="stat-number" data-count="4">0</div>
+                <div class="stat-label">Unidades</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <div class="stat-number" data-count="8">0</div>
+                <div class="stat-label">Prácticas</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <div class="stat-number" data-count="100">0</div>
+                <div class="stat-label">% Código Propio</div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN REVELADA AL SCROLL -->
+        <section class="reveal-section" id="featuresReveal">
+            <div class="reveal-title">
+                <h3>¿QUÉ ENCONTRARÁS DENTRO?</h3>
+                <div class="title-underline"></div>
+            </div>
+            
+            <div class="features-grid">
+                <!-- FEATURE 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <div class="icon-bg"></div>
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Arquitectura SOA</h4>
+                        <p>Diseño de sistemas basados en servicios independientes</p>
+                    </div>
+                    <div class="feature-glow"></div>
+                </div>
+                
+                <!-- FEATURE 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <div class="icon-bg"></div>
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>APIs RESTful</h4>
+                        <p>Consumo y desarrollo de APIs con estándares modernos</p>
+                    </div>
+                    <div class="feature-glow"></div>
+                </div>
+                
+                <!-- FEATURE 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <div class="icon-bg"></div>
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Seguridad Web</h4>
+                        <p>Implementación de medidas de protección en servicios</p>
+                    </div>
+                    <div class="feature-glow"></div>
+                </div>
+                
+                <!-- FEATURE 4 -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <div class="icon-bg"></div>
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Performance</h4>
+                        <p>Optimización de servicios para alto rendimiento</p>
+                    </div>
+                    <div class="feature-glow"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AUTORES -->
+        <div class="authors-section">
+            <div class="authors-title">
+                <h4>DESARROLLADO POR</h4>
+                <div class="title-sparkle"></div>
+            </div>
+            
+            <div class="authors-grid">
+                <div class="author-card">
+                    <div class="author-avatar">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="author-info">
+                        <h5>Sanchez Arroyo</h5>
+                        <p>Deniss Esmeralda</p>
+                        <span class="author-role">Frontend & UX</span>
+                    </div>
+                </div>
+                
+                <div class="author-card">
+                    <div class="author-avatar">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="author-info">
+                        <h5>Montes Reyna</h5>
+                        <p>Jair</p>
+                        <span class="author-role">Backend & APIs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER DE LANDING -->
+        <footer class="landing-footer">
+            <div class="footer-content">
+                <p>© <?php echo date('Y'); ?> Portafolio de Evidencias | Desarrollo Web Orientado a Servicios</p>
+                <p class="footer-sub">Universidad Tecnológica de Coahuila - 5° Cuatrimestre</p>
+            </div>
+        </footer>
+
+    </div> <!-- Fin de scrollable-content -->
+
+    <!-- === SCRIPTS LANDING === -->
+    <script src="assets/js/landing.js"></script>
+    <script src="assets/js/particles.js"></script>
+    
+    <!-- PARTICLES.JS CDN -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+</body>
+</html>

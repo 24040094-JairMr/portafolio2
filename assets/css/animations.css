@@ -1,0 +1,620 @@
+/* ==============================================
+   ANIMATIONS CSS - EFECTOS ESPECIALES MEJORADOS
+   ============================================== */
+
+/* === ANIMACIONES DE ENTRADA === */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* === ANIMACIONES DE FLOTACIÓN === */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes floatSlow {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* === ANIMACIONES DE ROTACIÓN === */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate3d {
+    0% {
+        transform: perspective(1000px) rotateX(0) rotateY(0);
+    }
+    25% {
+        transform: perspective(1000px) rotateX(10deg) rotateY(10deg);
+    }
+    50% {
+        transform: perspective(1000px) rotateX(0) rotateY(0);
+    }
+    75% {
+        transform: perspective(1000px) rotateX(-10deg) rotateY(-10deg);
+    }
+    100% {
+        transform: perspective(1000px) rotateX(0) rotateY(0);
+    }
+}
+
+/* === ANIMACIONES DE ESCALA === */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.4);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(124, 58, 237, 0);
+    }
+}
+
+@keyframes pulseSoft {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+/* === ANIMACIONES DE BRILLO === */
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(124, 58, 237, 0.8);
+    }
+}
+
+@keyframes textGlow {
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(124, 58, 237, 0.8);
+    }
+}
+
+/* === ANIMACIONES DE TEXTO === */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+/* === ANIMACIONES DE FONDO === */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+/* === ANIMACIONES PARA CARDS === */
+@keyframes cardHover {
+    0% {
+        transform: translateY(0) rotateX(0);
+        box-shadow: var(--shadow-lg);
+    }
+    100% {
+        transform: translateY(-10px) rotateX(5deg);
+        box-shadow: var(--shadow-2xl);
+    }
+}
+
+@keyframes cardFocus {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1.02);
+    }
+}
+
+/* === ANIMACIONES PARA BOTONES === */
+@keyframes buttonRipple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+@keyframes buttonShake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+@keyframes buttonBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* === ANIMACIONES PARA ÍCONOS === */
+@keyframes iconSpin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes iconBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* === ANIMACIONES PARA NAVBAR === */
+@keyframes navbarSlideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes navbarSlideUp {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+
+/* === ANIMACIONES PARA MODALES === */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* === ANIMACIONES PARA MENÚ MÓVIL === */
+@keyframes menuSlideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes menuItemFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === ANIMACIONES PARA NOTIFICACIONES === */
+@keyframes notificationSlideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes notificationPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+    }
+}
+
+/* === CLASES DE ANIMACIÓN UTILITARIAS === */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.animate-slide-in-left {
+    animation: slideInLeft 0.8s ease forwards;
+}
+
+.animate-slide-in-right {
+    animation: slideInRight 0.8s ease forwards;
+}
+
+.animate-scale-in {
+    animation: scaleIn 0.6s ease forwards;
+}
+
+.animate-pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+    animation: pulseSoft 3s ease-in-out infinite;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-float-slow {
+    animation: floatSlow 4s ease-in-out infinite;
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+.animate-spin-slow {
+    animation: spin 3s linear infinite;
+}
+
+.animate-glow {
+    animation: glow 2s ease-in-out infinite;
+}
+
+.animate-text-glow {
+    animation: textGlow 2s ease-in-out infinite;
+}
+
+.animate-typing {
+    animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.animate-gradient-shift {
+    background-size: 200% auto;
+    animation: gradientShift 3s ease infinite;
+}
+
+/* === ANIMACIONES CON DELAY === */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-1000 { animation-delay: 1s; }
+
+/* === ANIMACIONES CON DURACIÓN === */
+.duration-fast { animation-duration: 0.3s; }
+.duration-normal { animation-duration: 0.6s; }
+.duration-slow { animation-duration: 1s; }
+.duration-slower { animation-duration: 2s; }
+
+/* === ANIMACIONES PARA HOVER STATES === */
+.hover-lift {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+.hover-scale {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+.hover-rotate {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-rotate:hover {
+    transform: rotate(5deg);
+}
+
+.hover-glow {
+    transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
+}
+
+.hover-shake:hover {
+    animation: buttonShake 0.5s ease;
+}
+
+.hover-bounce:hover {
+    animation: buttonBounce 0.5s ease;
+}
+
+/* === ANIMACIONES PARA ESTADOS ACTIVOS === */
+.active-pulse {
+    animation: pulseSoft 2s ease-in-out infinite;
+}
+
+.active-glow {
+    animation: glow 2s ease-in-out infinite;
+}
+
+/* === ANIMACIONES PARA SCROLL INDICATORS === */
+.scroll-hint {
+    animation: float 2s ease-in-out infinite;
+}
+
+/* === ANIMACIONES PARA LOADERS === */
+.loader-spin {
+    animation: spin 1s linear infinite;
+}
+
+.loader-pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* === REDUCCIÓN DE MOVIMIENTO === */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .animate-on-scroll {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* === ANIMACIONES ESPECIALES PARA CARDS DE UNIDADES === */
+.unit-card-animated {
+    animation: cardFocus 0.6s ease forwards;
+}
+
+@keyframes cardReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.unit-card:nth-child(1) { animation-delay: 0.1s; }
+.unit-card:nth-child(2) { animation-delay: 0.2s; }
+.unit-card:nth-child(3) { animation-delay: 0.3s; }
+.unit-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* === ANIMACIÓN DE ONDAS PARA EFECTOS ESPECIALES === */
+@keyframes wave {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.wave-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.wave-effect::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: wave 2s linear infinite;
+}
+
+/* === ANIMACIÓN DE PARTICULAS === */
+@keyframes particleFloat {
+    0%, 100% {
+        transform: translate(0, 0);
+        opacity: 0;
+    }
+    10%, 90% {
+        opacity: 1;
+    }
+    50% {
+        transform: translate(var(--tx), var(--ty));
+    }
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--primary-purple);
+    border-radius: 50%;
+    opacity: 0;
+    animation: particleFloat 3s ease-in-out infinite;
+}
+
+/* === ANIMACIÓN DE CASCADA PARA LISTAS === */
+@keyframes cascade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cascade-item {
+    opacity: 0;
+    animation: cascade 0.5s ease forwards;
+}
+
+.cascade-item:nth-child(1) { animation-delay: 0.1s; }
+.cascade-item:nth-child(2) { animation-delay: 0.2s; }
+.cascade-item:nth-child(3) { animation-delay: 0.3s; }
+.cascade-item:nth-child(4) { animation-delay: 0.4s; }
+.cascade-item:nth-child(5) { animation-delay: 0.5s; }
+
+/* === ANIMACIÓN DE ZOOM SUAVE === */
+@keyframes softZoom {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+.soft-zoom {
+    animation: softZoom 3s ease-in-out infinite;
+}

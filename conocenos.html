@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Cargamos el header desde components/header.html -->
+    <!-- El JavaScript al final manejará la carga dinámica -->
+    <script>
+        // Variable global para identificar la página actual
+        var current_page = 'conocenos';
+    </script>
+</head>
+<body>
+    <!-- Contenedores para componentes dinámicos -->
+    <div id="header-container"></div>
+    <div id="navbar-container"></div>
+
+    <!-- Hero Section Conócenos -->
+    <section class="hero conocenos-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text text-center">
+                    <h1 class="hero-title">
+                        <span class="gradient-text">Conócenos</span>
+                    </h1>
+                    <p class="hero-desc">
+                        Conoce al equipo detrás de este portafolio académico y nuestro compromiso con la excelencia
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Propósito del Proyecto -->
+    <section class="section proposito">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Propósito del Proyecto</h2>
+                <p class="section-subtitle">Objetivos y alcance de nuestro portafolio académico</p>
+            </div>
+            
+            <div class="proposito-content">
+                <div class="proposito-card">
+                    <div class="proposito-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Objetivo General</h3>
+                    <p>
+                        Desarrollar una aplicación web que funcione como portafolio de evidencias académicas,
+                        presentando los contenidos de la materia "Desarrollo Web Orientado a Servicios" mediante
+                        buenas prácticas de diseño y desarrollo web.
+                    </p>
+                </div>
+                
+                <div class="proposito-card">
+                    <div class="proposito-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Objetivos Específicos</h3>
+                    <ul class="lista-objetivos">
+                        <li><i class="fas fa-check-circle"></i> Presentar de manera organizada las 4 unidades temáticas</li>
+                        <li><i class="fas fa-check-circle"></i> Implementar un diseño web moderno y responsive</li>
+                        <li><i class="fas fa-check-circle"></i> Demostrar el uso de tecnologías web actuales</li>
+                        <li><i class="fas fa-check-circle"></i> Servir como evidencia de aprendizaje y competencias</li>
+                        <li><i class="fas fa-check-circle"></i> Aplicar conceptos de arquitectura SOA y APIs REST</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Nuestro Equipo -->
+    <section class="section nuestro-equipo" id="equipo">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nuestro Equipo</h2>
+                <p class="section-subtitle">Desarrolladores detrás de este proyecto académico</p>
+            </div>
+            
+            <div class="equipo-cards">
+                <!-- Card 1: Deniss Esmeralda -->
+                <div class="perfil-card">
+                    <div class="perfil-header">
+                        <div class="perfil-avatar">
+                            <div class="avatar-icon" style="background: linear-gradient(135deg, #ec4899, #8b5cf6);">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div class="estatus online"></div>
+                        </div>
+                        <div class="perfil-titulo">
+                            <h3>Sanchez Arroyo</h3>
+                            <p class="nombre-completo">Deniss Esmeralda</p>
+                        </div>
+                    </div>
+                    
+                    <div class="perfil-info">
+                        <div class="info-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div>
+                                <span class="info-label">Rol Principal</span>
+                                <span class="info-value">Frontend Developer & UX Designer</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <span class="info-label">Carrera</span>
+                                <span class="info-value">Desarrollo de Software</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-book"></i>
+                            <div>
+                                <span class="info-label">Cuatrimestre</span>
+                                <span class="info-value">5° Cuatrimestre</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="perfil-desc">
+                        <h4>Sobre mí</h4>
+                        <p>
+                            Especialista en diseño de interfaces modernas y experiencia de usuario. 
+                            Me apasiona crear aplicaciones web que sean tanto funcionales como estéticamente atractivas, 
+                            con enfoque en accesibilidad y usabilidad.
+                        </p>
+                    </div>
+                    
+                    <div class="perfil-habilidades">
+                        <h4>Habilidades Técnicas</h4>
+                        <div class="habilidades-list">
+                            <span class="habilidad">HTML5</span>
+                            <span class="habilidad">CSS3</span>
+                            <span class="habilidad">JavaScript</span>
+                            <span class="habilidad">React</span>
+                            <span class="habilidad">UI/UX Design</span>
+                            <span class="habilidad">Responsive Design</span>
+                            <span class="habilidad">Git</span>
+                            <span class="habilidad">Figma</span>
+                        </div>
+                    </div>
+                    
+                    <div class="perfil-contacto">
+                        <h4>Contacto</h4>
+                        <div class="contacto-links">
+                            <a href="mailto:deniss@portfolio.edu" class="contacto-link" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="#" class="contacto-link" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="contacto-link" title="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="contacto-link" title="Portfolio">
+                                <i class="fas fa-globe"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 2: Jair -->
+                <div class="perfil-card">
+                    <div class="perfil-header">
+                        <div class="perfil-avatar">
+                            <div class="avatar-icon" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div class="estatus online"></div>
+                        </div>
+                        <div class="perfil-titulo">
+                            <h3>Montes Reyna</h3>
+                            <p class="nombre-completo">Jair</p>
+                        </div>
+                    </div>
+                    
+                    <div class="perfil-info">
+                        <div class="info-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div>
+                                <span class="info-label">Rol Principal</span>
+                                <span class="info-value">Backend Developer & API Specialist</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <span class="info-label">Carrera</span>
+                                <span class="info-value">Desarrollo de Software</span>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-book"></i>
+                            <div>
+                                <span class="info-label">Cuatrimestre</span>
+                                <span class="info-value">5° Cuatrimestre</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="perfil-desc">
+                        <h4>Sobre mí</h4>
+                        <p>
+                            Especializado en desarrollo de servicios web y arquitecturas orientadas a servicios. 
+                            Experto en creación de APIs RESTful, optimización de bases de datos y 
+                            implementación de soluciones backend escalables.
+                        </p>
+                    </div>
+                    
+                    <div class="perfil-habilidades">
+                        <h4>Habilidades Técnicas</h4>
+                        <div class="habilidades-list">
+                            <span class="habilidad">PHP</span>
+                            <span class="habilidad">Python</span>
+                            <span class="habilidad">Node.js</span>
+                            <span class="habilidad">MySQL</span>
+                            <span class="habilidad">APIs REST</span>
+                            <span class="habilidad">SOA</span>
+                            <span class="habilidad">Docker</span>
+                            <span class="habilidad">Git</span>
+                        </div>
+                    </div>
+                    
+                    <div class="perfil-contacto">
+                        <h4>Contacto</h4>
+                        <div class="contacto-links">
+                            <a href="mailto:jair@portfolio.edu" class="contacto-link" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="#" class="contacto-link" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="contacto-link" title="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="contacto-link" title="Portfolio">
+                                <i class="fas fa-globe"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Información Académica -->
+    <section class="section info-academica">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Información Académica</h2>
+                <p class="section-subtitle">Datos generales del proyecto educativo</p>
+            </div>
+            
+            <div class="info-cards">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Institución</h3>
+                        <p>Universidad de Desarrollo de Software</p>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Materia</h3>
+                        <p>Desarrollo Web Orientado a Servicios</p>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Grupo</h3>
+                        <p>5° Cuatrimestre - Grupo A</p>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Periodo</h3>
+                        <p>Enero - Abril 2024</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Estructura del Portafolio -->
+    <section class="section estructura">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Estructura del Portafolio</h2>
+                <p class="section-subtitle">Componentes principales de nuestra aplicación web</p>
+            </div>
+            
+            <div class="estructura-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <div class="icon-circle">1</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Página Principal</h3>
+                        <p>Dashboard con resumen de unidades, estadísticas y acceso rápido a todos los contenidos.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <div class="icon-circle">2</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Unidades de Aprendizaje</h3>
+                        <p>4 secciones organizadas con teoría, prácticas y evidencias de cada unidad temática.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <div class="icon-circle">3</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Páginas de Contenido</h3>
+                        <p>Detalles específicos de cada unidad con ejemplos de código y demostraciones prácticas.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <div class="icon-circle">4</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Sección Conócenos</h3>
+                        <p>Información del equipo desarrollador, objetivos del proyecto y datos académicos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Tecnologías Implementadas -->
+    <section class="section tecnologias-implementadas">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Tecnologías Implementadas</h2>
+                <p class="section-subtitle">Stack tecnológico utilizado en el desarrollo</p>
+            </div>
+            
+            <div class="tecnologias-grid">
+                <div class="tecnologia-item">
+                    <i class="fab fa-php"></i>
+                    <h4>PHP</h4>
+                    <p>Lenguaje backend para servicios web</p>
+                </div>
+                
+                <div class="tecnologia-item">
+                    <i class="fab fa-js"></i>
+                    <h4>JavaScript</h4>
+                    <p>Interactividad y dinamismo en frontend</p>
+                </div>
+                
+                <div class="tecnologia-item">
+                    <i class="fab fa-html5"></i>
+                    <h4>HTML5</h4>
+                    <p>Estructura semántica del contenido</p>
+                </div>
+                
+                <div class="tecnologia-item">
+                    <i class="fab fa-css3-alt"></i>
+                    <h4>CSS3</h4>
+                    <p>Estilos y diseño responsive</p>
+                </div>
+                
+                <div class="tecnologia-item">
+                    <i class="fas fa-database"></i>
+                    <h4>MySQL</h4>
+                    <p>Base de datos relacional</p>
+                </div>
+                
+                <div class="tecnologia-item">
+                    <i class="fas fa-server"></i>
+                    <h4>APIs REST</h4>
+                    <p>Servicios web y comunicación</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Metodología de Trabajo -->
+    <section class="section metodologia">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Metodología de Trabajo</h2>
+                <p class="section-subtitle">Cómo organizamos nuestro desarrollo</p>
+            </div>
+            
+            <div class="metodologia-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Planificación</h3>
+                    <p>Definición de requisitos, diseño de arquitectura y distribución de tareas.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Desarrollo</h3>
+                    <p>Implementación de frontend y backend con revisiones continuas.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Pruebas</h3>
+                    <p>Testing de funcionalidades y corrección de errores.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Despliegue</h3>
+                    <p>Publicación en hosting y verificación final.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenedor para el footer -->
+    <div id="footer-container"></div>
+
+    <!-- Script para cargar componentes dinámicamente -->
+    <script>
+    // Función para cargar componentes HTML
+    function cargarComponente(componente, contenedorId) {
+        fetch(componente)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`No se pudo cargar ${componente}: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById(contenedorId).innerHTML = data;
+                
+                // Si es el navbar, actualizar el item activo
+                if (componente.includes('navbar') && typeof current_page !== 'undefined') {
+                    actualizarNavbarActivo();
+                }
+                
+                // Si es el header, cargar los estilos
+                if (componente.includes('header')) {
+                    cargarEstilos();
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById(contenedorId).innerHTML = 
+                    `<div style="color: red; padding: 10px;">Error cargando ${componente}</div>`;
+            });
+    }
+
+    // Función para actualizar el navbar activo
+    function actualizarNavbarActivo() {
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === current_page + '.html' || 
+                link.getAttribute('href') === current_page) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+
+    // Función para cargar los estilos CSS
+    function cargarEstilos() {
+        const estilos = [
+            'assets/css/main.css',
+            'assets/css/estilos.css',
+            'assets/css/landing.css',
+            'assets/css/responsive.css',
+            'assets/css/cards.css',
+            'assets/css/saber.css',
+            'assets/css/animations.css'
+        ];
+        
+        // Cargar Font Awesome
+        const fontAwesome = document.createElement('link');
+        fontAwesome.rel = 'stylesheet';
+        fontAwesome.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+        document.head.appendChild(fontAwesome);
+        
+        // Cargar estilos locales
+        estilos.forEach(estilo => {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = estilo;
+            document.head.appendChild(link);
+        });
+    }
+
+    // Cargar componentes cuando la página esté lista
+    document.addEventListener('DOMContentLoaded', function() {
+        // Cargar header
+        cargarComponente('components/header.html', 'header-container');
+        
+        // Cargar navbar
+        cargarComponente('components/navbar.php', 'navbar-container');
+        
+        // Cargar footer
+        cargarComponente('components/footer.html', 'footer-container');
+        
+        // Cargar scripts adicionales
+        cargarScripts();
+    });
+
+    // Función para cargar scripts JS
+    function cargarScripts() {
+        const scripts = [
+            'assets/js/main.js',
+            'assets/js/animaciones.js'
+        ];
+        
+        scripts.forEach(script => {
+            const scriptElement = document.createElement('script');
+            scriptElement.src = script;
+            document.body.appendChild(scriptElement);
+        });
+    }
+    </script>
+
+    <!-- Cargar jQuery si es necesario (opcional) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>

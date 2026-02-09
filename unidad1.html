@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Cargamos el header desde components/header.html -->
+    <!-- El JavaScript al final manejará la carga dinámica -->
+    <script>
+        // Variable global para identificar la página actual
+        var current_page = 'unidad1';
+    </script>
+</head>
+<body>
+    <!-- Contenedores para componentes dinámicos -->
+    <div id="header-container"></div>
+    <div id="navbar-container"></div>
+
+    <!-- Hero Section Unidad 1 -->
+    <section class="hero unidad-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="hero-badge">Unidad 1</span>
+                    <h1 class="hero-title">
+                        Introducción al Desarrollo Web
+                        <span class="gradient-text">Orientado a Servicios</span>
+                    </h1>
+                    <p class="hero-desc">
+                        Fundamentos de arquitecturas SOA, estándares web y aplicaciones híbridas. 
+                        Aprende los principios esenciales para diseñar sistemas basados en servicios.
+                    </p>
+                    
+                    <div class="hero-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-clock"></i>
+                            <span>6 semanas de duración</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-book"></i>
+                            <span>3 saberes principales</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-tasks"></i>
+                            <span>8 prácticas implementadas</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="unidad-icon-large">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navegación entre Unidades -->
+    <section class="section unidades-nav">
+        <div class="container">
+            <div class="nav-unidades">
+                <a href="inicio.html#unidades" class="nav-unidad"> <!-- Cambiado: inicio.php → inicio.html -->
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Volver a Unidades</span>
+                </a>
+                <div class="nav-separator"></div>
+                <a href="unidad2.html" class="nav-unidad siguiente"> <!-- Cambiado: unidad2.php → unidad2.html -->
+                    <span>Siguiente: Unidad 2</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Contenido Principal -->
+    <section class="section contenido-unidad">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contenido de la Unidad</h2>
+                <p class="section-subtitle">Temas principales y competencias a desarrollar</p>
+            </div>
+            
+            <div class="temas-grid">
+                <!-- Tema 1 -->
+                <div class="tema-card">
+                    <div class="tema-header">
+                        <span class="tema-numero">01</span>
+                        <h3>Paradigma del desarrollo de aplicaciones orientadas a servicios</h3>
+                    </div>
+                    <div class="tema-contenido">
+                        <ul class="tema-lista">
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Distinguir los servicios que se ofrecen en la nube</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Identificar las características de las aplicaciones orientadas a servicios</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Identificar el concepto y las características de las aplicaciones web híbridas (Mashup)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Tema 2 -->
+                <div class="tema-card">
+                    <div class="tema-header">
+                        <span class="tema-numero">02</span>
+                        <h3>Arquitectura Orientada a Servicios (SOA)</h3>
+                    </div>
+                    <div class="tema-contenido">
+                        <ul class="tema-lista">
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Definir qué es la Arquitectura Orientada a Servicios (SOA)</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Identificar los principios de diseño aplicados a cada servicio modelado</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Identificar los estándares relacionados con los servicios</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Estándares SOA -->
+            <div class="estandares-section">
+                <h3 class="estandares-title">Estándares SOA</h3>
+                <div class="estandares-grid">
+                    <div class="estandar-item">
+                        <div class="estandar-icon">
+                            <i class="fas fa-file-code"></i>
+                        </div>
+                        <h4>XML</h4>
+                        <p>Lenguaje de marcado extensible para intercambio de datos</p>
+                    </div>
+                    
+                    <div class="estandar-item">
+                        <div class="estandar-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <h4>SOAP</h4>
+                        <p>Protocolo simple de acceso a objetos para comunicación</p>
+                    </div>
+                    
+                    <div class="estandar-item">
+                        <div class="estandar-icon">
+                            <i class="fas fa-file-contract"></i>
+                        </div>
+                        <h4>WSDL</h4>
+                        <p>Lenguaje de descripción de servicios web</p>
+                    </div>
+                    
+                    <div class="estandar-item">
+                        <div class="estandar-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h4>UDDI</h4>
+                        <p>Descubrimiento e integración universal de servicios</p>
+                    </div>
+                    
+                    <div class="estandar-item">
+                        <div class="estandar-icon">
+                            <i class="fas fa-plug"></i>
+                        </div>
+                        <h4>REST</h4>
+                        <p>Transferencia de estado representacional para APIs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Cards de Saberes -->
+    <section class="section saberes-unidad">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Saberes de la Unidad</h2>
+                <p class="section-subtitle">Competencias y evidencias de aprendizaje</p>
+            </div>
+            
+            <div class="saberes-grid">
+                <!-- Card 1: Saber -->
+                <div class="saber-card">
+                    <div class="saber-header">
+                        <div class="saber-icon" style="background: linear-gradient(135deg, #10b981, #059669);">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="saber-badge" style="background: #10b981;">Saber</div>
+                    </div>
+                    
+                    <div class="saber-content">
+                        <h3>Conocimiento Teórico</h3>
+                        <p class="saber-desc">
+                            Comprensión profunda de los conceptos fundamentales de SOA y 
+                            arquitecturas orientadas a servicios.
+                        </p>
+                        
+                        <div class="saber-objetivos">
+                            <h4>Objetivos Alcanzados:</h4>
+                            <ul>
+                                <li>Definición clara de SOA y sus principios</li>
+                                <li>Identificación de características de aplicaciones SOA</li>
+                                <li>Comprensión de estándares XML, SOAP, WSDL</li>
+                                <li>Análisis de casos de uso reales</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="saber-evidencias">
+                            <h4>Evidencias:</h4>
+                            <div class="evidencias-list">
+                                <span class="evidencia">Mapas conceptuales</span>
+                                <span class="evidencia">Resúmenes teóricos</span>
+                                <span class="evidencia">Cuadros comparativos</span>
+                                <span class="evidencia">Presentaciones</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="saber-footer">
+                        <a href="saber.html" class="btn-saber"> <!-- Cambiado: saber.php → saber.html -->
+                            <i class="fas fa-book-open"></i>
+                            Ver contenido completo
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Card 2: Saber Hacer 1 -->
+                <div class="saber-card">
+                    <div class="saber-header">
+                        <div class="saber-icon" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="saber-badge" style="background: #3b82f6;">Saber Hacer 1</div>
+                    </div>
+                    
+                    <div class="saber-content">
+                        <h3>Diseño de Servicios SOA</h3>
+                        <p class="saber-desc">
+                            Capacidad para diseñar y modelar servicios web aplicando principios SOA 
+                            y estándares de la industria.
+                        </p>
+                        
+                        <div class="saber-objetivos">
+                            <h4>Competencias Desarrolladas:</h4>
+                            <ul>
+                                <li>Diseño de arquitecturas SOA básicas</li>
+                                <li>Modelado de servicios web con WSDL</li>
+                                <li>Implementación de mensajes SOAP</li>
+                                <li>Definición de contratos de servicio</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="saber-evidencias">
+                            <h4>Evidencias Prácticas:</h4>
+                            <div class="evidencias-list">
+                                <span class="evidencia">Diagramas de arquitectura</span>
+                                <span class="evidencia">Especificaciones WSDL</span>
+                                <span class="evidencia">Mensajes SOAP XML</span>
+                                <span class="evidencia">Documentación técnica</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="saber-footer">
+                        <a href="saberhacer2-1.html" class="btn-saber"> <!-- Cambiado: saberhacer1.php → saberhacer2-1.html -->
+                            <i class="fas fa-laptop-code"></i>
+                            Ver prácticas y códigos
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Card 3: Saber Hacer 2 -->
+                <div class="saber-card">
+                    <div class="saber-header">
+                        <div class="saber-icon" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <div class="saber-badge" style="background: #8b5cf6;">Saber Hacer 2</div>
+                    </div>
+                    
+                    <div class="saber-content">
+                        <h3>Implementación de Aplicaciones Híbridas</h3>
+                        <p class="saber-desc">
+                            Desarrollo de aplicaciones web híbridas (Mashup) integrando múltiples 
+                            servicios web en una interfaz unificada.
+                        </p>
+                        
+                        <div class="saber-objetivos">
+                            <h4>Habilidades Adquiridas:</h4>
+                            <ul>
+                                <li>Integración de APIs REST externas</li>
+                                <li>Desarrollo de mashups con JavaScript</li>
+                                <li>Consumo de servicios web en la nube</li>
+                                <li>Gestión de datos de múltiples fuentes</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="saber-evidencias">
+                            <h4>Proyectos Realizados:</h4>
+                            <div class="evidencias-list">
+                                <span class="evidencia">Aplicación mashup funcional</span>
+                                <span class="evidencia">Código fuente JavaScript</span>
+                                <span class="evidencia">Integración con APIs públicas</span>
+                                <span class="evidencia">Demo interactiva</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="saber-footer">
+                        <a href="saber2.html" class="btn-saber"> <!-- Cambiado: saberhacer2.php → saber2.html -->
+                            <i class="fas fa-rocket"></i>
+                            Ver proyectos completos
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Recursos Adicionales -->
+    <section class="section recursos-unidad">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Recursos de Aprendizaje</h2>
+                <p class="section-subtitle">Material complementario para profundizar en SOA</p>
+            </div>
+            
+            <div class="recursos-grid">
+                <div class="recurso-card">
+                    <div class="recurso-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="recurso-content">
+                        <h3>Documentación SOA</h3>
+                        <p>Guía completa de arquitecturas orientadas a servicios con ejemplos prácticos.</p>
+                        <a href="#" class="recurso-link">
+                            Descargar PDF
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="recurso-card">
+                    <div class="recurso-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="recurso-content">
+                        <h3>Ejemplos de Código</h3>
+                        <p>Repositorio con implementaciones de servicios SOAP y REST en diferentes lenguajes.</p>
+                        <a href="#" class="recurso-link">
+                            Ver código
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="recurso-card">
+                    <div class="recurso-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="recurso-content">
+                        <h3>Video Tutoriales</h3>
+                        <p>Videos explicativos sobre diseño e implementación de arquitecturas SOA.</p>
+                        <a href="#" class="recurso-link">
+                            Ver videos
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="recurso-card">
+                    <div class="recurso-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="recurso-content">
+                        <h3>Casos de Estudio</h3>
+                        <p>Análisis de implementaciones SOA en empresas reales y mejores prácticas.</p>
+                        <a href="#" class="recurso-link">
+                            Explorar casos
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Prácticas de la Unidad -->
+    <section class="section practicas-unidad">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Prácticas Implementadas</h2>
+                <p class="section-subtitle">Ejercicios y actividades realizadas en esta unidad</p>
+            </div>
+            
+            <div class="practicas-list">
+                <div class="practica-item">
+                    <div class="practica-numero">01</div>
+                    <div class="practica-content">
+                        <h3>Análisis de Servicios en la Nube</h3>
+                        <p>Identificación y clasificación de servicios cloud computing disponibles en el mercado.</p>
+                        <div class="practica-tags">
+                            <span class="tag">Cloud Computing</span>
+                            <span class="tag">SaaS</span>
+                            <span class="tag">PaaS</span>
+                            <span class="tag">IaaS</span>
+                        </div>
+                    </div>
+                    <a href="#" class="practica-link">
+                        Ver práctica
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="practica-item">
+                    <div class="practica-numero">02</div>
+                    <div class="practica-content">
+                        <h3>Diseño de Arquitectura SOA</h3>
+                        <p>Creación de diagramas de arquitectura para un sistema basado en servicios.</p>
+                        <div class="practica-tags">
+                            <span class="tag">Diagramas UML</span>
+                            <span class="tag">Arquitectura</span>
+                            <span class="tag">Servicios</span>
+                        </div>
+                    </div>
+                    <a href="#" class="practica-link">
+                        Ver práctica
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="practica-item">
+                    <div class="practica-numero">03</div>
+                    <div class="practica-content">
+                        <h3>Implementación de Servicio SOAP</h3>
+                        <p>Desarrollo de un servicio web básico utilizando el protocolo SOAP.</p>
+                        <div class="practica-tags">
+                            <span class="tag">SOAP</span>
+                            <span class="tag">WSDL</span>
+                            <span class="tag">XML</span>
+                        </div>
+                    </div>
+                    <a href="#" class="practica-link">
+                        Ver práctica
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="practica-item">
+                    <div class="practica-numero">04</div>
+                    <div class="practica-content">
+                        <h3>Creación de Aplicación Mashup</h3>
+                        <p>Desarrollo de una aplicación web que integra datos de múltiples APIs públicas.</p>
+                        <div class="practica-tags">
+                            <span class="tag">Mashup</span>
+                            <span class="tag">APIs REST</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                    </div>
+                    <a href="#" class="practica-link">
+                        Ver práctica
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="unidad1-practicas.html" class="btn btn-primary"> <!-- Cambiado: unidad1-practicas.php → unidad1-practicas.html -->
+                    <i class="fas fa-list"></i>
+                    Ver todas las prácticas
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Evaluación -->
+    <section class="section evaluacion-unidad">
+        <div class="container">
+            <div class="evaluacion-card">
+                <div class="evaluacion-header">
+                    <h2>Evaluación de la Unidad</h2>
+                    <div class="evaluacion-progreso">
+                        <div class="progreso-bar">
+                            <div class="progreso-fill" style="width: 85%"></div>
+                        </div>
+                        <span class="progreso-text">85% Completado</span>
+                    </div>
+                </div>
+                
+                <div class="evaluacion-detalle">
+                    <div class="detalle-item">
+                        <i class="fas fa-check-circle" style="color: #10b981;"></i>
+                        <span>Saber teórico completado</span>
+                    </div>
+                    <div class="detalle-item">
+                        <i class="fas fa-check-circle" style="color: #3b82f6;"></i>
+                        <span>Saber Hacer 1 implementado</span>
+                    </div>
+                    <div class="detalle-item">
+                        <i class="fas fa-check-circle" style="color: #8b5cf6;"></i>
+                        <span>Saber Hacer 2 desarrollado</span>
+                    </div>
+                    <div class="detalle-item">
+                        <i class="fas fa-check-circle" style="color: #f59e0b;"></i>
+                        <span>Prácticas entregadas</span>
+                    </div>
+                </div>
+                
+                <div class="evaluacion-footer">
+                    <p>Esta unidad ha sido completada satisfactoriamente con todas las evidencias requeridas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenedor para el footer -->
+    <div id="footer-container"></div>
+
+    <!-- Script para cargar componentes dinámicamente -->
+    <script>
+    // Función para cargar componentes HTML
+    function cargarComponente(componente, contenedorId) {
+        fetch(componente)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`No se pudo cargar ${componente}: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById(contenedorId).innerHTML = data;
+                
+                // Si es el navbar, actualizar el item activo
+                if (componente.includes('navbar') && typeof current_page !== 'undefined') {
+                    actualizarNavbarActivo();
+                }
+                
+                // Si es el header, cargar los estilos
+                if (componente.includes('header')) {
+                    cargarEstilos();
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById(contenedorId).innerHTML = 
+                    `<div style="color: red; padding: 10px;">Error cargando ${componente}</div>`;
+            });
+    }
+
+    // Función para actualizar el navbar activo
+    function actualizarNavbarActivo() {
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === current_page + '.html' || 
+                link.getAttribute('href') === current_page) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+
+    // Función para cargar los estilos CSS
+    function cargarEstilos() {
+        const estilos = [
+            'assets/css/main.css',
+            'assets/css/estilos.css',
+            'assets/css/landing.css',
+            'assets/css/responsive.css',
+            'assets/css/cards.css',
+            'assets/css/saber.css',
+            'assets/css/animations.css'
+        ];
+        
+        // Cargar Font Awesome
+        const fontAwesome = document.createElement('link');
+        fontAwesome.rel = 'stylesheet';
+        fontAwesome.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+        document.head.appendChild(fontAwesome);
+        
+        // Cargar estilos locales
+        estilos.forEach(estilo => {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = estilo;
+            document.head.appendChild(link);
+        });
+    }
+
+    // Cargar componentes cuando la página esté lista
+    document.addEventListener('DOMContentLoaded', function() {
+        // Cargar header
+        cargarComponente('components/header.html', 'header-container');
+        
+        // Cargar navbar
+        cargarComponente('components/navbar.html', 'navbar-container');
+        
+        // Cargar footer
+        cargarComponente('components/footer.html', 'footer-container');
+        
+        // Cargar scripts adicionales
+        cargarScripts();
+    });
+
+    // Función para cargar scripts JS
+    function cargarScripts() {
+        const scripts = [
+            'assets/js/main.js',
+            'assets/js/animaciones.js'
+        ];
+        
+        scripts.forEach(script => {
+            const scriptElement = document.createElement('script');
+            scriptElement.src = script;
+            document.body.appendChild(scriptElement);
+        });
+    }
+    </script>
+
+    <!-- Cargar jQuery si es necesario (opcional) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>
