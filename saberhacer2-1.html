@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saber Hacer 1 - Mapa Interactivo con Geolocalización</title>
     
-    <!-- Incluir CSS principal de tu estructura -->
+    <!-- Incluir CSS principal de tu estructura - RUTAS ACTUALIZADAS -->
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/saber.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
@@ -123,9 +123,118 @@
         margin: 0 auto;
         padding: 0 20px;
     }
-    
-    /* Resto de los estilos del sitio web... */
-    /* (Aquí incluirías TODO el CSS del sitio web que ya tenías en el PHP) */
+
+    /* Sección demo */
+    .demo-section {
+        padding: 60px 0;
+    }
+
+    /* Estilos para el código explicado */
+    .codigo-fuente-section {
+        background: #f8fafc;
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .section-subtitle {
+        font-size: 1.2rem;
+        color: #64748b;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    /* Instrucciones */
+    .instrucciones-section {
+        background: white;
+    }
+
+    /* Conclusión */
+    .conclusion-final-section {
+        background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    }
+
+    /* ==============================================
+       ESTILOS ADICIONALES ESPECÍFICOS PARA EL MAPA
+       ============================================== */
+
+    /* Estilos para popups de Leaflet personalizados */
+    .leaflet-popup-content {
+        font-family: 'Inter', sans-serif !important;
+        margin: 15px !important;
+    }
+
+    .leaflet-popup-content-wrapper {
+        border-radius: 12px !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
+        overflow: hidden !important;
+    }
+
+    /* Animaciones personalizadas */
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-20px);
+        }
+        60% {
+            transform: translateY(-10px);
+        }
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        50% {
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
+    }
+
+    /* Notificaciones */
+    .notificacion {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px 20px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        z-index: 9999;
+        transform: translateX(150%);
+        transition: transform 0.3s ease-out;
+    }
+
+    .notificacion-success {
+        background: #10b981;
+        color: white;
+    }
+
+    .notificacion-error {
+        background: #ef4444;
+        color: white;
+    }
+
+    .notificacion-info {
+        background: #3b82f6;
+        color: white;
+    }
+
     </style>
 </head>
 <body>
@@ -896,8 +1005,7 @@ function agregarMarcadores() {
             descripcion: 'Bosque urbano más grande de América Latina',
             icono: '🌳',
             color: '#10b981'
-        },
-        // ... más ubicaciones
+        }
     ];
     
     ubicaciones.forEach((ubicacion) => {
@@ -1239,18 +1347,18 @@ function obtenerUbicacionUsuario() {
     <!-- Incluir Footer desde componentes -->
     <div id="footer-container"></div>
 
-    <!-- Scripts -->
+    <!-- Scripts - RUTAS ACTUALIZADAS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/animaciones.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/animaciones.js"></script>
     
     <script>
     // ================================
-    // JAVASCRIPT PARA CARGAR COMPONENTES
+    // JAVASCRIPT PARA CARGAR COMPONENTES - RUTAS ACTUALIZADAS
     // ================================
     
     // Cargar navigation desde archivo HTML
-    fetch('components/navigation.html')
+    fetch('assets/components/navigation.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('navigation-container').innerHTML = data;
@@ -1258,7 +1366,7 @@ function obtenerUbicacionUsuario() {
         .catch(error => console.error('Error cargando navigation:', error));
     
     // Cargar footer desde archivo HTML
-    fetch('components/footer.html')
+    fetch('assets/components/footer.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('footer-container').innerHTML = data;
@@ -1951,7 +2059,7 @@ function obtenerUbicacionUsuario() {
         notificacion.style.top = '20px';
         notificacion.style.right = '20px';
         notificacion.style.padding = '15px 20px';
-        notificacion.style.background = tipo === 'success' ? '#10b981' : '#ef4444';
+        notificacion.style.background = tipo === 'success' ? '#10b981' : tipo === 'error' ? '#ef4444' : '#3b82f6';
         notificacion.style.color = 'white';
         notificacion.style.borderRadius = '8px';
         notificacion.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
@@ -1997,23 +2105,6 @@ function obtenerUbicacionUsuario() {
         setTimeout(() => {
             mostrarNotificacion('¡Proyecto listo para descargar! Incluye HTML, CSS, JavaScript y documentación.', 'success');
         }, 2000);
-    }
-    
-    // Ver código completo
-    function verCodigoCompleto() {
-        // Scroll a la sección de código
-        document.querySelector('.codigo-fuente-section').scrollIntoView({
-            behavior: 'smooth'
-        });
-    }
-    
-    // Descargar proyecto
-    function descargarProyecto() {
-        mostrarNotificacion('Preparando proyecto para descarga...', 'info');
-        
-        setTimeout(() => {
-            mostrarNotificacion('Proyecto comprimido listo. Incluye todos los archivos necesarios.', 'success');
-        }, 1500);
     }
     
     // Agregar animaciones CSS para los marcadores
@@ -2125,5 +2216,5 @@ function obtenerUbicacionUsuario() {
     });
     </script>
 </body>
-
 </html>
+
