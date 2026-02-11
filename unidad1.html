@@ -7,6 +7,152 @@
         // Variable global para identificar la página actual
         var current_page = 'unidad1';
     </script>
+    
+    <!-- Estilos específicos para unidad1.html -->
+    <style>
+    /* ==============================================
+       ESTILOS ESPECÍFICOS PARA UNIDAD1.HTML - HERO CENTRADO
+       ============================================== */
+
+    /* Hero centrado para unidad1.html */
+    section.hero.unidad-hero {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding: 80px 0 !important;
+        min-height: 80vh !important;
+    }
+
+    .unidad-hero .container {
+        width: 100% !important;
+        max-width: 1200px !important;
+        margin: 0 auto !important;
+        padding: 0 20px !important;
+    }
+
+    .unidad-hero .hero-content {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        text-align: center !important;
+        gap: 0 !important;
+    }
+
+    .unidad-hero .hero-text {
+        width: 100% !important;
+        max-width: 800px !important;
+        margin: 0 auto 40px auto !important;
+        text-align: center !important;
+    }
+
+    .hero-badge {
+        display: inline-block !important;
+        background: linear-gradient(135deg, #7c3aed, #3b82f6) !important;
+        color: white !important;
+        padding: 8px 20px !important;
+        border-radius: 20px !important;
+        font-weight: 600 !important;
+        font-size: 0.9rem !important;
+        margin-bottom: 20px !important;
+    }
+
+    .unidad-hero .hero-title {
+        text-align: center !important;
+        margin-bottom: 20px !important;
+        font-size: 2.8rem !important;
+        line-height: 1.2 !important;
+    }
+
+    .unidad-hero .hero-desc {
+        text-align: center !important;
+        margin: 0 auto 30px auto !important;
+        max-width: 700px !important;
+        font-size: 1.1rem !important;
+        line-height: 1.6 !important;
+        color: #475569 !important;
+    }
+
+    .hero-meta {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 30px !important;
+        margin: 0 auto !important;
+        max-width: 600px !important;
+        flex-wrap: wrap !important;
+    }
+
+    .meta-item {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px !important;
+        color: #64748b !important;
+        font-weight: 500 !important;
+        text-align: left !important;
+    }
+
+    .meta-item i {
+        color: #7c3aed !important;
+    }
+
+    .unidad-hero .hero-visual {
+        margin: 40px auto 0 auto !important;
+        text-align: center !important;
+        width: 100% !important;
+    }
+
+    .unidad-icon-large {
+        width: 200px !important;
+        height: 200px !important;
+        background: linear-gradient(135deg, #7c3aed, #3b82f6) !important;
+        border-radius: 30px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        color: white !important;
+        font-size: 5rem !important;
+        margin: 0 auto !important;
+        box-shadow: 0 20px 40px rgba(124, 58, 237, 0.2) !important;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .unidad-hero .hero-title {
+            font-size: 2.2rem !important;
+        }
+        
+        .hero-meta {
+            flex-direction: column !important;
+            gap: 15px !important;
+            align-items: center !important;
+        }
+        
+        .meta-item {
+            text-align: center !important;
+        }
+        
+        .unidad-icon-large {
+            width: 150px !important;
+            height: 150px !important;
+            font-size: 4rem !important;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .unidad-hero .hero-title {
+            font-size: 1.8rem !important;
+        }
+        
+        .unidad-icon-large {
+            width: 120px !important;
+            height: 120px !important;
+            font-size: 3rem !important;
+        }
+    }
+    </style>
 </head>
 <body>
     <!-- Contenedores para componentes dinámicos -->
@@ -57,12 +203,12 @@
     <section class="section unidades-nav">
         <div class="container">
             <div class="nav-unidades">
-                <a href="inicio.html#unidades" class="nav-unidad"> <!-- Cambiado: inicio.php → inicio.html -->
+                <a href="inicio.html#unidades" class="nav-unidad">
                     <i class="fas fa-arrow-left"></i>
                     <span>Volver a Unidades</span>
                 </a>
                 <div class="nav-separator"></div>
-                <a href="unidad2.html" class="nav-unidad siguiente"> <!-- Cambiado: unidad2.php → unidad2.html -->
+                <a href="unidad2.html" class="nav-unidad siguiente">
                     <span>Siguiente: Unidad 2</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
@@ -223,7 +369,7 @@
                     </div>
                     
                     <div class="saber-footer">
-                        <a href="saber.html" class="btn-saber"> <!-- Cambiado: saber.php → saber.html -->
+                        <a href="saber.html" class="btn-saber">
                             <i class="fas fa-book-open"></i>
                             Ver contenido completo
                         </a>
@@ -268,7 +414,7 @@
                     </div>
                     
                     <div class="saber-footer">
-                        <a href="saberhacer2-1.html" class="btn-saber"> <!-- Cambiado: saberhacer1.php → saberhacer2-1.html -->
+                        <a href="saberhacer2-1.html" class="btn-saber">
                             <i class="fas fa-laptop-code"></i>
                             Ver prácticas y códigos
                         </a>
@@ -313,7 +459,7 @@
                     </div>
                     
                     <div class="saber-footer">
-                        <a href="saber2.html" class="btn-saber"> <!-- Cambiado: saberhacer2.php → saber2.html -->
+                        <a href="saber2.html" class="btn-saber">
                             <i class="fas fa-rocket"></i>
                             Ver proyectos completos
                         </a>
@@ -471,7 +617,7 @@
             </div>
             
             <div class="text-center">
-                <a href="unidad1-practicas.html" class="btn btn-primary"> <!-- Cambiado: unidad1-practicas.php → unidad1-practicas.html -->
+                <a href="unidad1-practicas.html" class="btn btn-primary">
                     <i class="fas fa-list"></i>
                     Ver todas las prácticas
                 </a>
