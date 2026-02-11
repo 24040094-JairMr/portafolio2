@@ -1,12 +1,208 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Cargamos el header desde components/header.html -->
-    <!-- El JavaScript al final manejará la carga dinámica -->
     <script>
-        // Variable global para identificar la página actual
         var current_page = 'unidad2';
     </script>
+    
+    <!-- ESTILOS ESPECÍFICOS PARA UNIDAD2.HTML -->
+    <style id="centrado-unidad2">
+    /* ==============================================
+       ESTILOS DE CENTRADO ESPECÍFICOS PARA UNIDAD2.HTML
+       ============================================== */
+    
+    /* Fuerza el centrado del hero en unidad2.html */
+    body .hero.unidad-hero {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding: 100px 0 80px 0 !important;
+        min-height: 90vh !important;
+        position: relative !important;
+        z-index: 1 !important;
+        background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%) !important;
+    }
+    
+    /* Reset de cualquier grid o flex que venga de main.css */
+    body .hero.unidad-hero .hero-content {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        width: 100% !important;
+        max-width: 1000px !important;
+        margin: 0 auto !important;
+        padding: 0 20px !important;
+        gap: 40px !important;
+    }
+    
+    /* Contenedor de texto centrado */
+    body .hero.unidad-hero .hero-text {
+        width: 100% !important;
+        max-width: 800px !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        text-align: center !important;
+    }
+    
+    /* Badge centrado */
+    body .hero.unidad-hero .hero-badge {
+        display: inline-block !important;
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8) !important;
+        color: white !important;
+        padding: 8px 20px !important;
+        border-radius: 20px !important;
+        font-weight: 600 !important;
+        font-size: 0.9rem !important;
+        margin-bottom: 25px !important;
+        text-align: center !important;
+    }
+    
+    /* Título centrado */
+    body .hero.unidad-hero .hero-title {
+        text-align: center !important;
+        margin: 0 auto 20px auto !important;
+        font-size: 2.8rem !important;
+        line-height: 1.2 !important;
+        width: 100% !important;
+        max-width: 800px !important;
+        color: #1e293b !important;
+    }
+    
+    /* Descripción centrada */
+    body .hero.unidad-hero .hero-desc {
+        text-align: center !important;
+        margin: 0 auto 35px auto !important;
+        max-width: 700px !important;
+        font-size: 1.15rem !important;
+        line-height: 1.7 !important;
+        color: #475569 !important;
+        width: 100% !important;
+    }
+    
+    /* Meta items centrados */
+    body .hero.unidad-hero .hero-meta {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 30px !important;
+        margin: 0 auto 40px auto !important;
+        max-width: 700px !important;
+        flex-wrap: wrap !important;
+        padding: 0 !important;
+    }
+    
+    body .hero.unidad-hero .meta-item {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px !important;
+        color: #64748b !important;
+        font-weight: 500 !important;
+        font-size: 1rem !important;
+    }
+    
+    body .hero.unidad-hero .meta-item i {
+        color: #3b82f6 !important;
+        font-size: 1.1rem !important;
+    }
+    
+    /* Visual del icono centrado */
+    body .hero.unidad-hero .hero-visual {
+        text-align: center !important;
+        margin: 20px auto 0 auto !important;
+        width: 100% !important;
+        max-width: 400px !important;
+    }
+    
+    body .hero.unidad-hero .unidad-icon-large {
+        width: 220px !important;
+        height: 220px !important;
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8) !important;
+        border-radius: 30px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        color: white !important;
+        font-size: 5rem !important;
+        margin: 0 auto !important;
+        box-shadow: 0 20px 40px rgba(59, 130, 246, 0.25) !important;
+        animation: flotar 3s ease-in-out infinite !important;
+    }
+    
+    /* Animación de flotación */
+    @keyframes flotar {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        50% { transform: translateY(-15px) rotate(2deg); }
+    }
+    
+    /* Color específico para el gradiente text en unidad2 */
+    body .hero.unidad-hero .gradient-text {
+        background: linear-gradient(90deg, #3b82f6, #1d4ed8) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        color: transparent !important;
+        display: inline-block !important;
+    }
+    
+    /* Responsive para unidad2 */
+    @media (max-width: 992px) {
+        body .hero.unidad-hero .hero-title {
+            font-size: 2.4rem !important;
+        }
+        
+        body .hero.unidad-hero .hero-desc {
+            font-size: 1.1rem !important;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        body .hero.unidad-hero {
+            padding: 80px 0 60px 0 !important;
+            min-height: auto !important;
+        }
+        
+        body .hero.unidad-hero .hero-title {
+            font-size: 2rem !important;
+            margin-bottom: 15px !important;
+        }
+        
+        body .hero.unidad-hero .hero-desc {
+            font-size: 1rem !important;
+            margin-bottom: 25px !important;
+        }
+        
+        body .hero.unidad-hero .hero-meta {
+            flex-direction: column !important;
+            gap: 15px !important;
+            margin-bottom: 30px !important;
+        }
+        
+        body .hero.unidad-hero .meta-item {
+            justify-content: center !important;
+            width: 100% !important;
+        }
+        
+        body .hero.unidad-hero .unidad-icon-large {
+            width: 180px !important;
+            height: 180px !important;
+            font-size: 4rem !important;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        body .hero.unidad-hero .hero-title {
+            font-size: 1.7rem !important;
+        }
+        
+        body .hero.unidad-hero .unidad-icon-large {
+            width: 150px !important;
+            height: 150px !important;
+            font-size: 3.5rem !important;
+        }
+    }
+    </style>
 </head>
 <body>
     <!-- Contenedores para componentes dinámicos -->
@@ -14,7 +210,7 @@
     <div id="navbar-container"></div>
 
     <!-- Hero Section Unidad 2 -->
-    <section class="hero unidad-hero">
+    <section class="hero unidad-hero" id="hero-unidad2">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
@@ -57,12 +253,12 @@
     <section class="section unidades-nav">
         <div class="container">
             <div class="nav-unidades">
-                <a href="inicio.html#unidades" class="nav-unidad"> <!-- Cambiado: inicio.php → inicio.html -->
+                <a href="inicio.html#unidades" class="nav-unidad">
                     <i class="fas fa-arrow-left"></i>
                     <span>Volver a Unidades</span>
                 </a>
                 <div class="nav-separator"></div>
-                <a href="unidad1.html" class="nav-unidad siguiente"> <!-- Cambiado: unidad1.php → unidad1.html -->
+                <a href="unidad1.html" class="nav-unidad siguiente">
                     <span>Anterior: Unidad 1</span>
                     <i class="fas fa-arrow-left"></i>
                 </a>
@@ -264,7 +460,7 @@
                     </div>
                     
                     <div class="saber-footer">
-                        <a href="saber2.html" class="btn-saber"> <!-- Cambiado: saber2.php → saber2.html -->
+                        <a href="saber2.html" class="btn-saber">
                             <i class="fas fa-book-open"></i>
                             Ver contenido completo
                         </a>
@@ -310,7 +506,7 @@
                     </div>
                     
                     <div class="saber-footer">
-                        <a href="saberhacer2-1.html" class="btn-saber"> <!-- Cambiado: saberhacer2-1.php → saberhacer2-1.html -->
+                        <a href="saberhacer2-1.html" class="btn-saber">
                             <i class="fas fa-laptop-code"></i>
                             Ver prácticas y códigos
                         </a>
@@ -454,7 +650,7 @@
                             <span class="tag">HTML5</span>
                         </div>
                     </div>
-                    <a href="saberhacer2-1.html" class="practica-link"> <!-- Cambiado: saberhacer2-1.php → saberhacer2-1.html -->
+                    <a href="saberhacer2-1.html" class="practica-link">
                         Ver práctica
                         <i class="fas fa-arrow-right"></i>
                     </a>
