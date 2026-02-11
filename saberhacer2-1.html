@@ -1354,11 +1354,11 @@ function obtenerUbicacionUsuario() {
     
     <script>
     // ================================
-    // JAVASCRIPT PARA CARGAR COMPONENTES - RUTAS ACTUALIZADAS
+    // JAVASCRIPT PARA CARGAR COMPONENTES - RUTAS CORREGIDAS (SIN ASSETS)
     // ================================
     
     // Cargar navigation desde archivo HTML
-    fetch('assets/components/navigation.html')
+    fetch('components/navigation.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('navigation-container').innerHTML = data;
@@ -1366,7 +1366,7 @@ function obtenerUbicacionUsuario() {
         .catch(error => console.error('Error cargando navigation:', error));
     
     // Cargar footer desde archivo HTML
-    fetch('assets/components/footer.html')
+    fetch('components/footer.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('footer-container').innerHTML = data;
@@ -2217,4 +2217,3 @@ function obtenerUbicacionUsuario() {
     </script>
 </body>
 </html>
-
