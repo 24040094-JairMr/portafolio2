@@ -7,6 +7,142 @@
         // Variable global para identificar la página actual
         var current_page = 'inicio';
     </script>
+    
+    <!-- Estilos específicos para inicio.html -->
+    <style>
+    /* ==============================================
+       ESTILOS ESPECÍFICOS PARA INICIO.HTML - HERO CENTRADO
+       ============================================== */
+
+    /* Hero centrado para inicio.html */
+    #hero.hero {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding: 80px 0 !important;
+        min-height: 100vh !important;
+    }
+
+    #hero .container {
+        width: 100% !important;
+        max-width: 1200px !important;
+        margin: 0 auto !important;
+        padding: 0 20px !important;
+    }
+
+    #hero .hero-content {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        text-align: center !important;
+        gap: 0 !important;
+    }
+
+    #hero .hero-text {
+        width: 100% !important;
+        max-width: 800px !important;
+        margin: 0 auto 40px auto !important;
+        text-align: center !important;
+    }
+
+    #hero .hero-title {
+        text-align: center !important;
+        margin-bottom: 20px !important;
+        font-size: 3.5rem !important;
+        line-height: 1.2 !important;
+    }
+
+    #hero .title-line {
+        display: block !important;
+    }
+
+    #hero .hero-subtitle {
+        text-align: center !important;
+        margin: 0 auto 20px auto !important;
+        max-width: 600px !important;
+        font-size: 1.5rem !important;
+        color: #7c3aed !important;
+    }
+
+    #hero .hero-desc {
+        text-align: center !important;
+        margin: 0 auto 30px auto !important;
+        max-width: 700px !important;
+        font-size: 1.1rem !important;
+        line-height: 1.6 !important;
+        color: #475569 !important;
+    }
+
+    #hero .hero-stats {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 40px !important;
+        margin: 0 auto 30px auto !important;
+        max-width: 600px !important;
+        flex-wrap: wrap !important;
+    }
+
+    #hero .stat {
+        text-align: center !important;
+        min-width: 100px !important;
+    }
+
+    #hero .stat-number {
+        font-size: 2.5rem !important;
+        font-weight: 700 !important;
+        color: #7c3aed !important;
+    }
+
+    #hero .stat-label {
+        color: #64748b !important;
+        font-size: 0.9rem !important;
+    }
+
+    #hero .hero-buttons {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 15px !important;
+        margin: 0 auto !important;
+        flex-wrap: wrap !important;
+    }
+
+    #hero .hero-code {
+        width: 100% !important;
+        max-width: 600px !important;
+        margin: 40px auto 0 auto !important;
+        text-align: left !important;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        #hero .hero-title {
+            font-size: 2.5rem !important;
+        }
+        
+        #hero .hero-subtitle {
+            font-size: 1.2rem !important;
+        }
+        
+        #hero .hero-stats {
+            gap: 20px !important;
+        }
+        
+        #hero .hero-buttons {
+            flex-direction: column !important;
+            align-items: center !important;
+        }
+        
+        #hero .btn {
+            width: 100% !important;
+            max-width: 300px !important;
+            justify-content: center !important;
+        }
+    }
+    </style>
 </head>
 <body>
     <!-- Contenedores para componentes dinámicos -->
