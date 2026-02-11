@@ -1,37 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Cargamos el header desde components/header.html -->
-    <!-- El JavaScript al final manejará la carga dinámica -->
     <script>
-        // Variable global para identificar la página actual
         var current_page = 'unidad1';
     </script>
-    
-    <!-- Estilos específicos para unidad1.html -->
-    <style>
-    /* ==============================================
-       ESTILOS ESPECÍFICOS PARA UNIDAD1.HTML - HERO CENTRADO
-       ============================================== */
-
-    /* Hero centrado para unidad1.html */
-    section.hero.unidad-hero {
+</head>
+<body>
+    <!-- ESTILOS AQUÍ PARA QUE SE APLIQUEN DESPUÉS -->
+    <style id="fix-centering">
+    /* FORZAR CENTRADO DEL HERO - APLICAR DESPUÉS DE TODO */
+    body section.hero.unidad-hero {
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
         text-align: center !important;
         padding: 80px 0 !important;
         min-height: 80vh !important;
+        background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%) !important;
     }
-
-    .unidad-hero .container {
+    
+    body .unidad-hero .container {
         width: 100% !important;
         max-width: 1200px !important;
         margin: 0 auto !important;
         padding: 0 20px !important;
     }
-
-    .unidad-hero .hero-content {
+    
+    body .unidad-hero .hero-content {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
@@ -41,15 +36,23 @@
         text-align: center !important;
         gap: 0 !important;
     }
-
-    .unidad-hero .hero-text {
+    
+    /* Anular cualquier grid o flex que venga de main.css */
+    body .unidad-hero .hero-content[style*="grid"],
+    body .unidad-hero .hero-content[style*="flex"] {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    
+    body .unidad-hero .hero-text {
         width: 100% !important;
         max-width: 800px !important;
         margin: 0 auto 40px auto !important;
         text-align: center !important;
     }
-
-    .hero-badge {
+    
+    body .hero-badge {
         display: inline-block !important;
         background: linear-gradient(135deg, #7c3aed, #3b82f6) !important;
         color: white !important;
@@ -59,24 +62,26 @@
         font-size: 0.9rem !important;
         margin-bottom: 20px !important;
     }
-
-    .unidad-hero .hero-title {
+    
+    body .unidad-hero .hero-title {
         text-align: center !important;
         margin-bottom: 20px !important;
         font-size: 2.8rem !important;
         line-height: 1.2 !important;
+        width: 100% !important;
     }
-
-    .unidad-hero .hero-desc {
+    
+    body .unidad-hero .hero-desc {
         text-align: center !important;
         margin: 0 auto 30px auto !important;
         max-width: 700px !important;
         font-size: 1.1rem !important;
         line-height: 1.6 !important;
         color: #475569 !important;
+        width: 100% !important;
     }
-
-    .hero-meta {
+    
+    body .hero-meta {
         display: flex !important;
         justify-content: center !important;
         gap: 30px !important;
@@ -84,27 +89,26 @@
         max-width: 600px !important;
         flex-wrap: wrap !important;
     }
-
-    .meta-item {
+    
+    body .meta-item {
         display: flex !important;
         align-items: center !important;
         gap: 10px !important;
         color: #64748b !important;
         font-weight: 500 !important;
-        text-align: left !important;
     }
-
-    .meta-item i {
+    
+    body .meta-item i {
         color: #7c3aed !important;
     }
-
-    .unidad-hero .hero-visual {
+    
+    body .unidad-hero .hero-visual {
         margin: 40px auto 0 auto !important;
         text-align: center !important;
         width: 100% !important;
     }
-
-    .unidad-icon-large {
+    
+    body .unidad-icon-large {
         width: 200px !important;
         height: 200px !important;
         background: linear-gradient(135deg, #7c3aed, #3b82f6) !important;
@@ -117,24 +121,30 @@
         margin: 0 auto !important;
         box-shadow: 0 20px 40px rgba(124, 58, 237, 0.2) !important;
     }
-
+    
+    /* Animar el icono */
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+    }
+    
+    body .unidad-icon-large {
+        animation: float 3s ease-in-out infinite !important;
+    }
+    
     /* Responsive */
     @media (max-width: 768px) {
-        .unidad-hero .hero-title {
+        body .unidad-hero .hero-title {
             font-size: 2.2rem !important;
         }
         
-        .hero-meta {
+        body .hero-meta {
             flex-direction: column !important;
             gap: 15px !important;
             align-items: center !important;
         }
         
-        .meta-item {
-            text-align: center !important;
-        }
-        
-        .unidad-icon-large {
+        body .unidad-icon-large {
             width: 150px !important;
             height: 150px !important;
             font-size: 4rem !important;
@@ -142,25 +152,24 @@
     }
     
     @media (max-width: 480px) {
-        .unidad-hero .hero-title {
+        body .unidad-hero .hero-title {
             font-size: 1.8rem !important;
         }
         
-        .unidad-icon-large {
+        body .unidad-icon-large {
             width: 120px !important;
             height: 120px !important;
             font-size: 3rem !important;
         }
     }
     </style>
-</head>
-<body>
+    
     <!-- Contenedores para componentes dinámicos -->
     <div id="header-container"></div>
     <div id="navbar-container"></div>
 
     <!-- Hero Section Unidad 1 -->
-    <section class="hero unidad-hero">
+    <section class="hero unidad-hero" id="hero-unidad1">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
@@ -198,7 +207,7 @@
             </div>
         </div>
     </section>
-
+    
     <!-- Navegación entre Unidades -->
     <section class="section unidades-nav">
         <div class="container">
@@ -773,3 +782,4 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 </html>
+
