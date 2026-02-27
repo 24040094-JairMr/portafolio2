@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <script>
+        var current_page = 'unidad3';
+    </script>
+    
+    <!-- ESTILOS PARA CENTRAR HERO -->
+    <style>
+    body section.hero.unidad-hero {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding: 80px 0 !important;
+        min-height: 80vh !important;
+        background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%) !important;
+    }
+    
+    body .unidad-hero .container {
+        width: 100% !important;
+        max-width: 1200px !important;
+        margin: 0 auto !important;
+        padding: 0 20px !important;
+    }
+    
+    body .unidad-hero .hero-content {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        text-align: center !important;
+        gap: 0 !important;
+    }
+    
+    body .unidad-hero .hero-text {
+        width: 100% !important;
+        max-width: 800px !important;
+        margin: 0 auto 40px auto !important;
+        text-align: center !important;
+    }
+    
+    body .hero-badge {
+        display: inline-block !important;
+        background: linear-gradient(135deg, #7c3aed, #3b82f6) !important;
+        color: white !important;
+        padding: 8px 20px !important;
+        border-radius: 20px !important;
+        font-weight: 600 !important;
+        font-size: 0.9rem !important;
+        margin-bottom: 20px !important;
+    }
+    
+    body .unidad-hero .hero-title {
+        text-align: center !important;
+        margin-bottom: 20px !important;
+        font-size: 2.8rem !important;
+        line-height: 1.2 !important;
+        width: 100% !important;
+    }
+    
+    body .unidad-hero .hero-desc {
+        text-align: center !important;
+        margin: 0 auto 30px auto !important;
+        max-width: 700px !important;
+        font-size: 1.1rem !important;
+        line-height: 1.6 !important;
+        color: #475569 !important;
+        width: 100% !important;
+    }
+    
+    body .hero-meta {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 30px !important;
+        margin: 0 auto !important;
+        max-width: 600px !important;
+        flex-wrap: wrap !important;
+    }
+    
+    body .meta-item {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px !important;
+        color: #64748b !important;
+        font-weight: 500 !important;
+    }
+    
+    body .meta-item i {
+        color: #7c3aed !important;
+    }
+    
+    body .unidad-hero .hero-visual {
+        margin: 40px auto 0 auto !important;
+        text-align: center !important;
+        width: 100% !important;
+    }
+    
+    body .unidad-icon-large {
+        width: 200px !important;
+        height: 200px !important;
+        background: linear-gradient(135deg, #7c3aed, #3b82f6) !important;
+        border-radius: 30px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        color: white !important;
+        font-size: 5rem !important;
+        margin: 0 auto !important;
+        box-shadow: 0 20px 40px rgba(124, 58, 237, 0.2) !important;
+        animation: float 3s ease-in-out infinite !important;
+    }
+    
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+    }
+    
+    @media (max-width: 768px) {
+        body .unidad-hero .hero-title {
+            font-size: 2.2rem !important;
+        }
+        
+        body .hero-meta {
+            flex-direction: column !important;
+            gap: 15px !important;
+            align-items: center !important;
+        }
+        
+        body .unidad-icon-large {
+            width: 150px !important;
+            height: 150px !important;
+            font-size: 4rem !important;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        body .unidad-hero .hero-title {
+            font-size: 1.8rem !important;
+        }
+        
+        body .unidad-icon-large {
+            width: 120px !important;
+            height: 120px !important;
+            font-size: 3rem !important;
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- Contenedores para componentes dinámicos -->
+    <div id="header-container"></div>
+    <div id="navbar-container"></div>
+
+    <!-- Hero Section Unidad 3 -->
+    <section class="hero unidad-hero" id="hero-unidad3">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="hero-badge">Unidad 3</span>
+                    <h1 class="hero-title">
+                        Desarrollo de una Interfaz de Programación de Aplicaciones
+                        <span class="gradient-text">(API)</span>
+                    </h1>
+                    <p class="hero-desc">
+                        Diseño, desarrollo e implementación de APIs RESTful con PHP, incluyendo estructuración de endpoints, 
+                        manejo de datos, autenticación y mejores prácticas para crear servicios web robustos y escalables.
+                    </p>
+                    
+                    <div class="hero-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-clock"></i>
+                            <span>6 semanas de duración</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-book"></i>
+                            <span>3 saberes principales</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-tasks"></i>
+                            <span>8 prácticas implementadas</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="unidad-icon-large">
+                        <i class="fas fa-code"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navegación entre Unidades -->
+    <section class="section unidades-nav">
+        <div class="container">
+            <div class="nav-unidades">
+                <a href="inicio.html#unidades" class="nav-unidad">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Volver a Unidades</span>
+                </a>
+                <div class="nav-separator"></div>
+                <a href="unidad2.html" class="nav-unidad siguiente">
+                    <span>Anterior: Unidad 2</span>
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Contenido Principal -->
+    <section class="section contenido-unidad">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contenido de la Unidad</h2>
+                <p class="section-subtitle">Temas principales y competencias a desarrollar</p>
+            </div>
+            
+            <div class="temas-grid">
+                <!-- Tema 1 -->
+                <div class="tema-card">
+                    <div class="tema-header">
+                        <span class="tema-numero">01</span>
+                        <h3>Frameworks para el desarrollo de interfaces de programación de aplicaciones</h3>
+                    </div>
+                    <div class="tema-contenido">
+                        <ul class="tema-lista">
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Identificar frameworks para el desarrollo de aplicaciones orientadas a servicios</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Comparar frameworks PHP para desarrollo de APIs (Laravel, Symfony, Lumen)</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Analizar frameworks JavaScript para APIs (Node.js, Express, NestJS)</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Evaluar características y ventajas de cada framework</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Tema 2 -->
+                <div class="tema-card">
+                    <div class="tema-header">
+                        <span class="tema-numero">02</span>
+                        <h3>Desarrollo de una interfaz de programación de aplicaciones (API)</h3>
+                    </div>
+                    <div class="tema-contenido">
+                        <ul class="tema-lista">
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Identificar el proceso de desarrollo de programación de aplicaciones (API)</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Diseñar endpoints y estructuras de rutas RESTful</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Implementar métodos HTTP (GET, POST, PUT, DELETE)</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Gestionar autenticación y autorización en APIs</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Documentar APIs con herramientas como Swagger/OpenAPI</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Implementar pruebas unitarias y de integración</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Frameworks Populares -->
+            <div class="estandares-section">
+                <h3 class="estandares-title">Frameworks Populares para Desarrollo de APIs</h3>
+                <div class="estandares-grid">
+                    <div class="estandar-item">
+                        <div class="estandar-icon">
+                            <i class="fab fa-laravel"></i>
+                        </div>
+                        <h4>Laravel</h4>
+                        <p>Framework PHP con soporte nativo para APIs RESTful mediante Laravel Sanctum y Passport</p>
+                    </div>
+                    
+                    <div class="estandar-item">
+                        <div class="estandar-icon">
+                            <i class="fab fa-node"></i>
+                        </div>
+                        <h4>Node.js + Express</h4>
+                        <p>Entorno JavaScript para backend con framework minimalista para crear APIs rápidas</p>
+                    </div>
+                    
+                    <div class="estandar-item">
+                        <div class="estandar-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h4>Django REST</h4>
+                        <p>Framework Python poderoso para construir APIs web con autenticación integrada</p>
+                    </div>
+                    
+                    <div class="estandar-item">
+                        <div class="estandar-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h4>Spring Boot</h4>
+                        <p>Framework Java para microservicios y APIs empresariales escalables</p>
+                    </div>
+                    
+                    <div class="estandar-item">
+                        <div class="estandar-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4>FastAPI</h4>
+                        <p>Framework Python moderno y rápido para APIs con documentación automática</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Cards de Saberes -->
+    <section class="section saberes-unidad">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Saberes de la Unidad</h2>
+                <p class="section-subtitle">Competencias y evidencias de aprendizaje</p>
+            </div>
+            
+            <div class="saberes-grid">
+                <!-- Card 1: Saber -->
+                <div class="saber-card">
+                    <div class="saber-header">
+                        <div class="saber-icon" style="background: linear-gradient(135deg, #10b981, #059669);">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="saber-badge" style="background: #10b981;">Saber</div>
+                    </div>
+                    
+                    <div class="saber-content">
+                        <h3>Frameworks y Desarrollo de APIs</h3>
+                        <p class="saber-desc">
+                            Conocimiento fundamental sobre frameworks para desarrollo de APIs y el proceso 
+                            completo de creación de interfaces de programación de aplicaciones.
+                        </p>
+                        
+                        <div class="saber-objetivos">
+                            <h4>Objetivos Alcanzados:</h4>
+                            <ul>
+                                <li>Identificar frameworks para desarrollo de aplicaciones orientadas a servicios</li>
+                                <li>Comparar frameworks PHP, JavaScript y Python para APIs</li>
+                                <li>Comprender el proceso completo de desarrollo de APIs</li>
+                                <li>Analizar arquitecturas y patrones de diseño de APIs</li>
+                                <li>Conocer estándares de documentación y pruebas</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="saber-evidencias">
+                            <h4>Evidencias:</h4>
+                            <div class="evidencias-list">
+                                <span class="evidencia">Cuadros comparativos</span>
+                                <span class="evidencia">Análisis de frameworks</span>
+                                <span class="evidencia">Documentación técnica</span>
+                                <span class="evidencia">Presentaciones</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="saber-footer">
+                        <a href="saber3.html" class="btn-saber">
+                            <i class="fas fa-book-open"></i>
+                            Ver contenido completo
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Card 2: Saber Hacer 1 -->
+                <div class="saber-card">
+                    <div class="saber-header">
+                        <div class="saber-icon" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="saber-badge" style="background: #3b82f6;">Saber Hacer 1</div>
+                    </div>
+                    
+                    <div class="saber-content">
+                        <h3>Desarrollo de API RESTful Básica</h3>
+                        <p class="saber-desc">
+                            Creación de una API RESTful funcional con operaciones CRUD utilizando un framework 
+                            PHP implementando endpoints y manejo de datos.
+                        </p>
+                        
+                        <div class="saber-objetivos">
+                            <h4>Competencias Desarrolladas:</h4>
+                            <ul>
+                                <li>Configurar entorno de desarrollo para APIs</li>
+                                <li>Diseñar endpoints RESTful</li>
+                                <li>Implementar operaciones CRUD (GET, POST, PUT, DELETE)</li>
+                                <li>Manejar respuestas JSON y códigos HTTP</li>
+                                <li>Conectar con base de datos</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="saber-evidencias">
+                            <h4>Evidencias Prácticas:</h4>
+                            <div class="evidencias-list">
+                                <span class="evidencia">API funcional</span>
+                                <span class="evidencia">Código fuente documentado</span>
+                                <span class="evidencia">Colección Postman</span>
+                                <span class="evidencia">Documentación de endpoints</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="saber-footer">
+                        <a href="#" class="btn-saber">
+                            <i class="fas fa-laptop-code"></i>
+                            Ver prácticas y códigos
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Card 3: Saber Hacer 2 -->
+                <div class="saber-card">
+                    <div class="saber-header">
+                        <div class="saber-icon" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="saber-badge" style="background: #8b5cf6;">Saber Hacer 2</div>
+                    </div>
+                    
+                    <div class="saber-content">
+                        <h3>API Avanzada con Autenticación</h3>
+                        <p class="saber-desc">
+                            Implementación de API con autenticación JWT, manejo de roles, documentación 
+                            con Swagger y pruebas automatizadas.
+                        </p>
+                        
+                        <div class="saber-objetivos">
+                            <h4>Habilidades Adquiridas:</h4>
+                            <ul>
+                                <li>Implementar autenticación JWT</li>
+                                <li>Gestionar roles y permisos de usuarios</li>
+                                <li>Documentar API con OpenAPI/Swagger</li>
+                                <li>Implementar pruebas unitarias y de integración</li>
+                                <li>Optimizar rendimiento y manejar caché</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="saber-evidencias">
+                            <h4>Proyectos Realizados:</h4>
+                            <div class="evidencias-list">
+                                <span class="evidencia">API con autenticación</span>
+                                <span class="evidencia">Documentación Swagger</span>
+                                <span class="evidencia">Pruebas automatizadas</span>
+                                <span class="evidencia">Sistema de roles</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="saber-footer">
+                        <a href="#" class="btn-saber">
+                            <i class="fas fa-rocket"></i>
+                            Próximamente
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Recursos Adicionales -->
+    <section class="section recursos-unidad">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Recursos de Aprendizaje</h2>
+                <p class="section-subtitle">Material complementario para profundizar en desarrollo de APIs</p>
+            </div>
+            
+            <div class="recursos-grid">
+                <div class="recurso-card">
+                    <div class="recurso-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="recurso-content">
+                        <h3>Guía de Frameworks para APIs</h3>
+                        <p>Comparativa detallada de frameworks PHP, JavaScript y Python para desarrollo de APIs RESTful.</p>
+                        <a href="#" class="recurso-link">
+                            Descargar PDF
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="recurso-card">
+                    <div class="recurso-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="recurso-content">
+                        <h3>Ejemplos de Código</h3>
+                        <p>Repositorio con implementaciones de APIs en diferentes frameworks (Laravel, Express, Django).</p>
+                        <a href="#" class="recurso-link">
+                            Ver código
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="recurso-card">
+                    <div class="recurso-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="recurso-content">
+                        <h3>Video Tutoriales</h3>
+                        <p>Serie completa sobre desarrollo de APIs RESTful desde cero hasta implementación avanzada.</p>
+                        <a href="#" class="recurso-link">
+                            Ver videos
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="recurso-card">
+                    <div class="recurso-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="recurso-content">
+                        <h3>Documentación Oficial</h3>
+                        <p>Enlaces a documentación oficial de Laravel, Express, Django REST Framework y más.</p>
+                        <a href="#" class="recurso-link">
+                            Ver documentación
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Prácticas de la Unidad -->
+    <section class="section practicas-unidad">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Prácticas Implementadas</h2>
+                <p class="section-subtitle">Ejercicios y actividades realizadas en esta unidad</p>
+            </div>
+            
+            <div class="practicas-list">
+                <div class="practica-item">
+                    <div class="practica-numero">01</div>
+                    <div class="practica-content">
+                        <h3>Análisis Comparativo de Frameworks</h3>
+                        <p>Investigación y comparación de diferentes frameworks para desarrollo de APIs (Laravel, Express, Django).</p>
+                        <div class="practica-tags">
+                            <span class="tag">Frameworks</span>
+                            <span class="tag">Comparativa</span>
+                            <span class="tag">Análisis</span>
+                        </div>
+                    </div>
+                    <a href="#" class="practica-link">
+                        Ver práctica
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="practica-item">
+                    <div class="practica-numero">02</div>
+                    <div class="practica-content">
+                        <h3>Diseño de Endpoints RESTful</h3>
+                        <p>Creación de especificación de endpoints para un sistema de gestión de tareas siguiendo principios REST.</p>
+                        <div class="practica-tags">
+                            <span class="tag">REST</span>
+                            <span class="tag">Endpoints</span>
+                            <span class="tag">Diseño</span>
+                        </div>
+                    </div>
+                    <a href="#" class="practica-link">
+                        Ver práctica
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="practica-item">
+                    <div class="practica-numero">03</div>
+                    <div class="practica-content">
+                        <h3>Implementación de API CRUD</h3>
+                        <p>Desarrollo de API con operaciones CRUD utilizando Laravel y base de datos MySQL.</p>
+                        <div class="practica-tags">
+                            <span class="tag">CRUD</span>
+                            <span class="tag">Laravel</span>
+                            <span class="tag">MySQL</span>
+                        </div>
+                    </div>
+                    <a href="#" class="practica-link">
+                        Ver práctica
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="practica-item">
+                    <div class="practica-numero">04</div>
+                    <div class="practica-content">
+                        <h3>Documentación con Swagger</h3>
+                        <p>Documentación de API utilizando OpenAPI/Swagger para generar documentación interactiva.</p>
+                        <div class="practica-tags">
+                            <span class="tag">Swagger</span>
+                            <span class="tag">OpenAPI</span>
+                            <span class="tag">Documentación</span>
+                        </div>
+                    </div>
+                    <a href="#" class="practica-link">
+                        Ver práctica
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="#" class="btn btn-primary">
+                    <i class="fas fa-list"></i>
+                    Ver todas las prácticas
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Evaluación -->
+    <section class="section evaluacion-unidad">
+        <div class="container">
+            <div class="evaluacion-card">
+                <div class="evaluacion-header">
+                    <h2>Evaluación de la Unidad</h2>
+                    <div class="evaluacion-progreso">
+                        <div class="progreso-bar">
+                            <div class="progreso-fill" style="width: 30%"></div>
+                        </div>
+                        <span class="progreso-text">30% Completado</span>
+                    </div>
+                </div>
+                
+                <div class="evaluacion-detalle">
+                    <div class="detalle-item">
+                        <i class="fas fa-spinner" style="color: #10b981;"></i>
+                        <span>Saber en progreso</span>
+                    </div>
+                    <div class="detalle-item">
+                        <i class="fas fa-clock" style="color: #3b82f6;"></i>
+                        <span>Saber Hacer 1 pendiente</span>
+                    </div>
+                    <div class="detalle-item">
+                        <i class="fas fa-clock" style="color: #8b5cf6;"></i>
+                        <span>Saber Hacer 2 pendiente</span>
+                    </div>
+                    <div class="detalle-item">
+                        <i class="fas fa-spinner" style="color: #f59e0b;"></i>
+                        <span>Prácticas en desarrollo</span>
+                    </div>
+                </div>
+                
+                <div class="evaluacion-footer">
+                    <p>Esta unidad está en proceso de aprendizaje con las evidencias requeridas en desarrollo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenedor para el footer -->
+    <div id="footer-container"></div>
+
+    <!-- Script para cargar componentes dinámicamente -->
+    <script>
+    function cargarComponente(componente, contenedorId) {
+        fetch(componente)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`No se pudo cargar ${componente}: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById(contenedorId).innerHTML = data;
+                
+                if (componente.includes('navbar') && typeof current_page !== 'undefined') {
+                    actualizarNavbarActivo();
+                }
+                
+                if (componente.includes('header')) {
+                    cargarEstilos();
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById(contenedorId).innerHTML = 
+                    `<div style="color: red; padding: 10px;">Error cargando ${componente}</div>`;
+            });
+    }
+
+    function actualizarNavbarActivo() {
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === current_page + '.html' || 
+                link.getAttribute('href') === current_page) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+
+    function cargarEstilos() {
+        const estilos = [
+            'assets/css/main.css',
+            'assets/css/estilos.css',
+            'assets/css/landing.css',
+            'assets/css/responsive.css',
+            'assets/css/cards.css',
+            'assets/css/saber.css',
+            'assets/css/animations.css'
+        ];
+        
+        const fontAwesome = document.createElement('link');
+        fontAwesome.rel = 'stylesheet';
+        fontAwesome.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+        document.head.appendChild(fontAwesome);
+        
+        estilos.forEach(estilo => {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = estilo;
+            document.head.appendChild(link);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        cargarComponente('components/header.html', 'header-container');
+        cargarComponente('components/navbar.html', 'navbar-container');
+        cargarComponente('components/footer.html', 'footer-container');
+        cargarScripts();
+    });
+
+    function cargarScripts() {
+        const scripts = [
+            'assets/js/main.js',
+            'assets/js/animaciones.js'
+        ];
+        
+        scripts.forEach(script => {
+            const scriptElement = document.createElement('script');
+            scriptElement.src = script;
+            document.body.appendChild(scriptElement);
+        });
+    }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>
