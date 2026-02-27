@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Cargamos el header desde components/header.html -->
+    <!-- El JavaScript al final manejará la carga dinámica -->
+    <script>
+        // Variable global para identificar la página actual
+        var current_page = 'saber3';
+    </script>
+    
+    <!-- Estilos específicos para centrar el hero en saber3.html -->
+    <style>
+    body section.hero.saber-hero {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding: 80px 0 !important;
+        min-height: 70vh !important;
+        background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%) !important;
+    }
+    
+    body .saber-hero .container {
+        width: 100% !important;
+        max-width: 1200px !important;
+        margin: 0 auto !important;
+        padding: 0 20px !important;
+    }
+    
+    body .saber-hero .hero-content {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        text-align: center !important;
+    }
+    
+    body .saber-hero .hero-text {
+        width: 100% !important;
+        max-width: 800px !important;
+        margin: 0 auto 40px auto !important;
+        text-align: center !important;
+    }
+    
+    body .saber-hero .hero-title {
+        text-align: center !important;
+        margin-bottom: 25px !important;
+        font-size: 2.5rem !important;
+        line-height: 1.3 !important;
+        width: 100% !important;
+    }
+    
+    body .saber-hero .hero-desc {
+        text-align: center !important;
+        margin: 0 auto 30px auto !important;
+        max-width: 700px !important;
+        font-size: 1.1rem !important;
+        line-height: 1.6 !important;
+        color: #475569 !important;
+        width: 100% !important;
+    }
+    
+    body .saber-hero .hero-badges {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 15px !important;
+        margin: 0 auto !important;
+        flex-wrap: wrap !important;
+    }
+    
+    body .saber-hero .badge {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        padding: 8px 20px !important;
+        border-radius: 30px !important;
+        color: white !important;
+        font-weight: 500 !important;
+        font-size: 0.9rem !important;
+    }
+    
+    body .saber-hero .hero-visual {
+        margin: 30px auto 0 auto !important;
+        text-align: center !important;
+        width: 100% !important;
+    }
+    
+    body .saber-icon-large {
+        width: 180px !important;
+        height: 180px !important;
+        background: linear-gradient(135deg, #10b981, #059669) !important;
+        border-radius: 30px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        color: white !important;
+        font-size: 5rem !important;
+        margin: 0 auto !important;
+        box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3) !important;
+        animation: float 3s ease-in-out infinite !important;
+    }
+    
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+    }
+    
+    /* Estilos para navegación */
+    .saber-navigation {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        flex-wrap: wrap !important;
+        gap: 20px !important;
+        background: white !important;
+        padding: 15px 25px !important;
+        border-radius: 50px !important;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05) !important;
+        border: 1px solid #e2e8f0 !important;
+    }
+    
+    .nav-pills {
+        display: flex !important;
+        gap: 10px !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+    }
+    
+    .nav-pill {
+        padding: 8px 16px !important;
+        border-radius: 30px !important;
+        background: #f1f5f9 !important;
+        color: #475569 !important;
+        text-decoration: none !important;
+        font-weight: 500 !important;
+        font-size: 0.9rem !important;
+        transition: all 0.3s !important;
+    }
+    
+    .nav-pill:hover, .nav-pill.active {
+        background: #10b981 !important;
+        color: white !important;
+    }
+    
+    .nav-btn {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        padding: 8px 20px !important;
+        border-radius: 30px !important;
+        background: #f1f5f9 !important;
+        color: #475569 !important;
+        text-decoration: none !important;
+        font-weight: 500 !important;
+        transition: all 0.3s !important;
+    }
+    
+    .nav-btn:hover {
+        background: #10b981 !important;
+        color: white !important;
+    }
+    
+    .nav-btn.next {
+        background: #10b981 !important;
+        color: white !important;
+    }
+    
+    .nav-btn.next:hover {
+        background: #059669 !important;
+    }
+    
+    /* Estilos para contenido */
+    .content-card {
+        background: white !important;
+        border-radius: 20px !important;
+        padding: 30px !important;
+        margin-bottom: 30px !important;
+        border: 1px solid #e2e8f0 !important;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.03) !important;
+    }
+    
+    .content-header {
+        margin-bottom: 20px !important;
+        padding-bottom: 15px !important;
+        border-bottom: 2px solid #e2e8f0 !important;
+    }
+    
+    .content-header h3 {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px !important;
+        font-size: 1.4rem !important;
+        color: #1e293b !important;
+    }
+    
+    .content-header h3 i {
+        font-size: 1.6rem !important;
+    }
+    
+    .content-body p {
+        color: #475569 !important;
+        line-height: 1.7 !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .frameworks-grid {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+        gap: 25px !important;
+        margin: 30px 0 !important;
+    }
+    
+    .framework-card {
+        background: #f8fafc !important;
+        border-radius: 15px !important;
+        padding: 25px !important;
+        border: 1px solid #e2e8f0 !important;
+        transition: all 0.3s !important;
+    }
+    
+    .framework-card:hover {
+        transform: translateY(-5px) !important;
+        border-color: #10b981 !important;
+        box-shadow: 0 10px 25px rgba(16, 185, 129, 0.1) !important;
+    }
+    
+    .framework-header {
+        display: flex !important;
+        align-items: center !important;
+        gap: 15px !important;
+        margin-bottom: 20px !important;
+        padding-bottom: 15px !important;
+        border-bottom: 1px solid #e2e8f0 !important;
+    }
+    
+    .framework-icon {
+        width: 50px !important;
+        height: 50px !important;
+        background: #10b981 !important;
+        border-radius: 12px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        color: white !important;
+        font-size: 1.5rem !important;
+    }
+    
+    .framework-header h4 {
+        font-size: 1.2rem !important;
+        color: #1e293b !important;
+        margin: 0 !important;
+    }
+    
+    .framework-category {
+        display: inline-block !important;
+        padding: 4px 12px !important;
+        background: #10b98120 !important;
+        color: #10b981 !important;
+        border-radius: 20px !important;
+        font-size: 0.8rem !important;
+        font-weight: 600 !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .framework-features {
+        list-style: none !important;
+        padding: 0 !important;
+        margin: 0 0 15px 0 !important;
+    }
+    
+    .framework-features li {
+        display: flex !important;
+        align-items: flex-start !important;
+        gap: 8px !important;
+        margin-bottom: 10px !important;
+        color: #475569 !important;
+        font-size: 0.9rem !important;
+    }
+    
+    .framework-features li i {
+        color: #10b981 !important;
+        margin-top: 3px !important;
+        font-size: 0.8rem !important;
+    }
+    
+    .framework-stats {
+        display: flex !important;
+        justify-content: space-between !important;
+        margin-top: 15px !important;
+        padding-top: 15px !important;
+        border-top: 1px solid #e2e8f0 !important;
+        font-size: 0.85rem !important;
+        color: #64748b !important;
+    }
+    
+    .process-steps {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+        margin: 30px 0 !important;
+    }
+    
+    .process-step {
+        display: flex !important;
+        gap: 20px !important;
+        align-items: flex-start !important;
+    }
+    
+    .step-number {
+        width: 40px !important;
+        height: 40px !important;
+        background: #10b981 !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        color: white !important;
+        font-weight: 700 !important;
+        flex-shrink: 0 !important;
+    }
+    
+    .step-content {
+        flex: 1 !important;
+    }
+    
+    .step-content h4 {
+        color: #1e293b !important;
+        margin-bottom: 8px !important;
+        font-size: 1.1rem !important;
+    }
+    
+    .step-content p {
+        color: #64748b !important;
+        margin: 0 !important;
+        font-size: 0.95rem !important;
+    }
+    
+    .method-table {
+        overflow-x: auto !important;
+        margin: 30px 0 !important;
+    }
+    
+    .method-table table {
+        width: 100% !important;
+        border-collapse: collapse !important;
+    }
+    
+    .method-table th {
+        background: #10b981 !important;
+        color: white !important;
+        padding: 12px !important;
+        font-weight: 600 !important;
+    }
+    
+    .method-table td {
+        padding: 10px 12px !important;
+        border: 1px solid #e2e8f0 !important;
+        color: #475569 !important;
+    }
+    
+    .method-table tr:nth-child(even) {
+        background: #f8fafc !important;
+    }
+    
+    .api-example {
+        background: #0f172a !important;
+        border-radius: 12px !important;
+        padding: 20px !important;
+        margin: 20px 0 !important;
+        overflow-x: auto !important;
+    }
+    
+    .api-example pre {
+        margin: 0 !important;
+        color: #e2e8f0 !important;
+        font-family: 'Courier New', monospace !important;
+        font-size: 0.9rem !important;
+    }
+    
+    .api-example code {
+        color: #10b981 !important;
+    }
+    
+    @media (max-width: 768px) {
+        .saber-navigation {
+            flex-direction: column !important;
+            border-radius: 20px !important;
+        }
+        
+        .frameworks-grid {
+            grid-template-columns: 1fr !important;
+        }
+        
+        .process-step {
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- Contenedores para componentes dinámicos -->
+    <div id="header-container"></div>
+    <div id="navbar-container"></div>
+
+    <!-- Hero Section Saber 3 -->
+    <section class="hero saber-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="breadcrumb" style="margin-bottom: 20px; color: #64748b;">
+                        <a href="inicio.html" style="color: #64748b; text-decoration: none;">Inicio</a>
+                        <i class="fas fa-chevron-right" style="margin: 0 10px; font-size: 0.8rem;"></i>
+                        <a href="unidad3.html" style="color: #64748b; text-decoration: none;">Unidad 3</a>
+                        <i class="fas fa-chevron-right" style="margin: 0 10px; font-size: 0.8rem;"></i>
+                        <span class="current" style="color: #10b981; font-weight: 600;">SABER</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        <span class="gradient-text" style="background: linear-gradient(135deg, #10b981, #059669); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">SABER</span>
+                        <br>
+                        <span style="font-size: 2rem;">Frameworks y Desarrollo de APIs</span>
+                    </h1>
+                    
+                    <p class="hero-desc">
+                        Conocimiento fundamental sobre frameworks para desarrollo de aplicaciones orientadas a servicios 
+                        y el proceso completo de creación de interfaces de programación de aplicaciones (API).
+                    </p>
+                    
+                    <div class="hero-badges">
+                        <span class="badge" style="background: #10b981;">
+                            <i class="fas fa-brain"></i>
+                            Conocimiento Teórico
+                        </span>
+                        <span class="badge" style="background: #7c3aed;">
+                            <i class="fas fa-graduation-cap"></i>
+                            Nivel: Intermedio
+                        </span>
+                        <span class="badge" style="background: #3b82f6;">
+                            <i class="fas fa-clock"></i>
+                            Tiempo estimado: 4 horas
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="saber-icon-large">
+                        <i class="fas fa-code"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navegación -->
+    <section class="section saber-nav">
+        <div class="container">
+            <div class="saber-navigation">
+                <a href="unidad3.html" class="nav-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    Volver a Unidad 3
+                </a>
+                <div class="nav-pills">
+                    <a href="#frameworks" class="nav-pill active">Frameworks</a>
+                    <a href="#proceso-api" class="nav-pill">Proceso API</a>
+                    <a href="#diseno" class="nav-pill">Diseño</a>
+                    <a href="#conclusion" class="nav-pill">Conclusión</a>
+                </div>
+                <a href="#" class="nav-btn next">
+                    Siguiente: Saber Hacer 1
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 1: Frameworks para Desarrollo de APIs -->
+    <section class="section saber-section" id="frameworks">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge" style="background: #10b98120; color: #10b981; display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: 600; margin-bottom: 15px;">Tema 1</div>
+                <h2 class="section-title">Frameworks para el desarrollo de interfaces de programación de aplicaciones</h2>
+                <p class="section-subtitle">
+                    Identificar frameworks en el desarrollo de aplicaciones orientadas a servicios
+                </p>
+            </div>
+            
+            <div class="saber-content">
+                <!-- Introducción a Frameworks -->
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fas fa-info-circle" style="color: #10b981;"></i> ¿Qué son los Frameworks en el Desarrollo de APIs?</h3>
+                    </div>
+                    <div class="content-body">
+                        <p>
+                            Un <strong>framework</strong> es un conjunto de herramientas, librerías y convenciones que proporcionan 
+                            una estructura base para desarrollar aplicaciones de manera más eficiente. En el contexto de APIs, 
+                            los frameworks ofrecen funcionalidades preconstruidas para manejar rutas, peticiones HTTP, 
+                            autenticación, conexión a bases de datos y más.
+                        </p>
+                        <p>
+                            <strong>Importancia de los frameworks en el desarrollo orientado a servicios:</strong>
+                        </p>
+                        <div class="features-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px;">
+                            <div class="feature" style="text-align: center; padding: 20px; background: #f8fafc; border-radius: 12px;">
+                                <i class="fas fa-bolt" style="color: #10b981; font-size: 2rem; margin-bottom: 10px;"></i>
+                                <h4 style="font-size: 1.1rem; margin-bottom: 8px;">Rapidez</h4>
+                                <p style="color: #64748b; font-size: 0.9rem;">Desarrollo acelerado con código preescrito</p>
+                            </div>
+                            <div class="feature" style="text-align: center; padding: 20px; background: #f8fafc; border-radius: 12px;">
+                                <i class="fas fa-shield-alt" style="color: #10b981; font-size: 2rem; margin-bottom: 10px;"></i>
+                                <h4 style="font-size: 1.1rem; margin-bottom: 8px;">Seguridad</h4>
+                                <p style="color: #64748b; font-size: 0.9rem;">Protección contra vulnerabilidades comunes</p>
+                            </div>
+                            <div class="feature" style="text-align: center; padding: 20px; background: #f8fafc; border-radius: 12px;">
+                                <i class="fas fa-cubes" style="color: #10b981; font-size: 2rem; margin-bottom: 10px;"></i>
+                                <h4 style="font-size: 1.1rem; margin-bottom: 8px;">Estandarización</h4>
+                                <p style="color: #64748b; font-size: 0.9rem;">Código organizado y mantenible</p>
+                            </div>
+                            <div class="feature" style="text-align: center; padding: 20px; background: #f8fafc; border-radius: 12px;">
+                                <i class="fas fa-users" style="color: #10b981; font-size: 2rem; margin-bottom: 10px;"></i>
+                                <h4 style="font-size: 1.1rem; margin-bottom: 8px;">Comunidad</h4>
+                                <p style="color: #64748b; font-size: 0.9rem;">Soporte y recursos disponibles</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Frameworks PHP -->
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fab fa-php" style="color: #777BB4;"></i> Frameworks PHP para Desarrollo de APIs</h3>
+                    </div>
+                    <div class="content-body">
+                        <p>
+                            PHP es uno de los lenguajes más utilizados para desarrollo web y cuenta con frameworks 
+                            robustos para la creación de APIs RESTful.
+                        </p>
+                        
+                        <div class="frameworks-grid">
+                            <!-- Laravel -->
+                            <div class="framework-card">
+                                <div class="framework-header">
+                                    <div class="framework-icon" style="background: #f05340;">
+                                        <i class="fab fa-laravel"></i>
+                                    </div>
+                                    <h4>Laravel</h4>
+                                </div>
+                                <div class="framework-category">PHP Framework</div>
+                                <ul class="framework-features">
+                                    <li><i class="fas fa-check"></i> Eloquent ORM para bases de datos</li>
+                                    <li><i class="fas fa-check"></i> Laravel Sanctum para autenticación API</li>
+                                    <li><i class="fas fa-check"></i> Sistema de rutas intuitivo</li>
+                                    <li><i class="fas fa-check"></i> Middleware para filtrado de peticiones</li>
+                                    <li><i class="fas fa-check"></i> Documentación con Swagger integrable</li>
+                                </ul>
+                                <div class="framework-stats">
+                                    <span><i class="fas fa-star" style="color: #f59e0b;"></i> 65k+ stars</span>
+                                    <span>Última versión: 10.x</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Symfony -->
+                            <div class="framework-card">
+                                <div class="framework-header">
+                                    <div class="framework-icon" style="background: #000000;">
+                                        <i class="fab fa-symfony"></i>
+                                    </div>
+                                    <h4>Symfony</h4>
+                                </div>
+                                <div class="framework-category">PHP Framework</div>
+                                <ul class="framework-features">
+                                    <li><i class="fas fa-check"></i> Componentes reutilizables</li>
+                                    <li><i class="fas fa-check"></i> API Platform para desarrollo rápido</li>
+                                    <li><i class="fas fa-check"></i> Alto rendimiento y escalabilidad</li>
+                                    <li><i class="fas fa-check"></i> Doctrine ORM</li>
+                                    <li><i class="fas fa-check"></i> Seguridad avanzada</li>
+                                </ul>
+                                <div class="framework-stats">
+                                    <span><i class="fas fa-star" style="color: #f59e0b;"></i> 28k+ stars</span>
+                                    <span>Última versión: 6.3</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Lumen -->
+                            <div class="framework-card">
+                                <div class="framework-header">
+                                    <div class="framework-icon" style="background: #f05340;">
+                                        <i class="fas fa-bolt"></i>
+                                    </div>
+                                    <h4>Lumen</h4>
+                                </div>
+                                <div class="framework-category">PHP Micro-framework</div>
+                                <ul class="framework-features">
+                                    <li><i class="fas fa-check"></i> Versión ligera de Laravel</li>
+                                    <li><i class="fas fa-check"></i> Optimizado para microservicios</li>
+                                    <li><i class="fas fa-check"></i> Alto rendimiento</li>
+                                    <li><i class="fas fa-check"></i> Ideal para APIs rápidas</li>
+                                </ul>
+                                <div class="framework-stats">
+                                    <span><i class="fas fa-star" style="color: #f59e0b;"></i> 7k+ stars</span>
+                                    <span>Última versión: 10.x</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Frameworks JavaScript -->
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fab fa-js" style="color: #F7DF1E;"></i> Frameworks JavaScript para Desarrollo de APIs</h3>
+                    </div>
+                    <div class="content-body">
+                        <div class="frameworks-grid">
+                            <!-- Node.js + Express -->
+                            <div class="framework-card">
+                                <div class="framework-header">
+                                    <div class="framework-icon" style="background: #68a063;">
+                                        <i class="fab fa-node"></i>
+                                    </div>
+                                    <h4>Node.js + Express</h4>
+                                </div>
+                                <div class="framework-category">JavaScript Runtime</div>
+                                <ul class="framework-features">
+                                    <li><i class="fas fa-check"></i> Entorno JavaScript del lado del servidor</li>
+                                    <li><i class="fas fa-check"></i> Express: framework minimalista</li>
+                                    <li><i class="fas fa-check"></i> Middleware para procesamiento</li>
+                                    <li><i class="fas fa-check"></i> Gran ecosistema de paquetes (npm)</li>
+                                    <li><i class="fas fa-check"></i> No bloqueante y asíncrono</li>
+                                </ul>
+                                <div class="framework-stats">
+                                    <span><i class="fas fa-star" style="color: #f59e0b;"></i> 60k+ stars</span>
+                                    <span>Última versión: 4.x</span>
+                                </div>
+                            </div>
+                            
+                            <!-- NestJS -->
+                            <div class="framework-card">
+                                <div class="framework-header">
+                                    <div class="framework-icon" style="color: #e0234e;">
+                                        <i class="fas fa-nest"></i>
+                                    </div>
+                                    <h4>NestJS</h4>
+                                </div>
+                                <div class="framework-category">TypeScript Framework</div>
+                                <ul class="framework-features">
+                                    <li><i class="fas fa-check"></i> Construido con TypeScript</li>
+                                    <li><i class="fas fa-check"></i> Arquitectura modular</li>
+                                    <li><i class="fas fa-check"></i> Inspirado en Angular</li>
+                                    <li><i class="fas fa-check"></i> Soporte para GraphQL</li>
+                                    <li><i class="fas fa-check"></i> Documentación automática</li>
+                                </ul>
+                                <div class="framework-stats">
+                                    <span><i class="fas fa-star" style="color: #f59e0b;"></i> 55k+ stars</span>
+                                    <span>Última versión: 10.x</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Fastify -->
+                            <div class="framework-card">
+                                <div class="framework-header">
+                                    <div class="framework-icon" style="background: #000000;">
+                                        <i class="fas fa-rocket"></i>
+                                    </div>
+                                    <h4>Fastify</h4>
+                                </div>
+                                <div class="framework-category">Node.js Framework</div>
+                                <ul class="framework-features">
+                                    <li><i class="fas fa-check"></i> Alto rendimiento</li>
+                                    <li><i class="fas fa-check"></i> Baja sobrecarga</li>
+                                    <li><i class="fas fa-check"></i> Esquemas de validación</li>
+                                    <li><i class="fas fa-check"></i> Plugin architecture</li>
+                                </ul>
+                                <div class="framework-stats">
+                                    <span><i class="fas fa-star" style="color: #f59e0b;"></i> 28k+ stars</span>
+                                    <span>Última versión: 4.x</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Frameworks Python -->
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fab fa-python" style="color: #3776AB;"></i> Frameworks Python para Desarrollo de APIs</h3>
+                    </div>
+                    <div class="content-body">
+                        <div class="frameworks-grid">
+                            <!-- Django REST -->
+                            <div class="framework-card">
+                                <div class="framework-header">
+                                    <div class="framework-icon" style="background: #092e20;">
+                                        <i class="fab fa-python"></i>
+                                    </div>
+                                    <h4>Django REST Framework</h4>
+                                </div>
+                                <div class="framework-category">Python Framework</div>
+                                <ul class="framework-features">
+                                    <li><i class="fas fa-check"></i> Construido sobre Django</li>
+                                    <li><i class="fas fa-check"></i> Serializadores potentes</li>
+                                    <li><i class="fas fa-check"></i> Autenticación integrada</li>
+                                    <li><i class="fas fa-check"></i> Browsable API</li>
+                                    <li><i class="fas fa-check"></i> Documentación automática</li>
+                                </ul>
+                                <div class="framework-stats">
+                                    <span><i class="fas fa-star" style="color: #f59e0b;"></i> 25k+ stars</span>
+                                    <span>Última versión: 3.14</span>
+                                </div>
+                            </div>
+                            
+                            <!-- FastAPI -->
+                            <div class="framework-card">
+                                <div class="framework-header">
+                                    <div class="framework-icon" style="background: #009688;">
+                                        <i class="fas fa-bolt"></i>
+                                    </div>
+                                    <h4>FastAPI</h4>
+                                </div>
+                                <div class="framework-category">Python Framework</div>
+                                <ul class="framework-features">
+                                    <li><i class="fas fa-check"></i> Alto rendimiento</li>
+                                    <li><i class="fas fa-check"></i> Validación automática con Pydantic</li>
+                                    <li><i class="fas fa-check"></i> Documentación interactiva (Swagger)</li>
+                                    <li><i class="fas fa-check"></i> Async soportado</li>
+                                    <li><i class="fas fa-check"></i> Type hints</li>
+                                </ul>
+                                <div class="framework-stats">
+                                    <span><i class="fas fa-star" style="color: #f59e0b;"></i> 60k+ stars</span>
+                                    <span>Última versión: 0.104</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Flask -->
+                            <div class="framework-card">
+                                <div class="framework-header">
+                                    <div class="framework-icon" style="background: #000000;">
+                                        <i class="fas fa-flask"></i>
+                                    </div>
+                                    <h4>Flask</h4>
+                                </div>
+                                <div class="framework-category">Python Microframework</div>
+                                <ul class="framework-features">
+                                    <li><i class="fas fa-check"></i> Ligero y flexible</li>
+                                    <li><i class="fas fa-check"></i> Extensible con extensiones</li>
+                                    <li><i class="fas fa-check"></i> Fácil de aprender</li>
+                                    <li><i class="fas fa-check"></i> Flask-RESTful para APIs</li>
+                                </ul>
+                                <div class="framework-stats">
+                                    <span><i class="fas fa-star" style="color: #f59e0b;"></i> 63k+ stars</span>
+                                    <span>Última versión: 2.3</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Comparativa de Frameworks -->
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fas fa-balance-scale" style="color: #10b981;"></i> Comparativa de Frameworks por Criterios</h3>
+                    </div>
+                    <div class="content-body">
+                        <div class="method-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Framework</th>
+                                        <th>Lenguaje</th>
+                                        <th>Curva Aprendizaje</th>
+                                        <th>Rendimiento</th>
+                                        <th>Comunidad</th>
+                                        <th>Casos de Uso</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Laravel</strong></td>
+                                        <td>PHP</td>
+                                        <td>Baja</td>
+                                        <td>Medio</td>
+                                        <td>Excelente</td>
+                                        <td>Aplicaciones empresariales</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Express</strong></td>
+                                        <td>JavaScript</td>
+                                        <td>Baja</td>
+                                        <td>Alto</td>
+                                        <td>Excelente</td>
+                                        <td>APIs rápidas, microservicios</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Django REST</strong></td>
+                                        <td>Python</td>
+                                        <td>Media</td>
+                                        <td>Medio</td>
+                                        <td>Excelente</td>
+                                        <td>Aplicaciones completas</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>FastAPI</strong></td>
+                                        <td>Python</td>
+                                        <td>Baja</td>
+                                        <td>Muy Alto</td>
+                                        <td>En crecimiento</td>
+                                        <td>APIs modernas, async</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>NestJS</strong></td>
+                                        <td>TypeScript</td>
+                                        <td>Media</td>
+                                        <td>Alto</td>
+                                        <td>Buena</td>
+                                        <td>Aplicaciones escalables</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Symfony</strong></td>
+                                        <td>PHP</td>
+                                        <td>Alta</td>
+                                        <td>Alto</td>
+                                        <td>Buena</td>
+                                        <td>Sistemas empresariales</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 2: Proceso de Desarrollo de API -->
+    <section class="section saber-section dark-section" id="proceso-api">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge" style="background: #10b98120; color: #10b981; display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: 600; margin-bottom: 15px;">Tema 2</div>
+                <h2 class="section-title">Desarrollo de una interfaz de programación de aplicaciones (API)</h2>
+                <p class="section-subtitle">
+                    Identificar el proceso de desarrollo de programación de aplicaciones (API)
+                </p>
+            </div>
+            
+            <div class="saber-content">
+                <!-- Proceso completo -->
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fas fa-diagram-project" style="color: #10b981;"></i> Proceso de Desarrollo de una API</h3>
+                    </div>
+                    <div class="content-body">
+                        <p>
+                            El desarrollo de una API sigue un ciclo de vida estructurado que garantiza la calidad, 
+                            funcionalidad y mantenibilidad del servicio. A continuación, se detallan las fases principales:
+                        </p>
+                        
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Planificación y Diseño</h4>
+                                    <p>Definir requisitos, identificar recursos, diseñar endpoints, elegir formato de datos (JSON/XML) y establecer convenciones de nomenclatura.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Selección de Tecnología</h4>
+                                    <p>Elegir framework y lenguaje según requisitos de rendimiento, escalabilidad y equipo de desarrollo.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Configuración del Entorno</h4>
+                                    <p>Configurar servidor, base de datos, variables de entorno y herramientas de desarrollo.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>Implementación de Endpoints</h4>
+                                    <p>Codificar rutas, controladores y lógica de negocio para cada endpoint siguiendo principios REST.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">5</div>
+                                <div class="step-content">
+                                    <h4>Gestión de Datos</h4>
+                                    <p>Conectar con base de datos, implementar modelos y validar datos de entrada/salida.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">6</div>
+                                <div class="step-content">
+                                    <h4>Autenticación y Seguridad</h4>
+                                    <p>Implementar mecanismos de autenticación (JWT, OAuth), autorización y protección contra vulnerabilidades.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">7</div>
+                                <div class="step-content">
+                                    <h4>Pruebas</h4>
+                                    <p>Realizar pruebas unitarias, de integración y de carga para garantizar funcionamiento correcto.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">8</div>
+                                <div class="step-content">
+                                    <h4>Documentación</h4>
+                                    <p>Documentar endpoints, parámetros, respuestas y ejemplos usando herramientas como Swagger/OpenAPI.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">9</div>
+                                <div class="step-content">
+                                    <h4>Despliegue</h4>
+                                    <p>Publicar API en servidor de producción, configurar dominio y SSL.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">10</div>
+                                <div class="step-content">
+                                    <h4>Monitoreo y Mantenimiento</h4>
+                                    <p>Monitorear rendimiento, errores y actualizar según necesidades.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Métodos HTTP -->
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fas fa-exchange-alt" style="color: #10b981;"></i> Métodos HTTP en APIs RESTful</h3>
+                    </div>
+                    <div class="content-body">
+                        <div class="method-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Método</th>
+                                        <th>Descripción</th>
+                                        <th>Ejemplo Endpoint</th>
+                                        <th>Código Respuesta</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span style="background: #10b98120; color: #10b981; padding: 3px 10px; border-radius: 15px; font-weight: 600;">GET</span></td>
+                                        <td>Obtener recursos</td>
+                                        <td>/api/usuarios</td>
+                                        <td>200 OK</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span style="background: #3b82f620; color: #3b82f6; padding: 3px 10px; border-radius: 15px; font-weight: 600;">POST</span></td>
+                                        <td>Crear nuevo recurso</td>
+                                        <td>/api/usuarios</td>
+                                        <td>201 Created</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span style="background: #f59e0b20; color: #f59e0b; padding: 3px 10px; border-radius: 15px; font-weight: 600;">PUT</span></td>
+                                        <td>Actualizar recurso completo</td>
+                                        <td>/api/usuarios/1</td>
+                                        <td>200 OK</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span style="background: #8b5cf620; color: #8b5cf6; padding: 3px 10px; border-radius: 15px; font-weight: 600;">PATCH</span></td>
+                                        <td>Actualizar parcialmente</td>
+                                        <td>/api/usuarios/1</td>
+                                        <td>200 OK</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span style="background: #ef444420; color: #ef4444; padding: 3px 10px; border-radius: 15px; font-weight: 600;">DELETE</span></td>
+                                        <td>Eliminar recurso</td>
+                                        <td>/api/usuarios/1</td>
+                                        <td>204 No Content</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Ejemplo de Implementación -->
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fas fa-code" style="color: #10b981;"></i> Ejemplo de API RESTful con Laravel</h3>
+                    </div>
+                    <div class="content-body">
+                        <h4>1. Definición de Ruta (routes/api.php)</h4>
+                        <div class="api-example">
+                            <pre><code>// Rutas para API de usuarios
+Route::get('/usuarios', [UsuarioController::class, 'index']);
+Route::get('/usuarios/{id}', [UsuarioController::class, 'show']);
+Route::post('/usuarios', [UsuarioController::class, 'store']);
+Route::put('/usuarios/{id}', [UsuarioController::class, 'update']);
+Route::delete('/usuarios/{id}', [UsuarioController::class, 'destroy']);</code></pre>
+                        </div>
+                        
+                        <h4 style="margin-top: 20px;">2. Controlador (app/Http/Controllers/UsuarioController.php)</h4>
+                        <div class="api-example">
+                            <pre><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Usuario;
+use Illuminate\Http\Request;
+
+class UsuarioController extends Controller
+{
+    // GET /api/usuarios
+    public function index()
+    {
+        $usuarios = Usuario::all();
+        return response()->json($usuarios);
+    }
+    
+    // GET /api/usuarios/{id}
+    public function show($id)
+    {
+        $usuario = Usuario::find($id);
+        
+        if (!$usuario) {
+            return response()->json(['error' => 'Usuario no encontrado'], 404);
+        }
+        
+        return response()->json($usuario);
+    }
+    
+    // POST /api/usuarios
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'nombre' => 'required|string|max:255',
+            'email' => 'required|email|unique:usuarios',
+        ]);
+        
+        $usuario = Usuario::create($validated);
+        
+        return response()->json($usuario, 201);
+    }
+}</code></pre>
+                        </div>
+                        
+                        <h4 style="margin-top: 20px;">3. Ejemplo de Petición y Respuesta</h4>
+                        <div class="api-example">
+                            <pre><code>// PETICIÓN GET a /api/usuarios
+// RESPUESTA:
+[
+    {
+        "id": 1,
+        "nombre": "Juan Pérez",
+        "email": "juan@example.com",
+        "created_at": "2024-01-15T10:30:00Z"
+    },
+    {
+        "id": 2,
+        "nombre": "María López",
+        "email": "maria@example.com",
+        "created_at": "2024-01-16T14:20:00Z"
+    }
+]</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 3: Diseño de Endpoints -->
+    <section class="section saber-section" id="diseno">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge" style="background: #10b98120; color: #10b981; display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: 600; margin-bottom: 15px;">Tema 3</div>
+                <h2 class="section-title">Buenas Prácticas en Diseño de APIs</h2>
+                <p class="section-subtitle">Principios y convenciones para APIs RESTful efectivas</p>
+            </div>
+            
+            <div class="saber-content">
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fas fa-ruler-combined" style="color: #10b981;"></i> Principios de Diseño RESTful</h3>
+                    </div>
+                    <div class="content-body">
+                        <div class="frameworks-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                            <div class="framework-card">
+                                <h4 style="color: #10b981; margin-bottom: 15px;">Recursos vs Acciones</h4>
+                                <p style="color: #475569;">Usar nombres de recursos (sustantivos) en lugar de acciones (verbos)</p>
+                                <p style="color: #10b981; margin-top: 10px; font-family: monospace;">✅ /usuarios</p>
+                                <p style="color: #ef4444; margin-top: 5px; font-family: monospace;">❌ /getUsuarios</p>
+                            </div>
+                            
+                            <div class="framework-card">
+                                <h4 style="color: #10b981; margin-bottom: 15px;">Pluralización</h4>
+                                <p style="color: #475569;">Usar plural para colecciones de recursos</p>
+                                <p style="color: #10b981; margin-top: 10px; font-family: monospace;">✅ /usuarios</p>
+                                <p style="color: #ef4444; margin-top: 5px; font-family: monospace;">❌ /usuario</p>
+                            </div>
+                            
+                            <div class="framework-card">
+                                <h4 style="color: #10b981; margin-bottom: 15px;">Anidamiento</h4>
+                                <p style="color: #475569;">Expresar relaciones jerárquicas</p>
+                                <p style="color: #10b981; margin-top: 10px; font-family: monospace;">✅ /usuarios/1/pedidos</p>
+                                <p style="color: #475569; margin-top: 5px;">Pedidos del usuario con ID 1</p>
+                            </div>
+                            
+                            <div class="framework-card">
+                                <h4 style="color: #10b981; margin-bottom: 15px;">Versionado</h4>
+                                <p style="color: #475569;">Incluir versión en la URL</p>
+                                <p style="color: #10b981; margin-top: 10px; font-family: monospace;">✅ /v1/usuarios</p>
+                                <p style="color: #10b981; font-family: monospace;">✅ /api/v2/usuarios</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fas fa-shield-alt" style="color: #10b981;"></i> Autenticación y Seguridad en APIs</h3>
+                    </div>
+                    <div class="content-body">
+                        <div class="frameworks-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                            <div class="framework-card">
+                                <div class="framework-header">
+                                    <div class="framework-icon" style="background: #10b981;">
+                                        <i class="fas fa-key"></i>
+                                    </div>
+                                    <h4>API Keys</h4>
+                                </div>
+                                <p style="color: #475569; margin: 10px 0;">Claves simples para identificación básica</p>
+                                <ul class="framework-features">
+                                    <li><i class="fas fa-check"></i> Fácil de implementar</li>
+                                    <li><i class="fas fa-check"></i> Limitada seguridad</li>
+                                    <li><i class="fas fa-check"></i> Ideal para APIs públicas</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="framework-card">
+                                <div class="framework-header">
+                                    <div class="framework-icon" style="background: #10b981;">
+                                        <i class="fas fa-lock"></i>
+                                    </div>
+                                    <h4>JWT (JSON Web Tokens)</h4>
+                                </div>
+                                <p style="color: #475569; margin: 10px 0;">Tokens autónomos con información</p>
+                                <ul class="framework-features">
+                                    <li><i class="fas fa-check"></i> Stateless</li>
+                                    <li><i class="fas fa-check"></i> Escalable</li>
+                                    <li><i class="fas fa-check"></i> Contiene datos de usuario</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="framework-card">
+                                <div class="framework-header">
+                                    <div class="framework-icon" style="background: #10b981;">
+                                        <i class="fas fa-users-cog"></i>
+                                    </div>
+                                    <h4>OAuth 2.0</h4>
+                                </div>
+                                <p style="color: #475569; margin: 10px 0;">Autorización delegada</p>
+                                <ul class="framework-features">
+                                    <li><i class="fas fa-check"></i> Permisos granulares</li>
+                                    <li><i class="fas fa-check"></i> Estándar de la industria</li>
+                                    <li><i class="fas fa-check"></i> Ideal para integraciones</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <h4 style="margin: 30px 0 15px 0;">Ejemplo de Autenticación JWT</h4>
+                        <div class="api-example">
+                            <pre><code>// Header de autorización
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+
+// Estructura JWT
+[Header].[Payload].[Signature]</code></pre>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <div class="content-header">
+                        <h3><i class="fas fa-book" style="color: #10b981;"></i> Documentación de APIs con Swagger/OpenAPI</h3>
+                    </div>
+                    <div class="content-body">
+                        <p>
+                            OpenAPI (anteriormente Swagger) es el estándar de la industria para documentar APIs RESTful. 
+                            Permite generar documentación interactiva y clientes automáticamente.
+                        </p>
+                        
+                        <h4 style="margin: 20px 0 10px 0;">Ejemplo de Especificación OpenAPI</h4>
+                        <div class="api-example">
+                            <pre><code>openapi: 3.0.0
+info:
+  title: API de Usuarios
+  description: API para gestionar usuarios
+  version: 1.0.0
+paths:
+  /usuarios:
+    get:
+      summary: Obtiene todos los usuarios
+      responses:
+        '200':
+          description: Lista de usuarios
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Usuario'
+    post:
+      summary: Crea un nuevo usuario
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsuarioInput'
+      responses:
+        '201':
+          description: Usuario creado</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Conclusión -->
+    <section class="section conclusion-section" id="conclusion">
+        <div class="container">
+            <div class="conclusion-card" style="background: linear-gradient(135deg, #10b981, #059669); border-radius: 20px; padding: 40px; color: white;">
+                <div class="conclusion-header">
+                    <h2 style="font-size: 2rem; margin-bottom: 20px;"><i class="fas fa-graduation-cap"></i> Conclusión del Saber Teórico</h2>
+                </div>
+                
+                <div class="conclusion-content">
+                    <div class="key-points">
+                        <h3 style="font-size: 1.3rem; margin-bottom: 20px;">Puntos Clave Aprendidos:</h3>
+                        <div class="points-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                            <div class="point" style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 12px;">
+                                <div class="point-icon" style="margin-bottom: 10px;">
+                                    <i class="fas fa-cubes" style="font-size: 2rem;"></i>
+                                </div>
+                                <div class="point-content">
+                                    <h4 style="font-size: 1.1rem; margin-bottom: 8px;">Frameworks</h4>
+                                    <p style="opacity: 0.9;">Identificamos los principales frameworks PHP, JavaScript y Python para desarrollo de APIs</p>
+                                </div>
+                            </div>
+                            
+                            <div class="point" style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 12px;">
+                                <div class="point-icon" style="margin-bottom: 10px;">
+                                    <i class="fas fa-diagram-project" style="font-size: 2rem;"></i>
+                                </div>
+                                <div class="point-content">
+                                    <h4 style="font-size: 1.1rem; margin-bottom: 8px;">Proceso API</h4>
+                                    <p style="opacity: 0.9;">Comprendimos el ciclo completo de desarrollo de APIs en 10 fases</p>
+                                </div>
+                            </div>
+                            
+                            <div class="point" style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 12px;">
+                                <div class="point-icon" style="margin-bottom: 10px;">
+                                    <i class="fas fa-code" style="font-size: 2rem;"></i>
+                                </div>
+                                <div class="point-content">
+                                    <h4 style="font-size: 1.1rem; margin-bottom: 8px;">Implementación</h4>
+                                    <p style="opacity: 0.9;">Vimos ejemplos prácticos de endpoints, controladores y respuestas</p>
+                                </div>
+                            </div>
+                            
+                            <div class="point" style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 12px;">
+                                <div class="point-icon" style="margin-bottom: 10px;">
+                                    <i class="fas fa-shield-alt" style="font-size: 2rem;"></i>
+                                </div>
+                                <div class="point-content">
+                                    <h4 style="font-size: 1.1rem; margin-bottom: 8px;">Seguridad</h4>
+                                    <p style="opacity: 0.9;">Aprendimos sobre autenticación JWT, API Keys y OAuth 2.0</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="next-steps" style="margin-top: 40px; padding: 30px; background: rgba(255,255,255,0.15); border-radius: 12px;">
+                        <h3 style="font-size: 1.3rem; margin-bottom: 15px;">Próximos Pasos:</h3>
+                        <p style="margin-bottom: 25px; opacity: 0.9;">
+                            Con esta base teórica sólida sobre frameworks y proceso de desarrollo de APIs, 
+                            estamos preparados para avanzar al <strong>Saber Hacer 1</strong>, donde aplicaremos 
+                            estos conocimientos en la implementación práctica de una API RESTful funcional.
+                        </p>
+                        <div class="steps-actions" style="display: flex; gap: 15px; flex-wrap: wrap;">
+                            <a href="unidad3.html" class="btn btn-secondary" style="background: white; color: #10b981; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: 600;">
+                                <i class="fas fa-book"></i>
+                                Repasar Unidad 3
+                            </a>
+                            <a href="#" class="btn btn-primary" style="background: #1e293b; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: 600;">
+                                <i class="fas fa-arrow-right"></i>
+                                Continuar a Saber Hacer 1
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="conclusion-footer" style="margin-top: 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+                    <div class="completion-badge" style="display: flex; align-items: center; gap: 15px;">
+                        <i class="fas fa-award" style="font-size: 2rem;"></i>
+                        <div>
+                            <span class="badge-text" style="display: block; font-weight: 600;">Saber Teórico Completado</span>
+                            <span class="badge-date" style="opacity: 0.8; font-size: 0.9rem;" id="current-date"></span>
+                        </div>
+                    </div>
+                    <div class="time-spent" style="display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-clock"></i>
+                        <span>Tiempo estimado de estudio: 4 horas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recursos Adicionales -->
+    <section class="section additional-resources">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Recursos Adicionales</h2>
+                <p class="section-subtitle">Material complementario para profundizar en los temas</p>
+            </div>
+            
+            <div class="resources-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px;">
+                <div class="resource-card" style="background: white; border-radius: 15px; padding: 25px; border: 1px solid #e2e8f0;">
+                    <div class="resource-icon" style="font-size: 2rem; color: #10b981; margin-bottom: 15px;">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 10px;">Guía de Frameworks para APIs</h3>
+                        <p style="color: #64748b; margin-bottom: 15px;">Comparativa detallada de frameworks PHP, JavaScript y Python para desarrollo de APIs RESTful.</p>
+                        <a href="#" class="resource-link" style="color: #10b981; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                            Descargar PDF
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="resource-card" style="background: white; border-radius: 15px; padding: 25px; border: 1px solid #e2e8f0;">
+                    <div class="resource-icon" style="font-size: 2rem; color: #10b981; margin-bottom: 15px;">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 10px;">Ejemplos de Código</h3>
+                        <p style="color: #64748b; margin-bottom: 15px;">Repositorio con implementaciones de APIs en diferentes frameworks (Laravel, Express, FastAPI).</p>
+                        <a href="#" class="resource-link" style="color: #10b981; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                            Ver código
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="resource-card" style="background: white; border-radius: 15px; padding: 25px; border: 1px solid #e2e8f0;">
+                    <div class="resource-icon" style="font-size: 2rem; color: #10b981; margin-bottom: 15px;">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 10px;">Video Tutoriales</h3>
+                        <p style="color: #64748b; margin-bottom: 15px;">Serie completa sobre desarrollo de APIs RESTful desde cero hasta implementación avanzada.</p>
+                        <a href="#" class="resource-link" style="color: #10b981; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                            Ver videos
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="resource-card" style="background: white; border-radius: 15px; padding: 25px; border: 1px solid #e2e8f0;">
+                    <div class="resource-icon" style="font-size: 2rem; color: #10b981; margin-bottom: 15px;">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 10px;">Documentación Oficial</h3>
+                        <p style="color: #64748b; margin-bottom: 15px;">Enlaces a documentación oficial de Laravel, Express, Django REST Framework y más.</p>
+                        <a href="#" class="resource-link" style="color: #10b981; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                            Ver documentación
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenedor para el footer -->
+    <div id="footer-container"></div>
+
+    <!-- Script para cargar componentes dinámicamente -->
+    <script>
+    // Función para cargar componentes HTML
+    function cargarComponente(componente, contenedorId) {
+        fetch(componente)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`No se pudo cargar ${componente}: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById(contenedorId).innerHTML = data;
+                
+                // Si es el navbar, actualizar el item activo
+                if (componente.includes('navbar') && typeof current_page !== 'undefined') {
+                    actualizarNavbarActivo();
+                }
+                
+                // Si es el header, cargar los estilos
+                if (componente.includes('header')) {
+                    cargarEstilos();
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById(contenedorId).innerHTML = 
+                    `<div style="color: red; padding: 10px;">Error cargando ${componente}</div>`;
+            });
+    }
+
+    // Función para actualizar el navbar activo
+    function actualizarNavbarActivo() {
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === current_page + '.html' || 
+                link.getAttribute('href') === current_page) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+
+    // Función para cargar los estilos CSS
+    function cargarEstilos() {
+        const estilos = [
+            'assets/css/main.css',
+            'assets/css/estilos.css',
+            'assets/css/landing.css',
+            'assets/css/responsive.css',
+            'assets/css/cards.css',
+            'assets/css/saber.css',
+            'assets/css/animations.css'
+        ];
+        
+        // Cargar Font Awesome
+        const fontAwesome = document.createElement('link');
+        fontAwesome.rel = 'stylesheet';
+        fontAwesome.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+        document.head.appendChild(fontAwesome);
+        
+        // Cargar estilos locales
+        estilos.forEach(estilo => {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = estilo;
+            document.head.appendChild(link);
+        });
+    }
+
+    // Cargar componentes cuando la página esté lista
+    document.addEventListener('DOMContentLoaded', function() {
+        // Cargar header
+        cargarComponente('components/header.html', 'header-container');
+        
+        // Cargar navbar
+        cargarComponente('components/navbar.html', 'navbar-container');
+        
+        // Cargar footer
+        cargarComponente('components/footer.html', 'footer-container');
+        
+        // Cargar scripts adicionales
+        cargarScripts();
+        
+        // Actualizar fecha actual
+        actualizarFecha();
+        
+        // Inicializar navegación suave
+        initSmoothNavigation();
+        
+        // Inicializar píldoras de navegación
+        initNavPills();
+    });
+
+    // Función para cargar scripts JS
+    function cargarScripts() {
+        const scripts = [
+            'assets/js/main.js',
+            'assets/js/animaciones.js'
+        ];
+        
+        scripts.forEach(script => {
+            const scriptElement = document.createElement('script');
+            scriptElement.src = script;
+            document.body.appendChild(scriptElement);
+        });
+    }
+
+    // Función para actualizar la fecha actual
+    function actualizarFecha() {
+        const now = new Date();
+        const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+        const fechaFormateada = now.toLocaleDateString('es-ES', options);
+        const dateElement = document.getElementById('current-date');
+        if (dateElement) {
+            dateElement.textContent = fechaFormateada;
+        }
+    }
+
+    // Función para navegación suave
+    function initSmoothNavigation() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                
+                // Solo procesar enlaces internos (#)
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        // Desplazamiento suave
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    }
+
+    // Función para inicializar píldoras de navegación
+    function initNavPills() {
+        const navPills = document.querySelectorAll('.nav-pill');
+        navPills.forEach(pill => {
+            pill.addEventListener('click', function() {
+                // Remover activo de todas las píldoras
+                navPills.forEach(p => p.classList.remove('active'));
+                // Agregar activo a la píldora clickeada
+                this.classList.add('active');
+            });
+        });
+    }
+
+    // Observador de intersección para cambiar píldoras activas al hacer scroll
+    function initIntersectionObserver() {
+        const sections = document.querySelectorAll('section[id]');
+        const navPills = document.querySelectorAll('.nav-pill');
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.3
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const activeId = entry.target.getAttribute('id');
+                    navPills.forEach(pill => {
+                        if (pill.getAttribute('href') === `#${activeId}`) {
+                            navPills.forEach(p => p.classList.remove('active'));
+                            pill.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        sections.forEach(section => observer.observe(section));
+    }
+
+    // Inicializar observador cuando se cargue la página
+    setTimeout(initIntersectionObserver, 1000);
+    </script>
+
+    <!-- Cargar jQuery si es necesario (opcional) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>
